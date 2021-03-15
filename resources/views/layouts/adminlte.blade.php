@@ -78,18 +78,67 @@
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-briefcase"></i>
+                <i class="nav-icon fas fa-cogs"></i>
                 <p>
-                  Módulo
+                  Configuración
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <router-link class="nav-link" :to="{ name: 'saludos.index'} ">
+                    <i class="nav-icon fas fa-university"></i>
+                    <p>
+                      Saludos
+                    </p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link" :to="{ name: 'dependencias.index'} ">
+                    <i class="fas fa-code-branch nav-icon"></i>
+                    <p>Dependencias</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link" :to="{ name: 'entidades.index'} ">
+                    <i class="fas fa-store-alt nav-icon"></i>
+                    <p>
+                      Entidades
+                    </p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link" :to="{ name: 'cargos.index'} ">
+                    <i class="fas fa-store-alt nav-icon"></i>
+                    <p>
+                      Cargos
+                    </p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link" :to="{ name: 'destinatarios.index'} ">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                      Destinatarios
+                    </p>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Oficios
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <router-link class="nav-link" :to="{ name: 'documentos.index', query: {type: 'oficios'}}">
                     <i class="nav-icon fas fa-cog"></i>
-                    <p>Departamentos</p>
-                  </a>
+                    <p>Oficios</p>
+                  </router-link>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">
@@ -117,9 +166,71 @@
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-gavel"></i>
+                <p>
+                  Dictámenes
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-search nav-icon"></i>
+                    <p>Búsqueda</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-user-check nav-icon"></i>
+                    <p>Habilitar contratista</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-user-plus nav-icon"></i>
+                    <p>Nuevo contratista</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-sticky-note"></i>
+                <p>
+                  Memorándum
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-search nav-icon"></i>
+                    <p>Búsqueda</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-user-check nav-icon"></i>
+                    <p>Habilitar contratista</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-user-plus nav-icon"></i>
+                    <p>Nuevo contratista</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-building"></i>
                 <p>
-                  Otro módulo
+                  Providencias
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>

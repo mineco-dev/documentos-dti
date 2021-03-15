@@ -21,11 +21,17 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'objectguid',
+        'cui',
         'first_name',
         'name',
+        'birthday',
         'description',
         'email',
-        'password'
+        'password',
+        'profile_photo_path',
+        'genero_id',
+        'departamento_id',
+        'es_director',
     ];
 
     /**
@@ -55,9 +61,4 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }
 }

@@ -12,7 +12,7 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-md-4">
-                    <div class="col mb-4" v-for="post in posts.data">
+                    <div class="col mb-2" v-for="post in posts.results">
                         <div class="card h-100 rounded shadow-sm border-0">
                             <div class="card-body p-4">
                                 <h5 class="text-dark">
@@ -44,7 +44,7 @@
             }
         },
         mounted() {
-            axios.get('/posts?formatResponse=json').then(response => this.posts = response.data)
+            axios.get('https://rickandmortyapi.com/api/character').then(response => this.posts = response.data)
             .catch(error => alert(error.response))
         }
     }

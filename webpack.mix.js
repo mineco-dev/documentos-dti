@@ -23,5 +23,7 @@ mix.js('resources/js/adminlte.js', 'public/js').vue();
 // mix.sass('resources/sass/cover.scss', 'public/css');
 // mix.sass('resources/sass/floating-labels.scss', 'public/css');
 
-mix.js('resources/js/app.js', 'public/js');
+//mix.js('resources/js/app.js', 'public/js');
 //mix.sass('resources/sass/app.scss', 'public/css');
+
+
