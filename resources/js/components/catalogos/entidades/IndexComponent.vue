@@ -44,9 +44,6 @@
                 <router-link class="text-muted" v-bind:title="'Modificar la entidad: '+ entidad.name" :to="{ name: 'entidads.edit', params: { id: entidad.id} }">
                   <i class="fas fa-edit fa-2x fa-fw"></i>
                 </router-link>
-                <a class="text-muted" href="#" v-bind:title="'Eliminar la entidad: '+ entidad.name">
-                  <i class="fas fa-trash fa-2x fa-fw"></i>
-                </a>
               </div>
             </div>
           </div>

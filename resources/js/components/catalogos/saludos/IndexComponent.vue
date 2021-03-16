@@ -41,12 +41,9 @@
                 </h5>
               </div>
               <div class="card-footer">
-                <router-link class="text-muted" v-bind:title="'Modificar el saludo: '+ saludo.name" :to="{ name: 'saludos.edit', params: { id: saludo.id} }">
+                <router-link class="text-muted" title="Modificar saludo" :to="{ name: 'saludos.edit', params: { id: saludo.id} }">
                   <i class="fas fa-edit fa-2x fa-fw"></i>
                 </router-link>
-                <a class="text-muted" href="#" v-bind:title="'Eliminar la entidad: '+ saludo.name">
-                  <i class="fas fa-trash fa-2x fa-fw"></i>
-                </a>
               </div>
             </div>
           </div>

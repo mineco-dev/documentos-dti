@@ -60,7 +60,9 @@ Route::prefix('destinatarios')->middleware(['auth:api'])->group(function () {
 });
 
 Route::prefix('oficios')->middleware(['auth:api'])->group(function () {
-	Route::get('', [App\Http\Controllers\DocumentoController::class, 'index']);
-	Route::post('', [App\Http\Controllers\DocumentoController::class, 'store']);
-	Route::get('{id}', [App\Http\Controllers\DocumentoController::class, 'show']);
+	Route::get('', [App\Http\Controllers\OficioController::class, 'index']);
+	Route::post('', [App\Http\Controllers\OficioController::class, 'store']);
+	Route::get('{id}', [App\Http\Controllers\OficioController::class, 'show']);
+	Route::put('{id}/upload', [App\Http\Controllers\OficioController::class, 'upload']);
+	Route::put('{id}/archivar', [App\Http\Controllers\OficioController::class, 'archivar']);
 });

@@ -37,7 +37,7 @@
             <div class="card h-100 rounded shadow-sm border-0">
               <div class="card-body p-4">
                 <h5 class="text-dark">
-                  {{destinatario.saludo.substring(0,3)}}. {{destinatario.name}}
+                  {{destinatario.saludo ? destinatario.saludo.substring(0,3) : ''}} {{destinatario.name}}
                 </h5>
                 <p>
                   <small>Cargo:</small> {{destinatario.cargo}} <br>
@@ -49,9 +49,6 @@
                 <router-link class="text-muted" v-bind:title="'Modificar el destinatario: '+ destinatario.name" :to="{ name: 'destinatarios.edit', params: { id: destinatario.id} }">
                   <i class="fas fa-edit fa-2x fa-fw"></i>
                 </router-link>
-                <a class="text-muted" href="#" v-bind:title="'Eliminar la entidad: '+ destinatario.name">
-                  <i class="fas fa-trash fa-2x fa-fw"></i>
-                </a>
               </div>
             </div>
           </div>

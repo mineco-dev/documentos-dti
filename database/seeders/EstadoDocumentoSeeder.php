@@ -14,7 +14,8 @@ class EstadoDocumentoSeeder extends Seeder
      */
     public function run()
     {
-        EstadoDocumento::create(['name' => 'Pendiente de adjuntar documento']);
+        EstadoDocumento::create(['name' => 'Pendiente de adjuntar']);
+        EstadoDocumento::create(['name' => 'Documento cargado']);
         EstadoDocumento::create(['name' => 'Archivado']);
     }
 }

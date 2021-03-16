@@ -41,12 +41,9 @@
                 </h5>
               </div>
               <div class="card-footer text-muted">
-                <router-link class="text-muted" v-bind:title="'Modificar la dependencia: '+ dependencia.name" :to="{ name: 'dependencias.edit', params: { id: dependencia.id} }">
+                <router-link class="text-muted" title="Modificar dependencia" :to="{ name: 'dependencias.edit', params: { id: dependencia.id} }">
                   <i class="fas fa-edit fa-2x fa-fw"></i>
                 </router-link>
-                <a class="text-muted" href="#" v-bind:title="'Eliminar la entidad: '+ dependencia.name">
-                  <i class="fas fa-trash fa-2x fa-fw"></i>
-                </a>
               </div>
             </div>
           </div>

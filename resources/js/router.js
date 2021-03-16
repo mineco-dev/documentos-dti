@@ -100,19 +100,19 @@ export default new Router({
 			path: 'index',
 			name: 'cargos.index',
 			component: require('./components/catalogos/cargos/IndexComponent').default,
-			meta: { title: 'Títulos'}
+			meta: { title: 'Cargos'}
 		},
 		{
 			path: 'create',
 			name: 'cargos.create',
 			component: require('./components/catalogos/cargos/CreateComponent').default,
-			meta: { title: 'Registrar saludo'}
+			meta: { title: 'Registrar cargo'}
 		},
 		{
 			path: ':id/edit',
 			name: 'cargos.edit',
 			component: require('./components/catalogos/cargos/EditComponent').default,
-			meta: { title: 'Modificar saludo'}
+			meta: { title: 'Modificar cargo'}
 		}
 		]
 	},
@@ -141,15 +141,105 @@ export default new Router({
 		]
 	},
 	{
-		path: '/documentos',
-		name: 'documentos.index',
-		component: require('./components/documentos/IndexComponent').default,
-		meta: { title: 'Listado de documentos'}
+		path: '/oficios',
+		name: 'oficios.index',
+		component: require('./components/oficios/IndexComponent').default,
+		meta: { title: 'Listado de oficios'}
+	},
+	{
+		path: '/oficios/:id',
+		component: require('./components/RouterView').default,
+		children: [
+		{
+			path: '',
+			name: 'oficios.show',
+			component: require('./components/oficios/IndexComponent').default,
+			meta: { title: 'Listado de oficios'}
+		},
+		{
+			path: 'upload',
+			name: 'oficios.upload',
+			component: require('./components/oficios/UploadFileComponent').default,
+			meta: { title: 'Adjuntar documento'}
+		}
+		]
+	},
+	{
+		path: '/dictamenes',
+		name: 'dictamenes.index',
+		component: require('./components/oficios/IndexComponent').default,
+		meta: { title: 'Listado de dictámenes'}
+	},
+	{
+		path: '/dictamenes/:id',
+		component: require('./components/RouterView').default,
+		children: [
+		{
+			path: '',
+			name: 'dictamenes.show',
+			component: require('./components/oficios/IndexComponent').default,
+			meta: { title: 'Listado de dictámenes'}
+		},
+		{
+			path: 'edit',
+			name: 'dictamenes.edit',
+			component: require('./components/oficios/IndexComponent').default,
+			meta: { title: 'Listado de dictámenes'}
+		}
+		]
+	},
+	{
+		path: '/memorandums',
+		name: 'memorandums.index',
+		component: require('./components/oficios/IndexComponent').default,
+		meta: { title: 'Listado de memorándums'}
+	},
+	{
+		path: '/memorandums/:id',
+		component: require('./components/RouterView').default,
+		children: [
+		{
+			path: '',
+			name: 'memorandums.show',
+			component: require('./components/oficios/IndexComponent').default,
+			meta: { title: 'Listado de memorándums'}
+		},
+		{
+			path: 'edit',
+			name: 'memorandums.edit',
+			component: require('./components/oficios/IndexComponent').default,
+			meta: { title: 'Listado de memorándums'}
+		}
+		]
+	},
+	{
+		path: '/provicencias',
+		name: 'providencias.index',
+		component: require('./components/oficios/IndexComponent').default,
+		meta: { title: 'Listado de providencias'}
+	},
+	{
+		path: '/providencias/:id',
+		component: require('./components/RouterView').default,
+		children: [
+		{
+			path: '',
+			name: 'providencias.show',
+			component: require('./components/oficios/IndexComponent').default,
+			meta: { title: 'Listado de providencias'}
+		},
+		{
+			path: 'edit',
+			name: 'providencias.edit',
+			component: require('./components/oficios/IndexComponent').default,
+			meta: { title: 'Listado de providencias'}
+		}
+		]
 	},
 	{
 		path: '/reservar',
 		name: 'reservar.documento',
-		component: require('./components/documentos/CreateComponent').default,
+		component: require('./components/oficios/CreateComponent').default,
 		meta: { title: 'Reservar documento'}
 	},
 	{
@@ -157,6 +247,11 @@ export default new Router({
 		name: 'documentos.show',
 		component: require('./components/ShowDocumentComponent').default,
 		meta: { title: 'Detalle de documento'}
+	},
+	{
+		path: '*',
+		component: require('./components/NotFound').default,
+		meta: { title: 'Página no encontrada' }
 	}
 	]
 })

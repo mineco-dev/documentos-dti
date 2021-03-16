@@ -26,4 +26,22 @@ class Asignacion extends Model
 		'user_id',
 		'director_actual'
 	];
+
+	protected $appends = [
+		'file_url',
+		'file_referencia_url'
+	];
+
+	public function getFileUrlAttribute()
+	{
+		//return null;
+		//return "http://www.orimi.com/pdf-test.pdf";
+		return $this->file ? \Storage::url($this->file) : null;
+	}
+
+	public function getFileReferenciaUrlAttribute()
+	{
+		//return "archivo";
+		return $this->file_referencia ? \Storage::url($this->file_referencia) : null;
+	}
 }

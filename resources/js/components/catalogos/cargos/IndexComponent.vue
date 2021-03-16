@@ -41,12 +41,9 @@
                 </h5>
               </div>
               <div class="card-footer text-muted">
-                <router-link class="text-muted" v-bind:title="'Modificar la cargo: '+ cargo.name" :to="{ name: 'cargos.edit', params: { id: cargo.id} }">
+                <router-link class="text-muted" title="Modificar cargo" :to="{ name: 'cargos.edit', params: { id: cargo.id} }">
                   <i class="fas fa-edit fa-2x fa-fw"></i>
                 </router-link>
-                <a class="text-muted" href="#" v-bind:title="'Eliminar la cargo: '+ cargo.name">
-                  <i class="fas fa-trash fa-2x fa-fw"></i>
-                </a>
               </div>
             </div>
           </div>
