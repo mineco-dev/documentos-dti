@@ -19,7 +19,7 @@ class CreateAsignacionesTable extends Migration
             $table->integer('anio');
             $table->date('fecha_emision')->nullable();
             $table->string('asunto')->nullable();
-            $table->foreignId('destinatario_id')->constrained();
+            $table->foreignId('destinatario_id')->nullable()->constrained();
             $table->text('respuesta')->nullable();
             $table->string('file')->nullable();
             $table->string('referencia')->nullable();

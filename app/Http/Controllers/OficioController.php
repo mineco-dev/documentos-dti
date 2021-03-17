@@ -29,6 +29,7 @@ class OficioController extends Controller
 				'td.prefix',
 				'ed.name AS estado'
 			])
+			->where('asignaciones.tipo_documento_id', 1)
 			->orderBy('asignaciones.anio', 'DESC')
 			->orderBy('asignaciones.documento_id', 'DESC')
 			->paginate(10), 200);
@@ -39,7 +40,7 @@ class OficioController extends Controller
 		DB::beginTransaction();
 
 		try {
-			$id = DB::table($request->type)->insertGetId([]);
+			$id = DB::table('oficios')->insertGetId([]);
 			$director_id = DB::table('users')->where('es_director', 1)->select('id')->first()->id;
 
 			$oficio = Asignacion::create([
@@ -50,7 +51,7 @@ class OficioController extends Controller
 				'destinatario_id' => $request->destinatario_id,
 				'respuesta' => $request->respuesta,
 				'referencia' => $request->referencia,
-				'tipo_documento_id' => 1,
+				'tipo_documento_id' => $request->tipo_documento_id,
 				'user_id' => $request->user()->id,
 				'director_actual' => $director_id
 			]);
@@ -66,7 +67,7 @@ class OficioController extends Controller
 
 			DB::commit();
 
-			return response()->json("El documento fue asignado", 200);
+			return response()->json($oficio, 200);
 			
 		} catch (ErrorException $e) {
 			DB::rollback();
@@ -135,6 +136,50 @@ class OficioController extends Controller
 		}
 	}
 
+	public function update(Request $request, $id)
+	{
+		DB::beginTransaction();
+		try {
+			$oficio = Asignacion::findOrFail($id);
+
+			$path_file = null;
+			if($request->file('file')) {
+				\Storage::delete($oficio->file);
+				$hash_pdf = "$oficio->id-";
+				$hash_pdf = $hash_pdf . \Str::random(7);;
+				$path_file = $request->file->storeAs("public/$request->type/$oficio->anio", "$hash_pdf.pdf");
+
+			}
+
+			$path_referencia_file = null;
+			if($request->file('file_referencia')) {
+				\Storage::delete($oficio->file_referencia);
+				$hash_pdf = "$oficio->id-";
+				$hash_pdf = $hash_pdf . \Str::random(7);;
+				$path_referencia_file = $request->file_referencia->storeAs("public/$request->type/$oficio->anio", "$hash_pdf.pdf");
+			}
+
+			$oficio->fill([
+				'fecha_emision' => $request->fecha_emision,
+				'asunto' => $request->asunto,
+				'destinatario_id' => $request->destinatario_id,
+				'respuesta' => $request->respuesta,
+				'file' => $path_file,
+				'referencia' => $request->referencia,
+				'file_referencia' => $path_referencia_file
+			]);
+
+			$oficio->save();
+
+			DB::commit();
+			return response()->json($oficio, 200);
+			
+		} catch (\Exception $e) {
+			DB::rollback();
+			return response()->json($e->getMessage(), 500);
+		}
+	}
+
 	public function archivar(Request $request, $id)
 	{
 		$DOCUMENTO_ARCHIVADO = 3;
@@ -145,6 +190,11 @@ class OficioController extends Controller
 			return response()->json("El documento no pudo ser archivado", 500);
 		}
 
-		return response()->json("Documento archivado", 200);
+		return response()->json("Archivado", 200);
+	}
+
+	public function generar($id)
+	{
+		# code...
 	}
 }

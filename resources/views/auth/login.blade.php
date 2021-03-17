@@ -11,13 +11,13 @@
         <p>{{config('app.name')}}</p>
     </div>
     <div class="form-label-group">
-        <input autocomplete="email" autofocus class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="{{ __('Email') }}" required type="email" value="{{ old('email') }}">
-        @error('email')
+        <input autocomplete="username" autofocus class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="{{ __('Username') }}" required type="text" value="{{ old('username') }}">
+        @error('username')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
         @enderror
-        <label for="email">{{ __('Email') }}</label>
+        <label for="username">{{ __('Username') }}</label>
     </div>
 
     <div class="form-label-group">

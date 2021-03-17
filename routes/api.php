@@ -63,6 +63,49 @@ Route::prefix('oficios')->middleware(['auth:api'])->group(function () {
 	Route::get('', [App\Http\Controllers\OficioController::class, 'index']);
 	Route::post('', [App\Http\Controllers\OficioController::class, 'store']);
 	Route::get('{id}', [App\Http\Controllers\OficioController::class, 'show']);
+	Route::put('{id}', [App\Http\Controllers\OficioController::class, 'update']);
 	Route::put('{id}/upload', [App\Http\Controllers\OficioController::class, 'upload']);
+
 	Route::put('{id}/archivar', [App\Http\Controllers\OficioController::class, 'archivar']);
+
+	Route::post('{id}/generar', [App\Http\Controllers\OficioController::class, 'generar']);
+});
+
+Route::prefix('dictamenes')->middleware(['auth:api'])->group(function () {
+	Route::get('', [App\Http\Controllers\OficioController::class, 'index']);
+	Route::post('', [App\Http\Controllers\OficioController::class, 'store']);
+	Route::get('{id}', [App\Http\Controllers\OficioController::class, 'show']);
+	Route::put('{id}/upload', [App\Http\Controllers\OficioController::class, 'upload']);
+
+	Route::put('{id}/update', [App\Http\Controllers\OficioController::class, 'update']);
+
+	Route::put('{id}/archivar', [App\Http\Controllers\OficioController::class, 'archivar']);
+
+	Route::post('{id}/generar', [App\Http\Controllers\OficioController::class, 'generar']);
+});
+
+Route::prefix('memorandums')->middleware(['auth:api'])->group(function () {
+	Route::get('', [App\Http\Controllers\OficioController::class, 'index']);
+	Route::post('', [App\Http\Controllers\OficioController::class, 'store']);
+	Route::get('{id}', [App\Http\Controllers\OficioController::class, 'show']);
+	Route::put('{id}/upload', [App\Http\Controllers\OficioController::class, 'upload']);
+
+	Route::put('{id}/update', [App\Http\Controllers\OficioController::class, 'update']);
+
+	Route::put('{id}/archivar', [App\Http\Controllers\OficioController::class, 'archivar']);
+
+	Route::post('{id}/generar', [App\Http\Controllers\OficioController::class, 'generar']);
+});
+
+Route::prefix('providencias')->middleware(['auth:api'])->group(function () {
+	Route::get('', [App\Http\Controllers\OficioController::class, 'index']);
+	Route::post('', [App\Http\Controllers\OficioController::class, 'store']);
+	Route::get('{id}', [App\Http\Controllers\OficioController::class, 'show']);
+	Route::put('{id}/upload', [App\Http\Controllers\OficioController::class, 'upload']);
+
+	Route::put('{id}/update', [App\Http\Controllers\OficioController::class, 'update']);
+
+	Route::put('{id}/archivar', [App\Http\Controllers\OficioController::class, 'archivar']);
+
+	Route::post('{id}/generar', [App\Http\Controllers\OficioController::class, 'generar']);
 });

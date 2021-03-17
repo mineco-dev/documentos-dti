@@ -133,7 +133,7 @@ return [
 
         'ldap' => [
 
-            'locate_users_by' => 'userprincipalname',
+            'locate_users_by' => 'samaccountname',//'userprincipalname',
 
             'bind_users_by' => 'distinguishedname',
 
@@ -171,7 +171,7 @@ return [
             |
             */
 
-            'username_column' => 'email',
+            'username_column' => 'username', //'email',
 
         ],
 
@@ -203,7 +203,7 @@ return [
 
         'windows' => [
 
-            'locate_users_by' => 'samaccountname',
+            'locate_users_by' => 'samaccountname', //'userprincipalname',
 
             'server_key' => 'AUTH_USER',
 
@@ -294,6 +294,8 @@ return [
         'name' => 'cn',
 
         'description' => 'description',
+
+        'username' => 'samaccountname',
 
         'email' => 'userprincipalname'
 

@@ -131,24 +131,26 @@
                 <p>Oficios</p>
               </router-link>
             </li>
+            {{--
             <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'dictamenes.index'}">
+              <router-link class="nav-link" :to="{ name: 'dictamenes.index' , query: {type: 'dictamenes', 'type_id': 2, 'title': 'Dictámenes'}}">
                 <i class="nav-icon fas fa-gavel"></i>
                 <p>Dictámenes</p>
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'memorandums.index'}">
+              <router-link class="nav-link" :to="{ name: 'memorandums.index' , query: {type: 'memorandums', 'type_id': 3, 'title': 'Memorándum'}}">
                 <i class="nav-icon fas fa-sticky-note"></i>
                 <p>Memorándum</p>
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'providencias.index'}">
+              <router-link class="nav-link" :to="{ name: 'providencias.index' , query: {type: 'providencias', 'type_id': 4, 'title': 'Providencias'}}">
                 <i class="nav-icon fas fa-building"></i>
                 <p>Providencias</p>
               </router-link>
             </li>
+            --}}
           </ul>
         </nav>
       </div>

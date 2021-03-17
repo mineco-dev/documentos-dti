@@ -61,7 +61,7 @@
 		},
 		mounted() {
 			axios.get(`/api/oficios/${this.$route.params.id}?type=flat`)
-			.then(response => this.oficio = response.data)
+				.then(response => this.oficio = response.data)
 		},
 		methods: {
 			setUrlLocal(event) {
@@ -82,7 +82,7 @@
 						text: response.data
 					})
 					.then(result => {
-						this.$router.push({name: 'oficios.index', params: {id: this.oficio.id}})
+						this.$router.push({name: 'oficios.index'})
 					})
 				})
 			}

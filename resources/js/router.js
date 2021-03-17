@@ -154,20 +154,26 @@ export default new Router({
 			path: '',
 			name: 'oficios.show',
 			component: require('./components/oficios/IndexComponent').default,
-			meta: { title: 'Listado de oficios'}
+			meta: { title: 'Detalle de oficio'}
 		},
 		{
 			path: 'upload',
 			name: 'oficios.upload',
 			component: require('./components/oficios/UploadFileComponent').default,
 			meta: { title: 'Adjuntar documento'}
+		},
+		{
+			path: 'edit',
+			name: 'oficios.edit',
+			component: require('./components/oficios/EditComponent').default,
+			meta: { title: 'Modificar oficio'}
 		}
 		]
-	},
+	},/*
 	{
 		path: '/dictamenes',
 		name: 'dictamenes.index',
-		component: require('./components/oficios/IndexComponent').default,
+		component: require('./components/documentos/IndexComponent').default,
 		meta: { title: 'Listado de dictámenes'}
 	},
 	{
@@ -177,22 +183,28 @@ export default new Router({
 		{
 			path: '',
 			name: 'dictamenes.show',
-			component: require('./components/oficios/IndexComponent').default,
-			meta: { title: 'Listado de dictámenes'}
+			component: require('./components/documentos/IndexComponent').default,
+			meta: { title: 'Detalle de dictámen'}
+		},
+		{
+			path: 'upload',
+			name: 'dictamenes.upload',
+			component: require('./components/documentos/UploadFileComponent').default,
+			meta: { title: 'Adjuntar documento'}
 		},
 		{
 			path: 'edit',
 			name: 'dictamenes.edit',
-			component: require('./components/oficios/IndexComponent').default,
-			meta: { title: 'Listado de dictámenes'}
+			component: require('./components/documentos/UploadFileComponent').default,
+			meta: { title: 'Modificar dictámen'}
 		}
 		]
 	},
 	{
 		path: '/memorandums',
 		name: 'memorandums.index',
-		component: require('./components/oficios/IndexComponent').default,
-		meta: { title: 'Listado de memorándums'}
+		component: require('./components/documentos/IndexComponent').default,
+		meta: { title: 'Listado de memorandos'}
 	},
 	{
 		path: '/memorandums/:id',
@@ -201,21 +213,27 @@ export default new Router({
 		{
 			path: '',
 			name: 'memorandums.show',
-			component: require('./components/oficios/IndexComponent').default,
-			meta: { title: 'Listado de memorándums'}
+			component: require('./components/documentos/IndexComponent').default,
+			meta: { title: 'Detalle de memorandúm'}
+		},
+		{
+			path: 'upload',
+			name: 'memorandums.upload',
+			component: require('./components/documentos/UploadFileComponent').default,
+			meta: { title: 'Adjuntar documento'}
 		},
 		{
 			path: 'edit',
 			name: 'memorandums.edit',
-			component: require('./components/oficios/IndexComponent').default,
-			meta: { title: 'Listado de memorándums'}
+			component: require('./components/documentos/UploadFileComponent').default,
+			meta: { title: 'Modificar memorandúm'}
 		}
 		]
 	},
 	{
-		path: '/provicencias',
+		path: '/providencias',
 		name: 'providencias.index',
-		component: require('./components/oficios/IndexComponent').default,
+		component: require('./components/documentos/IndexComponent').default,
 		meta: { title: 'Listado de providencias'}
 	},
 	{
@@ -225,20 +243,26 @@ export default new Router({
 		{
 			path: '',
 			name: 'providencias.show',
-			component: require('./components/oficios/IndexComponent').default,
-			meta: { title: 'Listado de providencias'}
+			component: require('./components/documentos/IndexComponent').default,
+			meta: { title: 'Listado de providnecias'}
+		},
+		{
+			path: 'upload',
+			name: 'providencias.upload',
+			component: require('./components/documentos/UploadFileComponent').default,
+			meta: { title: 'Adjuntar documento'}
 		},
 		{
 			path: 'edit',
 			name: 'providencias.edit',
-			component: require('./components/oficios/IndexComponent').default,
-			meta: { title: 'Listado de providencias'}
+			component: require('./components/documentos/UploadFileComponent').default,
+			meta: { title: 'Modificar providencia'}
 		}
 		]
-	},
+	},*/
 	{
 		path: '/reservar',
-		name: 'reservar.documento',
+		name: 'documentos.reservar',
 		component: require('./components/oficios/CreateComponent').default,
 		meta: { title: 'Reservar documento'}
 	},

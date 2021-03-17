@@ -10,6 +10,7 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <form autocomplete="off" enctype="multipart/form-data" class="shadow-lg p-3 mb-5 bg-white rounded" id="form" v-on:submit.prevent="submit">
+                            <input type="hidden" name="_method" value="PUT">
                             <div class="form-group mt-3">
                                 <label for="fecha_emision">Fecha de emisión</label>
                                 <input class="form-control" id="fecha_emision" name="fecha_emision" type="date" v-model="oficio.fecha_emision" v-validate="'required'">
@@ -96,9 +97,7 @@
         data() {
             return {
                 destinatarios: [],
-                oficio: {
-                    destinatario_id: ''
-                }
+                oficio: {}
             }
         },
         components: {
@@ -112,10 +111,12 @@
         },
         mounted() {
             Promise.all([
+                axios.get(`/api/oficios/${this.$route.params.id}?type=flat`),
                 axios.get('/api/destinatarios?format=vue-select')
                 ])
             .then(response => {
-                this.destinatarios = response[0].data
+                this.oficio = response[0].data
+                this.destinatarios = response[1].data
             })
         },
         methods: {
@@ -127,7 +128,7 @@
             submit() {
                 this.$validator.validate().then(isValid => {
                     if(isValid) {
-                        axios.post(`/api/oficios?user_id=${this.$store.state.user.id}&type=${this.$route.query.type}`, new FormData(document.getElementById('form')))
+                        axios.post(`/api/oficios/${this.$route.params.id}`, new FormData(document.getElementById('form')))
                         .then(response => {
                             Swal.fire({
                                 icon: 'success',
