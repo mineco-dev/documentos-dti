@@ -12,6 +12,7 @@
     </div>
     <div class="form-label-group">
         <input autocomplete="username" autofocus class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="{{ __('Username') }}" required type="text" value="{{ old('username') }}">
+        <small class="text-muted">Ejemplo: aejimenez</small>
         @error('username')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
