@@ -11,8 +11,8 @@
         <p>{{config('app.name')}}</p>
     </div>
     <div class="form-label-group">
-        <input autocomplete="username" autofocus class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="{{ __('Username') }}" required type="text" value="{{ old('username') }}">
-        <small class="text-muted">Ejemplo: aejimenez</small>
+        <input aria-describedby="usernameHelpBlock" autocomplete="username" autofocus class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="{{ __('Username') }}" required title="Ejemplo: aejimenez" type="text" value="{{ old('username') }}">
+        <small class="form-text text-muted" id="usernameHelpBlock">Ejemplo: aejimenez</small>
         @error('username')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
