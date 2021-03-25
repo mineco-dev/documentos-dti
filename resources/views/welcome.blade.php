@@ -35,7 +35,7 @@
                     @auth
                     <a href="{{ url('home') }}" class="nav-link">{{ __('Go Home')}}</a>
                     @else
-                    <a href="{{ route('login') }}" class="nav-link">Login</a>
+                    <a href="{{ route('login') }}" class="nav-link">{{__('Login')}}</a>
                     @if (Route::has('password.request'))
                     <a href="{{ route('password.request') }}" class="nav-link">
                         {{ __('Forgot your password?') }}
@@ -57,7 +57,7 @@
                 @auth
                 <a href="{{ url('home') }}" class="btn btn-lg btn-secondary">{{ __('Go Home')}}</a>
                 @else
-                <a href="{{ route('login') }}" class="btn btn-lg btn-secondary">Login</a>
+                <a href="{{ route('login') }}" class="btn btn-lg btn-secondary">{{__('Login')}}</a>
                 @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
