@@ -19,7 +19,6 @@
                     <i class="fas fa-hand-point-up fa-lg mr-2"></i>
                     Reserva completa
                 </router-link>
-
                 <table class="table table-hover table-bordered" v-if="oficios.total > 0">
                     <caption>Listado de oficios</caption>
                     <thead class="thead-light">
@@ -37,7 +36,7 @@
                         <tr v-for="(oficio, index) in oficios.data" v-bind:class="{ 'table-warning': oficio.estado_documento_id == 1}">
                             <th scope="row">{{oficio.id}}</th>
                             <td>
-                                DTI-{{oficio.prefix ? oficio.prefix + '-' : ''}}{{oficio.documento_id.padStart(3,"0")}}-{{oficio.anio}}
+                                DTI-{{oficio.prefix ? oficio.prefix + '-' : ''}}{{oficio.documento_id}}-{{oficio.anio}}
                             </td>
                             <td>
                                 {{oficio.asunto}}
@@ -66,10 +65,7 @@
                                             <i class="fas fa-upload fa-lg fa-fw text-success" role="button" title="Subir documento"></i>
                                             Subir documento
                                         </router-link>
-                                        <router-link class="dropdown-item" :to="{ name: 'oficios.upload', params: { id: oficio.id}}" v-if="oficio.estado_documento_id == 2">
-                                            <i class="fas fa-upload fa-lg fa-fw text-success" role="button" title="Reemplazar documento"></i>
-                                            Reemplazar documento
-                                        </router-link>
+                                        
                                         <a class="dropdown-item" target="_blank" v-bind:href="oficio.file_referencia_url" v-if="oficio.file_referencia_url">
                                             <i class="fas fa-file-pdf fa-lg fa-fw text-danger" role="button" title="Reemplazar documento"></i>
                                             Descargar referencia
@@ -78,6 +74,10 @@
                                             <i class="fas fa-file-pdf fa-lg fa-fw text-danger" role="button" title="Reemplazar documento"></i>
                                             Descargar documento
                                         </a>
+                                        <router-link class="dropdown-item" :to="{ name: 'oficios.upload', params: { id: oficio.id}}" v-if="oficio.estado_documento_id == 2">
+                                            <i class="fas fa-upload fa-lg fa-fw text-success" role="button" title="Reemplazar documento"></i>
+                                            Reemplazar documento
+                                        </router-link>
                                         <button class="dropdown-item" v-if="oficio.estado_documento_id == 2 && oficio.file != null" v-on:click="archivar" v-bind:data-id="oficio.id" v-bind:data-index="index">
                                             <i class="fas fa-archive fa-lg fa-fw text-secondary" role="button" title="Reemplazar documento" v-bind:data-id="oficio.id" v-bind:data-index="index"></i>
                                             Archivar oficio
@@ -117,7 +117,10 @@
             }
         },
         mounted() {
-            axios.get(`/api/oficios`).then(response => this.oficios = response.data)
+            axios.get(`/api/oficios`)
+            .then(response => {
+                this.oficios = response.data
+            })
             .catch(error => {
                 console.log(error.response)
             })

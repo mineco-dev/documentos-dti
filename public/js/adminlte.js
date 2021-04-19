@@ -4187,16 +4187,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
-/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist/vue.js");
-/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
-/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vee-validate/dist/locale/es */ "./node_modules/vee-validate/dist/locale/es.js");
-/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist/vue.js");
+/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
+/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vee-validate/dist/locale/es */ "./node_modules/vee-validate/dist/locale/es.js");
+/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 //
@@ -4281,14 +4281,14 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
-vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1___default().use(vee_validate__WEBPACK_IMPORTED_MODULE_5__.default, {
+vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6___default().use(vee_validate__WEBPACK_IMPORTED_MODULE_4__.default, {
   classes: true,
   classNames: {
     valid: '',
     invalid: 'is-invalid'
   }
 });
-vee_validate__WEBPACK_IMPORTED_MODULE_5__.Validator.localize('es', (vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4___default()));
+vee_validate__WEBPACK_IMPORTED_MODULE_4__.Validator.localize('es', (vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4300,7 +4300,7 @@ vee_validate__WEBPACK_IMPORTED_MODULE_5__.Validator.localize('es', (vee_validate
   },
   components: {
     VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__.VueEditor,
-    'v-select': (vue_select__WEBPACK_IMPORTED_MODULE_2___default())
+    'v-select': (vue_select__WEBPACK_IMPORTED_MODULE_1___default())
   },
   computed: {
     label_destinatario: function label_destinatario() {
@@ -4326,7 +4326,7 @@ vee_validate__WEBPACK_IMPORTED_MODULE_5__.Validator.localize('es', (vee_validate
       this.$validator.validate().then(function (isValid) {
         if (isValid) {
           axios.post("/api/oficios?user_id=".concat(_this2.$store.state.user.id, "&type=").concat(_this2.$route.query.type), new FormData(document.getElementById('form'))).then(function (response) {
-            sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
+            sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire({
               icon: 'success',
               title: 'Registro correcto',
               html: response.data
@@ -4362,16 +4362,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
-/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist/vue.js");
-/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
-/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vee-validate/dist/locale/es */ "./node_modules/vee-validate/dist/locale/es.js");
-/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist/vue.js");
+/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
+/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vee-validate/dist/locale/es */ "./node_modules/vee-validate/dist/locale/es.js");
+/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 //
@@ -4457,14 +4457,14 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
-vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1___default().use(vee_validate__WEBPACK_IMPORTED_MODULE_5__.default, {
+vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6___default().use(vee_validate__WEBPACK_IMPORTED_MODULE_4__.default, {
   classes: true,
   classNames: {
     valid: '',
     invalid: 'is-invalid'
   }
 });
-vee_validate__WEBPACK_IMPORTED_MODULE_5__.Validator.localize('es', (vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4___default()));
+vee_validate__WEBPACK_IMPORTED_MODULE_4__.Validator.localize('es', (vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4474,7 +4474,7 @@ vee_validate__WEBPACK_IMPORTED_MODULE_5__.Validator.localize('es', (vee_validate
   },
   components: {
     VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__.VueEditor,
-    'v-select': (vue_select__WEBPACK_IMPORTED_MODULE_2___default())
+    'v-select': (vue_select__WEBPACK_IMPORTED_MODULE_1___default())
   },
   computed: {
     label_destinatario: function label_destinatario() {
@@ -4501,7 +4501,7 @@ vee_validate__WEBPACK_IMPORTED_MODULE_5__.Validator.localize('es', (vee_validate
       this.$validator.validate().then(function (isValid) {
         if (isValid) {
           axios.post("/api/oficios/".concat(_this2.$route.params.id), new FormData(document.getElementById('form'))).then(function (response) {
-            sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
+            sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire({
               icon: 'success',
               title: 'Registro correcto',
               html: response.data
@@ -4672,7 +4672,7 @@ moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
     var _this = this;
 
     axios.get("/api/oficios").then(function (response) {
-      return _this.oficios = response.data;
+      _this.oficios = response.data;
     })["catch"](function (error) {
       console.log(error.response);
     });
@@ -4829,11 +4829,6 @@ __webpack_require__.r(__webpack_exports__);
       form: {},
       src: null
     };
-  },
-  computed: {
-    correlativo: function correlativo() {
-      return "DTI-".concat(this.oficio.prefix ? this.oficio.prefix + '-' : '').concat(this.oficio.documento_id.padStart(3, "0"), "-").concat(this.oficio.anio);
-    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -100674,7 +100669,7 @@ var render = function() {
                           _vm._v(
                             "\n                            DTI-" +
                               _vm._s(oficio.prefix ? oficio.prefix + "-" : "") +
-                              _vm._s(oficio.documento_id.padStart(3, "0")) +
+                              _vm._s(oficio.documento_id) +
                               "-" +
                               _vm._s(oficio.anio) +
                               "\n                        "
@@ -100832,34 +100827,6 @@ var render = function() {
                                     )
                                   : _vm._e(),
                                 _vm._v(" "),
-                                oficio.estado_documento_id == 2
-                                  ? _c(
-                                      "router-link",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: {
-                                          to: {
-                                            name: "oficios.upload",
-                                            params: { id: oficio.id }
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass:
-                                            "fas fa-upload fa-lg fa-fw text-success",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Reemplazar documento"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Reemplazar documento\n                                    "
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
                                 oficio.file_referencia_url
                                   ? _c(
                                       "a",
@@ -100907,6 +100874,34 @@ var render = function() {
                                         }),
                                         _vm._v(
                                           "\n                                        Descargar documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                oficio.estado_documento_id == 2
+                                  ? _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          to: {
+                                            name: "oficios.upload",
+                                            params: { id: oficio.id }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-upload fa-lg fa-fw text-success",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Reemplazar documento"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Reemplazar documento\n                                    "
                                         )
                                       ]
                                     )
@@ -101024,7 +101019,12 @@ var render = function() {
           _c("div", { staticClass: "col-md-12" }, [
             _c("h3", [
               _vm._v(
-                "\n\t\t\t\t\t\t" + _vm._s(_vm.correlativo) + "\n\t\t\t\t\t"
+                "\n\t\t\t\t\t\tDTI-" +
+                  _vm._s(_vm.oficio.prefix) +
+                  _vm._s(this.oficio.documento_id) +
+                  "-" +
+                  _vm._s(this.oficio.anio) +
+                  "\n\t\t\t\t\t"
               )
             ]),
             _vm._v(" "),

@@ -25,11 +25,11 @@
     </style>
     <link rel="stylesheet" href="/css/cover.css">
 </head>
-<body class="text-center">
+<body class="text-center" style="background-image: url('/images/blog.svg'); background-repeat: no-repeat; background-position: left center;">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
             <div class="inner">
-                <h3 class="masthead-brand">{{config('app.name')}}</h3>
+                {{--
                 <nav class="nav nav-masthead justify-content-center">
                     @if (Route::has('login'))
                     @auth
@@ -44,10 +44,11 @@
                     @endauth
                     @endif
                 </nav>
+                --}}
             </div>
         </header>
 
-        <main role="main" class="inner cover">
+        <main role="main" class="inner cover my-auto">
             <h1 class="cover-heading">{{config('app.name')}}</h1>
             <p class="lead">
                 {{config('app.description')}}

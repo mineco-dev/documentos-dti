@@ -8,7 +8,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h3>
-							{{correlativo}}
+							DTI-{{oficio.prefix}}{{this.oficio.documento_id}}-{{this.oficio.anio}}
 						</h3>
 						<div class="text-muted">
 							<p class="text-sm">Asunto
@@ -52,11 +52,6 @@
 				},
 				form: {},
 				src: null,
-			}
-		},
-		computed: {
-			correlativo() {
-				return `DTI-${this.oficio.prefix ? this.oficio.prefix + '-' : ''}${this.oficio.documento_id.padStart(3,"0")}-${this.oficio.anio}`
 			}
 		},
 		mounted() {
