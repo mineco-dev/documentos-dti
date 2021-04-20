@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false, 'reset' => false]);
 
 Route::get('/{any}', [App\Http\Controllers\SPAController::class, 'app'])->middleware(['auth','verified'])->where('any', '.*');

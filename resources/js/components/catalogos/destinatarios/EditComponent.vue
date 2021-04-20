@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="content-header">
-            <h1 class="text-dark">Crear destinatario</h1>
+            <h1 class="text-dark">Modificar destinatario</h1>
         </div>
         <div class="content">
             <div class="container-fluid">
@@ -14,6 +14,11 @@
                             <div class="form-group mt-3">
                                 <label>Saludo</label>
                                 <v-select v-bind:options="saludos" @input="setSaludo"></v-select>
+                                <input type="hidden" id="saludo" name="saludo" v-model="destinatario.saludo_id" v-validate="'required'">
+                                <div class="invalid-feedback">{{ errors.first('saludo') }}</div>
+                                <small class="form-text text-muted">
+                                    <router-link :to="{ name: 'saludos.create' }">Agregar saludo</router-link>
+                                </small>
                             </div>
                             <div class="form-group">
                                 <label for="destinatario">Nombre del destinatario</label>

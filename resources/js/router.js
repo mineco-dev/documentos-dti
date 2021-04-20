@@ -144,7 +144,7 @@ export default new Router({
 		path: '/oficios',
 		name: 'oficios.index',
 		component: require('./components/oficios/IndexComponent').default,
-		meta: { title: 'Listado de oficios'}
+		meta: { title: 'Oficios'}
 	},
 	{
 		path: '/oficios/:id',

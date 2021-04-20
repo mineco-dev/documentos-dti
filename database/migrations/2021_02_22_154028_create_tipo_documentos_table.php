@@ -17,6 +17,7 @@ class CreateTipoDocumentosTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('prefix', 4)->nullable();
+            $table->string('directory')->nullable();
             $table->timestamps();
         });
     }

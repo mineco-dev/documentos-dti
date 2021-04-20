@@ -14,9 +14,23 @@ class TipoDocumentoSeeder extends Seeder
      */
     public function run()
     {
-        TipoDocumento::create(['name' => 'Oficio', 'prefix' => 'OF']);
-        TipoDocumento::create(['name' => 'Dictámen']);
-        TipoDocumento::create(['name' => 'Memorándum', 'prefix' => 'ME']);
-        TipoDocumento::create(['name' => 'Providencia']);
+        TipoDocumento::create([
+            'name' => 'Oficio',
+            'prefix' => 'OF',
+            'directory' => 'oficios'
+        ]);
+        TipoDocumento::create([
+            'name' => 'Dictámen Técnico',
+            'directory' => 'dictamenes'
+        ]);
+        TipoDocumento::create([
+            'name' => 'Memorándum',
+            'prefix' => 'ME',
+            'directory' => 'memorandums'
+        ]);
+        TipoDocumento::create([
+            'name' => 'Providencia',
+            'directory' => 'providencias'
+        ]);
     }
 }

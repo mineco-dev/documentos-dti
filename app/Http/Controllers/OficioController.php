@@ -32,7 +32,7 @@ class OficioController extends Controller
 			->where('asignaciones.tipo_documento_id', 1)
 			->orderBy('asignaciones.anio', 'DESC')
 			->orderBy('asignaciones.documento_id', 'DESC')
-			->paginate(10), 200);
+			->paginate($request->per_page), 200);
 	}
 
 	public function store(Request $request)

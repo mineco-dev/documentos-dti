@@ -14,8 +14,10 @@
                             <div class="form-group mt-3">
                                 <label>Saludo</label>
                                 <v-select v-bind:options="saludos" @input="setSaludo"></v-select>
+                                <input type="hidden" id="saludo" name="saludo" v-model="destinatario.saludo_id" v-validate="'required'">
+                                <div class="invalid-feedback">{{ errors.first('saludo') }}</div>
                                 <small class="form-text text-muted">
-                                    <router-link :to="{ name: 'saludos.create' }">Agregar destinatario</router-link>
+                                    <router-link :to="{ name: 'saludos.create' }">Agregar saludo</router-link>
                                 </small>
                             </div>
                             <div class="form-group">
@@ -35,7 +37,7 @@
                                 <input type="hidden" id="dependencia" name="dependencia" v-model="destinatario.dependencia_id" v-validate="'required'">
                                 <div class="invalid-feedback">{{ errors.first('dependencia') }}</div>
                                 <small class="form-text text-muted">
-                                    <router-link :to="{ name: 'dependencias.create' }">Agregar destinatario</router-link>
+                                    <router-link :to="{ name: 'dependencias.create' }">Agregar dependencia</router-link>
                                 </small>
                             </div>
                             <div class="form-group">
@@ -44,7 +46,7 @@
                                 <input type="hidden" id="entidad" name="entidad" v-model="destinatario.entidad_id" v-validate="'required'">
                                 <div class="invalid-feedback">{{ errors.first('entidad') }}</div>
                                 <small class="form-text text-muted">
-                                    <router-link :to="{ name: 'entidades.create' }">Agregar destinatario</router-link>
+                                    <router-link :to="{ name: 'entidades.create' }">Agregar entidad</router-link>
                                 </small>
                             </div>
                             <blockquote class="quote-danger" v-if="errors_server.length > 0">

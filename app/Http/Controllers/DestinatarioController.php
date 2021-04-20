@@ -14,7 +14,7 @@ class DestinatarioController extends Controller
     {
         if($request->format == "vue-select") {
             return response()->json(Destinatario::
-                leftJoin('saludos', 'destinatarios.saludo_id', 'saludos.id')
+                join('saludos', 'destinatarios.saludo_id', 'saludos.id')
                 ->join('dependencias', 'destinatarios.dependencia_id', 'dependencias.id')
                 ->join('entidades', 'destinatarios.entidad_id', 'entidades.id')
                 ->join('cargos', 'destinatarios.cargo_id', 'cargos.id')

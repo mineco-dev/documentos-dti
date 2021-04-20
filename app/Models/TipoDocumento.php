@@ -11,5 +11,5 @@ class TipoDocumento extends Model
 
     protected $table = 'tipo_documentos';
 
-    protected $fillable = ['name', 'prefix'];
+    protected $fillable = ['name', 'prefix', 'directory'];
 }

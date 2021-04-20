@@ -109,3 +109,7 @@ Route::prefix('providencias')->middleware(['auth:api'])->group(function () {
 
 	Route::post('{id}/generar', [App\Http\Controllers\OficioController::class, 'generar']);
 });
+
+Route::prefix('asignaciones')->middleware(['auth:api'])->group(function () {
+	Route::post('{id}/generar-pdf', [App\Http\Controllers\AsignacionController::class, 'generarPdf']);
+});
