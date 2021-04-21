@@ -8,7 +8,7 @@ use App\Models\Asignacion;
 use App\Models\User;
 use DB;
 
-class OficioController extends Controller
+class DocumentoController extends Controller
 {
 	public function index(Request $request)
 	{
@@ -29,7 +29,7 @@ class OficioController extends Controller
 				'td.prefix',
 				'ed.name AS estado'
 			])
-			->where('asignaciones.tipo_documento_id', 1)
+			->where('asignaciones.tipo_documento_id', $request->table)
 			->orderBy('asignaciones.anio', 'DESC')
 			->orderBy('asignaciones.documento_id', 'DESC')
 			->paginate($request->per_page), 200);
@@ -40,10 +40,10 @@ class OficioController extends Controller
 		DB::beginTransaction();
 
 		try {
-			$id = DB::table('oficios')->insertGetId([]);
+			$id = DB::table($request->table)->insertGetId([]);
 			$director_id = DB::table('users')->where('es_director', 1)->select('id')->first()->id;
 
-			$oficio = Asignacion::create([
+			$documento = Asignacion::create([
 				'documento_id' => $id,
 				'anio' =>  date("Y"),
 				'fecha_emision' => $request->fecha_emision,
@@ -57,17 +57,17 @@ class OficioController extends Controller
 			]);
 
 			if($request->file('file_referencia')) {
-				$hash_pdf = "$oficio->id-";
+				$hash_pdf = "$documento->id-";
 				$hash_pdf = $hash_pdf . \Str::random(7);;
-				$path = $request->file_referencia->storeAs("public/oficios/$oficio->anio", "$hash_pdf.pdf");
+				$path = $request->file_referencia->storeAs("public/documentos/$documento->anio", "$hash_pdf.pdf");
 
-				$oficio->file_referencia = $path;
-				$oficio->save();
+				$documento->file_referencia = $path;
+				$documento->save();
 			}
 
 			DB::commit();
 
-			return response()->json($oficio, 200);
+			return response()->json($documento, 200);
 			
 		} catch (ErrorException $e) {
 			DB::rollback();
@@ -116,17 +116,17 @@ class OficioController extends Controller
 		try {
 			$DOCUMENTO_CARGADO = 2;
 
-			$oficio = Asignacion::findOrFail($id);
+			$documento = Asignacion::findOrFail($id);
 
-			\Storage::delete($oficio->file);
+			\Storage::delete($documento->file);
 
 			$hash_pdf = "$id-";
 			$hash_pdf = $hash_pdf . \Str::random(7);;
-			$path = $request->pdf->storeAs("public/oficios/$oficio->anio", "$hash_pdf.pdf");
+			$path = $request->pdf->storeAs("public/documentos/$documento->anio", "$hash_pdf.pdf");
 
-			$oficio->file = $path;
-			$oficio->estado_documento_id = $DOCUMENTO_CARGADO;
-			$oficio->save();
+			$documento->file = $path;
+			$documento->estado_documento_id = $DOCUMENTO_CARGADO;
+			$documento->save();
 			DB::commit();
 			return response()->json("Documento cargado", 200);
 			
@@ -140,26 +140,29 @@ class OficioController extends Controller
 	{
 		DB::beginTransaction();
 		try {
-			$oficio = Asignacion::findOrFail($id);
+			$documento = Asignacion::findOrFail($id);
 
 			$path_file = null;
 			if($request->file('file')) {
-				\Storage::delete($oficio->file);
-				$hash_pdf = "$oficio->id-";
+				\Storage::delete($documento->file);
+				$hash_pdf = "$documento->id-";
 				$hash_pdf = $hash_pdf . \Str::random(7);;
-				$path_file = $request->file->storeAs("public/$request->type/$oficio->anio", "$hash_pdf.pdf");
+				$path_file = $request->file->storeAs("public/$request->type/$documento->anio", "$hash_pdf.pdf");
 
 			}
 
 			$path_referencia_file = null;
 			if($request->file('file_referencia')) {
-				\Storage::delete($oficio->file_referencia);
-				$hash_pdf = "$oficio->id-";
+				\Storage::delete($documento->file_referencia);
+				$hash_pdf = "$documento->id-";
 				$hash_pdf = $hash_pdf . \Str::random(7);;
-				$path_referencia_file = $request->file_referencia->storeAs("public/$request->type/$oficio->anio", "$hash_pdf.pdf");
+				$path_referencia_file = $request->file_referencia->storeAs("public/$request->type/$documento->anio", "$hash_pdf.pdf");
 			}
 
-			$oficio->fill([
+			if($path_file == null) {
+				$path_file = $documento->file;
+			}
+			$documento->fill([
 				'fecha_emision' => $request->fecha_emision,
 				'asunto' => $request->asunto,
 				'destinatario_id' => $request->destinatario_id,
@@ -169,10 +172,10 @@ class OficioController extends Controller
 				'file_referencia' => $path_referencia_file
 			]);
 
-			$oficio->save();
+			$documento->save();
 
 			DB::commit();
-			return response()->json($oficio, 200);
+			return response()->json($documento, 200);
 			
 		} catch (\Exception $e) {
 			DB::rollback();
@@ -183,18 +186,13 @@ class OficioController extends Controller
 	public function archivar(Request $request, $id)
 	{
 		$DOCUMENTO_ARCHIVADO = 3;
-		$oficio = Asignacion::findOrFail($id);
-		$oficio->estado_documento_id = $DOCUMENTO_ARCHIVADO;
+		$documento = Asignacion::findOrFail($id);
+		$documento->estado_documento_id = $DOCUMENTO_ARCHIVADO;
 
-		if(!$oficio->save()) {
+		if(!$documento->save()) {
 			return response()->json("El documento no pudo ser archivado", 500);
 		}
 
 		return response()->json("Archivado", 200);
-	}
-
-	public function generar($id)
-	{
-		# code...
 	}
 }

@@ -126,9 +126,9 @@
               </ul>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'oficios.index'}">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>Oficios</p>
+              <router-link class="nav-link" :to="{ name: 'documentos.index', query: { tipo_documento_id: 1 } }">
+                <i class="nav-icon fas fa-file-alt"></i>
+                <p>Documentos</p>
               </router-link>
             </li>
             {{--

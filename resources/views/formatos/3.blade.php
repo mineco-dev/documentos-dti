@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>
-		Oficio
+		Memorándum
 		DTI-{{ $documento->prefix }}-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
 	</title>
 	<style>
@@ -19,11 +19,13 @@
 			*/
 			margin-top: 5cm;
 			margin-bottom: 0.5cm;
-			font-size: 14px;
+			font-size: 16px;
 			odd-header-name: html_myHeader1;
 		}
 		div.container p {
-			font-size: 14px;
+			font-size: 16px;
+			text-align: justify;
+			text-justify: inter-word;
 		}
 		.float-right {
 			font:bold;
@@ -69,26 +71,55 @@
 		</table>
 	</htmlpageheader>
 	<div class="container">
-		<p align="right">
+		<p align="center">
+			MEMORÁNDUM <br>
 			DTI-{{ $documento->prefix }}-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
-			<br>
-			{{ Carbon\Carbon::parse($documento->fecha_emision)->formatLocalized('%d de %B de %Y') }}
 		</p>
 		<br>
-		<p>
-			{{ $documento->saludo }} <br>
-			{{ $documento->destinatario }} <br>
-			{{ $documento->cargo }} <br>
-			{{ $documento->dependencia }} <br>
-			{{ $documento->entidad }}
-		</p>
-		<br>
-		<p>
-			Estimado/a {{ $documento->saludo }} {{ $documento->destinatario }}
-		</p>
+		<table style="width: 100%;">
+			<tr>
+				<td style="font-weight: bold; vertical-align:top;">PARA:</td>
+				<td>
+					<b>{{ $documento->destinatario }}</b> <br>
+					{{ $documento->cargo }} <br>
+					{{ $documento->dependencia }} <br>
+					{{ $documento->entidad }}
+				</td>
+			</tr>
+			<tr style="height:45px;">
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold; vertical-align:top;">DE:</td>
+				<td>
+					<b>{{ $documento->destinatario }}</b> <br>
+					{{ $documento->cargo }} <br>
+					{{ $documento->dependencia }} <br>
+					{{ $documento->entidad }}
+				</td>
+			</tr>
+			<tr style="height:45px;">
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold; vertical-align:top;">ASUNTO:</td>
+				<td style="font-weight: bold;">{{ $documento->asunto }}</td>
+			</tr>
+			<tr style="height:45px;">
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td width="25%" style="font-weight: bold; vertical-align:top;">LUGAR Y FECHA:</td>
+				<td>
+					Guatemala, {{ Carbon\Carbon::parse($documento->fecha_emision)->formatLocalized('%d de %B de %Y') }}
+				</td>
+			</tr>
+		</table>
+		<hr>
 		{!! $documento->respuesta !!}
-		<br>
-		Atentamente,
 	</div>
 </body>
 </html>

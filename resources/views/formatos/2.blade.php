@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>
-		Oficio
-		DTI-{{ $documento->prefix }}-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
+		Dictámen
+		DTI-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
 	</title>
 	<style>
 		@page {
@@ -70,7 +70,9 @@
 	</htmlpageheader>
 	<div class="container">
 		<p align="right">
-			DTI-{{ $documento->prefix }}-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
+			Dictámen Técnico DTI-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
+			<br>
+			Ciudad de Guatemala,
 			<br>
 			{{ Carbon\Carbon::parse($documento->fecha_emision)->formatLocalized('%d de %B de %Y') }}
 		</p>

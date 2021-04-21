@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="content-header">
+        <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
@@ -8,26 +8,41 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="content">
+        </section>
+        <section class="content">
             <div class="container-fluid">
-                <div class="row row-cols-1 row-cols-md-4">
-                    <div class="col mb-2" v-for="post in posts.results">
-                        <div class="card h-100 rounded shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <h5 class="text-dark">
-                                    <b>{{post.name}}</b>
-                                </h5>
-                                <p class="small text-muted">{{post.excerpt}}</p>
-                            </div>
-                            <div class="card-footer">
-                                <router-link class="text-muted" :to="{ name: 'user.post.show', params: { id: post.id} }">Más información...</router-link>
+                <blockquote class="quote-success mx-0 p-3">
+                    <h4>Documentos emitidos durante el año 2021</h4>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-3" v-for="actual in actuales">
+                            <div class="info-box">
+                                <div class="info-box-content text-center">
+                                    <span class="info-box-text">{{ actual.tipo_documento }}</span>
+                                    <span class="info-box-number h2">
+                                        {{ actual.total }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </blockquote>
+                <blockquote class="quote-danger mx-0 p-3">
+                    <h4>Documentos pendientes de adjuntar el pdf firmado por el Director</h4>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-3" v-for="pendiente in pendientes">
+                            <div class="info-box">
+                                <div class="info-box-content text-center">
+                                    <span class="info-box-text">{{ pendiente.tipo_documento }}</span>
+                                    <span class="info-box-number h3">
+                                        {{ pendiente.total }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </blockquote>
             </div>
-        </div>
+        </section>
     </div>
 </template>
 
@@ -35,17 +50,32 @@
     export default {
         data() {
             return {
-                posts: {data: []}
-            }
-        },
-        computed: {
-            countPost() {
-                return this.posts.data.length
+                pendientes: [],
+                actuales: []
             }
         },
         mounted() {
-            axios.get('https://rickandmortyapi.com/api/character').then(response => this.posts = response.data)
-            .catch(error => alert(error.response))
+            Promise.all([
+                axios.get('/api/estadistica/conteo', {
+                    params: {
+                        column: 'estado_documento_id',
+                        value: 1,
+
+                    }
+                }),
+                axios.get('/api/estadistica/conteo', {
+                    params: {
+                        column: 'anio',
+                        value: 'date("Y")'
+
+                    }
+                }),
+                ])
+            .then(response => {
+                this.pendientes = response[0].data
+                this.actuales = response[1].data
+            })
+            .catch(error => {})
         }
     }
 </script>

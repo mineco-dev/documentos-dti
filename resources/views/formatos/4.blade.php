@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>
-		Oficio
-		DTI-{{ $documento->prefix }}-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
+		Providencia
+		DTI-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
 	</title>
 	<style>
 		@page {
@@ -70,9 +70,15 @@
 	</htmlpageheader>
 	<div class="container">
 		<p align="right">
-			DTI-{{ $documento->prefix }}-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
-			<br>
+			Guatemala,
 			{{ Carbon\Carbon::parse($documento->fecha_emision)->formatLocalized('%d de %B de %Y') }}
+			<br>
+			<b>Dirección de Tecnologías de la Información</b> <br>
+			<b>Providencia</b>
+			DTI-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
+		</p>
+		<p align="right">
+			<b>ASUNTO</b>: {{ $documento->asunto }}
 		</p>
 		<br>
 		<p>

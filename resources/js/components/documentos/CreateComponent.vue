@@ -2,7 +2,7 @@
     <div>
         <div class="content-header">
             <div class="container-fluid">
-                <h1 class="text-dark">Reservar {{$route.query.title}}</h1>
+                <h1 class="text-dark"></h1>
             </div>
         </div>
         <div class="content">
@@ -10,17 +10,30 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <form autocomplete="off" enctype="multipart/form-data" class="shadow-lg p-3 mb-5 bg-white rounded" id="form" v-on:submit.prevent="submit">
-                            <input type="hidden" name="_method" value="PUT">
+                            <router-link class="text-muted" title="Regresar" :to="{ name: 'documentos.index', query: { tipo_documento_id: documento.tipo_documento_id } }">
+                                <i class="fas fa-arrow-left fa-lg"></i>
+                            </router-link>
                             <div class="form-group mt-3">
+                                <label for="tipo_documento_id">
+                                    Reservar
+                                </label>
+                                <select class="custom-select" name="type" id="type" v-model="documento.tipo_documento_id" v-validate="'required'">
+                                    <option value="1">Oficio</option>
+                                    <option value="2">Dictámen</option>
+                                    <option value="3">Memorando</option>
+                                    <option value="4">Providencia</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="fecha_emision">Fecha de emisión</label>
-                                <input class="form-control" id="fecha_emision" name="fecha_emision" type="date" v-model="oficio.fecha_emision" v-validate="'required'">
+                                <input class="form-control" id="fecha_emision" name="fecha_emision" type="date" v-model="documento.fecha_emision" v-validate="'required'">
                                 <div class="invalid-feedback">{{ errors.first('fecha_emision') }}</div>
                             </div>
 
                             <div class="form-group ">
                                 <label>{{label_destinatario}}</label>
                                 <v-select v-bind:options="destinatarios" @input="setDestinatario"></v-select>
-                                <input aria-describedby="destinatario_help" type="hidden" id="destinatario_id" name="destinatario_id" v-model="oficio.destinatario_id" v-validate="'required'">
+                                <input aria-describedby="destinatario_help" type="hidden" id="destinatario_id" name="destinatario_id" v-model="documento.destinatario_id" v-validate="'required'">
                                 <div class="invalid-feedback">{{ errors.first('destinatario_id') }}</div>
                                 <small id="destinatario_help" class="form-text text-muted">
                                     <router-link :to="{ name: 'destinatarios.create' }">Agregar destinatario</router-link>
@@ -29,14 +42,14 @@
 
                             <div class="form-group">
                                 <label for="asunto">Asunto</label>
-                                <input class="form-control" id="asunto" name="asunto"  type="text" v-model="oficio.asunto" v-validate="'required'">
+                                <input class="form-control" id="asunto" name="asunto"  type="text" v-model="documento.asunto" v-validate="'required'">
                                 <div class="invalid-feedback">{{ errors.first('asunto') }}</div>
                             </div>
 
                             <div class="form-group">
                                 <label for="asunto">Respuesta</label>
-                                <vue-editor v-model="oficio.respuesta" />
-                                <input type="hidden" v-model="oficio.respuesta" id="respuesta" name="respuesta" v-validate="'required'">
+                                <vue-editor v-model="documento.respuesta" />
+                                <input type="hidden" v-model="documento.respuesta" id="respuesta" name="respuesta" v-validate="'required'">
                                 <div class="invalid-feedback">{{ errors.first('respuesta') }}</div>
                             </div>
                             <div class="form-group">
@@ -44,15 +57,14 @@
                                 	Referencia
                                 	<small>(opcional)</small>
                                 </label>
-                                <input aria-describedby="referencia_help" class="form-control" id="referencia" name="referencia" type="text" v-model="oficio.referencia">
+                                <input aria-describedby="referencia_help" class="form-control" id="referencia" name="referencia" type="text" v-model="documento.referencia">
                                 <small id="referencia_help" class="form-text text-muted">
                                     Puede ser el asunto del documento al que le dará respuesta
                                 </small>
                             </div>
-
-                            <div class="form-group" v-show="oficio.referencia != null && oficio.referencia != ''">
+                            <div class="form-group" v-if="documento.referencia != null">
                                 <label for="file_referencia">
-                                	Adjuntar referencia
+                                    Adjuntar referencia
                                 </label>
                                 <input aria-describedby="file_referencia_help" accept="application/pdf" class="form-control-file" id="file_referencia" name="file_referencia" type="file" v-validate="'required|ext:pdf'">
                                 <div class="invalid-feedback">{{ errors.first('referencia_file') }}</div>
@@ -97,7 +109,10 @@
         data() {
             return {
                 destinatarios: [],
-                oficio: {}
+                documento: {
+                    destinatario_id: '',
+                    tipo_documento_id: null
+                }
             }
         },
         components: {
@@ -106,29 +121,29 @@
         },
         computed: {
             label_destinatario() {
-                return this.$route.query.type == 'memorándum' ? 'Para' : 'Responder a'
+                return this.documento.tipo_documento_id == 3 ? 'Para' : 'Responder a'
             }
         },
         mounted() {
             Promise.all([
-                axios.get(`/api/oficios/${this.$route.params.id}?type=flat`),
                 axios.get('/api/destinatarios?format=vue-select')
                 ])
             .then(response => {
-                this.oficio = response[0].data
-                this.destinatarios = response[1].data
+                this.destinatarios = response[0].data
             })
+
+            this.documento.tipo_documento_id = this.$route.query.tipo_documento_id
         },
         methods: {
             setDestinatario(value) {
                 if(value != null) {
-                    this.oficio.destinatario_id = value.code
+                    this.documento.destinatario_id = value.code
                 }
             },
             submit() {
                 this.$validator.validate().then(isValid => {
                     if(isValid) {
-                        axios.post(`/api/oficios/${this.$route.params.id}`, new FormData(document.getElementById('form')))
+                        axios.post(`/api/documentos?user_id=${this.$store.state.user.id}&type=${this.$route.query.type}`, new FormData(document.getElementById('form')))
                         .then(response => {
                             Swal.fire({
                                 icon: 'success',
@@ -136,7 +151,9 @@
                                 html: response.data
                             })
                             .then(result => {
-                                this.$router.push({name: 'oficios.index'})
+                                this.$router.push({name: 'documentos.index', query: {
+                                    tipo_documento_id: documento.tipo_documento_id
+                                }})
                             })
                         })
                         .catch(error => {

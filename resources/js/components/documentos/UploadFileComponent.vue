@@ -8,11 +8,11 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h3>
-							DTI-{{oficio.prefix}}{{this.oficio.documento_id}}-{{this.oficio.anio}}
+							DTI-{{documento.prefix}}{{this.documento.documento_id}}-{{this.documento.anio}}
 						</h3>
 						<div class="text-muted">
 							<p class="text-sm">Asunto
-								<b class="d-block">{{oficio.asunto}}</b>
+								<b class="d-block">{{documento.asunto}}</b>
 							</p>
 						</div>
 					</div>
@@ -31,9 +31,9 @@
 							</button>
 						</form>
 					</div>
-					<div class="col-md-9" v-show="src != null | oficio.file_url != null">
+					<div class="col-md-9" v-show="src != null | documento.file_url != null">
 						<div class="embed-responsive embed-responsive-16by9">
-							<iframe class="embed-responsive-item" v-bind:src="src ? src : oficio.file_url" allowfullscreen></iframe>
+							<iframe class="embed-responsive-item" v-bind:src="src ? src : documento.file_url" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
@@ -47,7 +47,7 @@
 	export default {
 		data() {
 			return {
-				oficio: {
+				documento: {
 					documento_id: ''
 				},
 				form: {},
@@ -55,8 +55,8 @@
 			}
 		},
 		mounted() {
-			axios.get(`/api/oficios/${this.$route.params.id}?type=flat`)
-				.then(response => this.oficio = response.data)
+			axios.get(`/api/documentos/${this.$route.params.id}?type=flat`)
+				.then(response => this.documento = response.data)
 		},
 		methods: {
 			setUrlLocal(event) {
@@ -69,7 +69,7 @@
 				}
 			},
 			submit() {
-				axios.post(`/api/oficios/${this.oficio.id}/upload`, new FormData(document.getElementById('form')))
+				axios.post(`/api/documentos/${this.documento.id}/upload`, new FormData(document.getElementById('form')))
 				.then(response => {
 					Swal.fire({
 						icon: 'success',
@@ -77,7 +77,7 @@
 						text: response.data
 					})
 					.then(result => {
-						this.$router.push({name: 'oficios.index'})
+						this.$router.push({name: 'documentos.index'})
 					})
 				})
 			}

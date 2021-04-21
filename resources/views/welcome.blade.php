@@ -25,10 +25,11 @@
     </style>
     <link rel="stylesheet" href="/css/cover.css">
 </head>
-<body class="text-center" style="background-image: url('/images/blog.svg'); background-repeat: no-repeat; background-position: left center;">
+<body class="text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
             <div class="inner">
+                <img class="img-fluid" src="/images/logo.png" alt="Logo del Ministerio de Economía">
                 {{--
                 <nav class="nav nav-masthead justify-content-center">
                     @if (Route::has('login'))
@@ -48,7 +49,7 @@
             </div>
         </header>
 
-        <main role="main" class="inner cover my-auto">
+        <main role="main" class="inner cover">
             <h1 class="cover-heading">{{config('app.name')}}</h1>
             <p class="lead">
                 {{config('app.description')}}
@@ -56,9 +57,9 @@
             <p class="lead">
                 @if (Route::has('login'))
                 @auth
-                <a href="{{ url('home') }}" class="btn btn-lg btn-secondary">{{ __('Go Home')}}</a>
+                <a href="{{ url('home') }}" class="btn btn-lg btn-primary">{{ __('Go Home')}}</a>
                 @else
-                <a href="{{ route('login') }}" class="btn btn-lg btn-secondary">{{__('Login')}}</a>
+                <a href="{{ route('login') }}" class="btn btn-lg btn-primary">{{__('Login')}}</a>
                 @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
@@ -68,10 +69,10 @@
                 @endif
             </p>
         </main>
-        <footer class="mastfoot mt-auto">
+        <footer class="mastfoot mt-auto text-muted">
             <div class="inner">
                 <p>
-                    Ministerio de Economía
+                    Desarrollado por: Dirección de Tecnologías de la Información
                 </p>
             </div>
         </footer>

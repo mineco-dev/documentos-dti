@@ -141,32 +141,32 @@ export default new Router({
 		]
 	},
 	{
-		path: '/oficios',
-		name: 'oficios.index',
-		component: require('./components/oficios/IndexComponent').default,
-		meta: { title: 'Oficios'}
+		path: '/documentos',
+		name: 'documentos.index',
+		component: require('./components/documentos/IndexComponent').default,
+		meta: { title: 'Documentos'}
 	},
 	{
-		path: '/oficios/:id',
+		path: '/documentos/:id',
 		component: require('./components/RouterView').default,
 		children: [
 		{
 			path: '',
-			name: 'oficios.show',
-			component: require('./components/oficios/IndexComponent').default,
+			name: 'documentos.show',
+			component: require('./components/documentos/IndexComponent').default,
 			meta: { title: 'Detalle de oficio'}
 		},
 		{
 			path: 'upload',
-			name: 'oficios.upload',
-			component: require('./components/oficios/UploadFileComponent').default,
+			name: 'documentos.upload',
+			component: require('./components/documentos/UploadFileComponent').default,
 			meta: { title: 'Adjuntar documento'}
 		},
 		{
 			path: 'edit',
-			name: 'oficios.edit',
-			component: require('./components/oficios/EditComponent').default,
-			meta: { title: 'Modificar oficio'}
+			name: 'documentos.edit',
+			component: require('./components/documentos/EditComponent').default,
+			meta: { title: 'Modificar documento'}
 		}
 		]
 	},/*
@@ -263,7 +263,7 @@ export default new Router({
 	{
 		path: '/reservar',
 		name: 'documentos.reservar',
-		component: require('./components/oficios/CreateComponent').default,
+		component: require('./components/documentos/CreateComponent').default,
 		meta: { title: 'Reservar documento'}
 	},
 	{

@@ -4,7 +4,6 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Oficios</h1>
                     </div>
                 </div>
             </div>
@@ -15,7 +14,7 @@
                     <i class="fas fa-bell fa-lg mr-2"></i>
                     Reserva simple
                 </button>
-                <router-link class="btn btn-outline-primary ml-2 mb-3" :to="{ name: 'documentos.reservar', query: {type: 'oficios', title: 'oficio'} }">
+                <router-link class="btn btn-outline-primary ml-2 mb-3" :to="{ name: 'documentos.reservar', query: {type: 'documentos', title: 'documento', 'tipo_documento_id': documento.tipo_documento_id } }">
                     <i class="fas fa-hand-point-up fa-lg mr-2"></i>
                     Reserva completa
                 </router-link>
@@ -23,29 +22,38 @@
                     <div class="col-md-12">
                         <div class="form-row">
                             <div class="form-group col-md-2">
+                                <label for="tipo_documento_id">Documento</label>
+                                <select class="custom-select" name="tipo_documento_id" id="tipo_documento_id" v-model="documento.tipo_documento_id" v-on:change="getList(1)">
+                                    <option value="1" data-table="oficios">Oficios</option>
+                                    <option value="2" data-table="dictamenes">Dictámenes</option>
+                                    <option value="3" data-table="memorandums">Memorandos</option>
+                                    <option value="4" data-table="providencias">Providencias</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
                                 <label id="per_page" for="inputPassword4">Mostrar</label>
-                                <select class="form-control" id="per_page" v-model="per_page" v-on:change="getList">
-                                    <option value="5">5 registros de un </option>
+                                <select class="custom-select" id="per_page" v-model="per_page" v-on:change="getList(1)">
+                                    <option value="5">5 registros</option>
                                     <option value="10">10 registros</option>
                                     <option value="25">25 registros</option>
                                     <option value="50">50 registros</option>
                                     <option value="100">100 registros</option>
-                                    <option v-bind:value="oficios.total">todos los registros</option>
+                                    <option v-bind:value="documentos.total">todos los registros</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-10" v-show="oficios.total > 10">
+                            <div class="form-group col-md-8" v-show="documentos.total > 10">
                                 <label for="search">Filtrar</label>
                                 <input type="search" class="form-control" id="search" v-model="search">
                             </div>
                         </div>
                     </div>
                 </div>
-                <table class="table table-hover table-bordered" v-if="oficios.total > 0">
+                <table class="table table-hover table-bordered" v-if="documentos.total > 0">
                     <caption>
                         <nav aria-label="...">
                             <ul class="pagination justify-content-center">
-                                <li class="page-item" v-bind:class="{'disabled': oficios.current_page == 1}">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true" v-on:click.prevent="cambiarPagina(oficios.current_page - 1)">
+                                <li class="page-item" v-bind:class="{'disabled': documentos.current_page == 1}">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true" v-on:click.prevent="cambiarPagina(documentos.current_page - 1)">
                                         Anterior
                                     </a>
                                 </li>
@@ -54,8 +62,8 @@
                                         {{page}}
                                     </a>
                                 </li>
-                                <li class="page-item" v-bind:class="{'disabled': oficios.current_page == oficios.last_page}">
-                                    <a class="page-link" href="#" v-on:click.prevent="cambiarPagina(oficios.current_page + 1)">
+                                <li class="page-item" v-bind:class="{'disabled': documentos.current_page == documentos.last_page}">
+                                    <a class="page-link" href="#" v-on:click.prevent="cambiarPagina(documentos.current_page + 1)">
                                         Siguiente
                                     </a>
                                 </li>
@@ -74,19 +82,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(oficio, index) in oficios.data" v-bind:class="{ 'table-warning': oficio.estado_documento_id == 1}">
-                            <th scope="row">{{oficio.id}}</th>
+                        <tr v-for="(documento, index) in documentos.data" v-bind:class="{ 'table-warning': documento.estado_documento_id == 1}">
+                            <th scope="row">{{documento.id}}</th>
                             <td>
-                                DTI-{{oficio.prefix ? oficio.prefix + '-' : ''}}{{oficio.documento_id}}-{{oficio.anio}}
+                                DTI-{{documento.prefix ? documento.prefix + '-' : ''}}{{documento.documento_id}}-{{documento.anio}}
                             </td>
                             <td>
-                                {{oficio.asunto}}
+                                {{documento.asunto}}
                             </td>
-                            <td>{{oficio.responsable}}</td>
-                            <td>{{oficio.created_at | moment().format("LLL")}}</td>
+                            <td>{{documento.responsable}}</td>
+                            <td>{{documento.created_at | moment().format("LLL")}}</td>
                             <td>
-                                <i class="fa fa-bell" v-bind:class="{ 'text-danger': oficio.estado_documento_id == 1, 'text-success': oficio.estado_documento_id == 2, 'text-secondary': oficio.estado_documento_id == 3}"></i>
-                                {{oficio.estado}}
+                                <i class="fa fa-bell" v-bind:class="{ 'text-danger': documento.estado_documento_id == 1, 'text-success': documento.estado_documento_id == 2, 'text-secondary': documento.estado_documento_id == 3}"></i>
+                                {{documento.estado}}
                             </td>
                             <td>
                                 <div class="btn-group dropleft">
@@ -94,34 +102,34 @@
                                         Opciones
                                     </button>
                                     <div class="dropdown-menu">
-                                        <button class="dropdown-item" v-if="oficio.estado_documento_id == 1" v-on:click="generar" v-bind:data-id="oficio.id" v-bind:data-index="index">
-                                            <i class="fas fa-spinner fa-lg fa-fw text-secondary" role="button" title="Generar documento" v-bind:data-id="oficio.id" v-bind:data-index="index"></i>
+                                        <button class="dropdown-item" v-if="documento.estado_documento_id == 1" v-on:click="generar" v-bind:data-id="documento.id" v-bind:data-index="index">
+                                            <i class="fas fa-spinner fa-lg fa-fw text-secondary" role="button" title="Generar documento" v-bind:data-id="documento.id" v-bind:data-index="index"></i>
                                             Generar documento
                                         </button>
-                                        <router-link class="dropdown-item" :to="{ name: 'oficios.edit', params: { id: oficio.id}}" v-if="oficio.estado_documento_id == 1">
+                                        <router-link class="dropdown-item" :to="{ name: 'documentos.edit', params: { id: documento.id}}" v-if="documento.estado_documento_id == 1">
                                             <i class="fas fa-edit fa-lg fa-fw text-primary" role="button" title="Modificar documento"></i>
                                             Modificar documento
                                         </router-link>
-                                        <router-link class="dropdown-item" :to="{ name: 'oficios.upload', params: { id: oficio.id}, query: { type: $route.query.type, type_id: $route.query.type_id}}" v-if="oficio.estado_documento_id == 1">
+                                        <router-link class="dropdown-item" :to="{ name: 'documentos.upload', params: { id: documento.id} }" v-if="documento.estado_documento_id == 1">
                                             <i class="fas fa-upload fa-lg fa-fw text-success" role="button" title="Subir documento"></i>
                                             Subir documento
                                         </router-link>
 
-                                        <a class="dropdown-item" target="_blank" v-bind:href="oficio.file_referencia_url" v-if="oficio.file_referencia_url">
+                                        <a class="dropdown-item" target="_blank" v-bind:href="documento.file_referencia_url" v-if="documento.file_referencia_url">
                                             <i class="fas fa-file-pdf fa-lg fa-fw text-danger" role="button" title="Reemplazar documento"></i>
                                             Descargar referencia
                                         </a>
-                                        <a class="dropdown-item" target="_blank" v-bind:href="oficio.file_url" v-if="oficio.file_url">
+                                        <a class="dropdown-item" target="_blank" v-bind:href="documento.file_url" v-if="documento.file_url">
                                             <i class="fas fa-file-pdf fa-lg fa-fw text-danger" role="button" title="Reemplazar documento"></i>
                                             Descargar documento
                                         </a>
-                                        <router-link class="dropdown-item" :to="{ name: 'oficios.upload', params: { id: oficio.id}}" v-if="oficio.estado_documento_id == 2">
+                                        <router-link class="dropdown-item" :to="{ name: 'documentos.upload', params: { id: documento.id}}" v-if="documento.estado_documento_id == 2">
                                             <i class="fas fa-upload fa-lg fa-fw text-success" role="button" title="Reemplazar documento"></i>
                                             Reemplazar documento
                                         </router-link>
-                                        <button class="dropdown-item" v-if="oficio.estado_documento_id == 2 && oficio.file != null" v-on:click="archivar" v-bind:data-id="oficio.id" v-bind:data-index="index">
-                                            <i class="fas fa-archive fa-lg fa-fw text-secondary" role="button" title="Reemplazar documento" v-bind:data-id="oficio.id" v-bind:data-index="index"></i>
-                                            Archivar oficio
+                                        <button class="dropdown-item" v-if="documento.estado_documento_id == 2 && documento.file != null" v-on:click="archivar" v-bind:data-id="documento.id" v-bind:data-index="index">
+                                            <i class="fas fa-archive fa-lg fa-fw text-secondary" role="button" title="Reemplazar documento" v-bind:data-id="documento.id" v-bind:data-index="index"></i>
+                                            Archivar documento
                                         </button>
                                     </div>
                                 </div>
@@ -130,9 +138,9 @@
                     </tbody>
                 </table>
                 <blockquote class="quote-info mt-0" v-else>
-                    <h5>No hemos encontrado oficios</h5>
+                    <h5>No hemos encontrado documentos</h5>
                     <p>
-                        Es posible que no tenga los permisos suficientes para visualizar los oficios.
+                        Es posible que no tenga los permisos suficientes para visualizar los documentos.
                     </p>
                 </blockquote>
             </div>
@@ -149,7 +157,11 @@
     export default {
         data() {
             return {
-                oficios: {data: []},
+                documentos: {data: []},
+                documento: {
+                    table: null,
+                    documento_id: 1
+                },
                 per_page: 5,
                 search: null,
                 offset: 3
@@ -157,20 +169,20 @@
         },
         computed: {
             isActived: function() {
-                return this.oficios.current_page
+                return this.documentos.current_page
             },
             pagesNumber: function() {
-                if(!this.oficios.to) {
+                if(!this.documentos.to) {
                     return []
                 }
-                let from = this.oficios.current_page - this.offset
+                let from = this.documentos.current_page - this.offset
                 if( from < 1) {
                     from = 1
                 }
 
                 let to = from + (this.offset * 2)
-                if(to >= this.oficios.last_page) {
-                    to = this.oficios.last_page
+                if(to >= this.documentos.last_page) {
+                    to = this.documentos.last_page
                 }
                 let pagesArray = []
                 while(from <= to) {
@@ -180,7 +192,7 @@
                 return pagesArray
             },
             filter() {
-                return this.oficios.data.filter(oficio => oficio.name.toLowerCase().includes(this.search.toLowerCase()))
+                return this.documentos.data.filter(documento => documento.name.toLowerCase().includes(this.search.toLowerCase()))
             }
         },
         filters: {
@@ -189,27 +201,35 @@
             }
         },
         mounted() {
+            this.documento.tipo_documento_id = this.$route.query.tipo_documento_id
             this.getList(1)
         },
         methods: {
             getList(page) {
-                axios.get(`/api/oficios?page=${page}&per_page=${this.per_page}`)
+                axios.get(`/api/documentos`, {
+                    params: {
+                        table: this.documento.tipo_documento_id,
+                        page: page,
+                        per_page:this.per_page
+                    }
+                })
                 .then(response => {
-                    this.oficios = response.data
+                    this.documentos = response.data
                 })
                 .catch(error => {
                     console.log(error.response)
                 })
             },
             cambiarPagina(page) {
-                if(this.oficios.current_page != page) {
-                    this.oficios.current_page = page
+                if(this.documentos.current_page != page) {
+                    this.documentos.current_page = page
                     this.getList(page)
                 }
             },
             reservaSimple() {
+                let titulo = document.getElementById('tipo_documento_id')[document.getElementById('tipo_documento_id').selectedIndex].text
                 Swal.fire({
-                    title: 'Reserva simple de oficio',
+                    title: 'Reserva simple de ' + titulo,
                     icon: 'info',
                     input: 'textarea',
                     inputLabel: 'Asunto',
@@ -217,23 +237,25 @@
                         autocapitalize: 'off',
                         name: 'asunto'
                     },
-                    inputValidator: (value) => {
-                        if (!value) {
+                    inputValidator: (asunto) => {
+                        if (!asunto) {
                             return 'El campo asunto es requerido'
                         }
                     },
                     showCancelButton: true,
-                    confirmButtonText: 'Reservar oficio',
+                    confirmButtonText: 'Reservar documento',
                     cancelButtonText:'Cancelar',
                     showLoaderOnConfirm: true,
-                    preConfirm: (login) => {
-                        return axios.post(`/api/oficios`, {
+                    preConfirm: (asunto) => {
+                        let table = document.getElementById('tipo_documento_id')[document.getElementById('tipo_documento_id').selectedIndex].dataset.table
+                        return axios.post(`/api/documentos`, {
                             fecha_emision: null,
-                            asunto: login,
+                            asunto: asunto,
                             destinatario_id: null,
                             respuesta: null,
                             referencia: null,
-                            tipo_documento_id: 1
+                            tipo_documento_id: this.documento.tipo_documento_id,
+                            table
                         })
                         .then(response => {
                             if (!response) {
@@ -250,7 +272,7 @@
                     allowOutsideClick: () => !Swal.isLoading()
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        this.oficios.data.unshift({
+                        this.documentos.data.unshift({
                             ...result.value.data,
                             documento_id: `${result.value.data.documento_id}`,
                             prefix: null,
@@ -258,18 +280,18 @@
                             estado: 'Pendiente de adjuntar',
                             estado_documento_id: 1,
                         })
-                        this.oficios.total = this.oficios.total + 1
+                        this.documentos.total = this.documentos.total + 1
                         Swal.fire({
                             icon: 'success',
-                            html: "Oficio reservado"
+                            html: "Documento reservado"
                         })
                     }
                 })
             },
             archivar(event) {
                 Swal.fire({
-                    title: '¿Desea archivar el oficio?',
-                    text: "El oficio ya no podrá ser modificado",
+                    title: '¿Desea archivar el documento?',
+                    text: "El documento ya no podrá ser modificado",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -277,16 +299,16 @@
                     confirmButtonText: 'Si, archivar'
                 }).then((result) => {
                   if (result.isConfirmed) {
-                    axios.put(`/api/oficios/${event.target.dataset.id}/archivar`)
+                    axios.put(`/api/documentos/${event.target.dataset.id}/archivar`)
                     .then(response => {
                         Swal.fire(
                           'Archivado',
-                          'El oficio fue archivado',
+                          'El documento fue archivado',
                           'success'
                           )
                         .then(result => {
-                            this.oficios.data.splice(event.target.dataset.index, 1, {
-                                ...this.oficios.data[event.target.dataset.index],
+                            this.documentos.data.splice(event.target.dataset.index, 1, {
+                                ...this.documentos.data[event.target.dataset.index],
                                 estado: 'Archivado',
                                 estado_documento_id: 2,
                             })
@@ -310,8 +332,8 @@
                         icon: 'success'
                     })
                     .then(result => {
-                        this.oficios.data.splice(event.target.dataset.index, 1, {
-                            ...this.oficios.data[event.target.dataset.index],
+                        this.documentos.data.splice(event.target.dataset.index, 1, {
+                            ...this.documentos.data[event.target.dataset.index],
                             file_url: response.data
                         })
                     })
