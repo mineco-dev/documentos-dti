@@ -16,20 +16,22 @@ class TipoDocumentoSeeder extends Seeder
     {
         TipoDocumento::create([
             'name' => 'Oficios',
-            'prefix' => 'OF',
+            'prefix' => 'DTI-OF',
             'directory' => 'oficios'
         ]);
         TipoDocumento::create([
             'name' => 'Dictámenes Técnicos',
+            'prefix' => 'DTI',
             'directory' => 'dictamenes'
         ]);
         TipoDocumento::create([
             'name' => 'Memorandos',
-            'prefix' => 'ME',
-            'directory' => 'memorandos'
+            'prefix' => 'DTI-ME',
+            'directory' => 'memorandums'
         ]);
         TipoDocumento::create([
             'name' => 'Providencia',
+            'prefix' => 'DTI',
             'directory' => 'providencias'
         ]);
     }

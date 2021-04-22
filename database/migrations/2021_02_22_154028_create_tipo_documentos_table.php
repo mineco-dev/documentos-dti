@@ -16,7 +16,7 @@ class CreateTipoDocumentosTable extends Migration
         Schema::create('tipo_documentos', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('prefix', 4)->nullable();
+            $table->string('prefix', 8)->nullable();
             $table->string('directory')->nullable();
             $table->timestamps();
         });

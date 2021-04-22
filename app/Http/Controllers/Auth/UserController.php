@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\UpdateUserProfileInformation;
+use App\Models\Asignacion;
 
 class UserController extends Controller
 {
@@ -25,8 +26,31 @@ class UserController extends Controller
         return response()->json($updater->update($request->user(), $request->all()), 200);
     }
 
-    public function showPost($id)
+    public function misDocumentos(Request $request)
     {
-        return response()->json(\App\Models\Post::findOrFail($id), 200);
+        return response()->json(Asignacion::
+            leftJoin('users AS u', 'asignaciones.user_id', 'u.id')
+            ->leftJoin('tipo_documentos AS td', 'asignaciones.tipo_documento_id', 'td.id')
+            ->leftJoin('estado_documentos AS ed', 'asignaciones.estado_documento_id', 'ed.id')
+            ->select([
+                'asignaciones.id',
+                'asignaciones.correlativo',
+                'asignaciones.documento_id',
+                'asignaciones.anio',
+                'asignaciones.asunto',
+                'asignaciones.file',
+                'asignaciones.file_referencia',
+                'asignaciones.estado_documento_id',
+                'asignaciones.created_at',
+                'u.name AS responsable',
+                'td.prefix',
+                'td.directory',
+                'ed.name AS estado'
+            ])
+            ->where('asignaciones.user_id', $request->user_id)
+            ->where('asignaciones.tipo_documento_id', $request->tipo_documento_id)
+            ->orderBy('asignaciones.anio', 'DESC')
+            ->orderBy('asignaciones.documento_id', 'DESC')
+            ->paginate($request->per_page), 200);
     }
 }

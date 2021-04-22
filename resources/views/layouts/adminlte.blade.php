@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>{{ config('app.name', 'Laravel') }}</title>
-  <link rel="stylesheet" href="/css/adminlte.css">
+  <link rel="stylesheet" href="/css/documentos_dti.css">
 </head>
 <body class="sidebar-mini layout-fixed layout-navbar-fixed">
   <div class="wrapper" id="wrapper">
@@ -131,6 +131,18 @@
                 <p>Documentos</p>
               </router-link>
             </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'mis-documentos.index', query: { tipo_documento_id: 1 } }">
+                <i class="nav-icon fas fa-file-alt"></i>
+                <p>Mis documentos</p>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'documentos.pendientes', query: { tipo_documento_id: 1 } }">
+                <i class="nav-icon fas fa-file-alt"></i>
+                <p>Pendientes</p>
+              </router-link>
+            </li>
             {{--
             <li class="nav-item">
               <router-link class="nav-link" :to="{ name: 'dictamenes.index' , query: {type: 'dictamenes', 'type_id': 2, 'title': 'Dictámenes'}}">
@@ -159,6 +171,6 @@
       <router-view></router-view>
     </div>
   </div>
-  <script src="/js/adminlte.js"></script>
+  <script src="/js/documentos_dti.js"></script>
 </body>
 </html>

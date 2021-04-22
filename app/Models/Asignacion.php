@@ -12,6 +12,7 @@ class Asignacion extends Model
 	protected $table = 'asignaciones';
 
 	protected $fillable = [
+		'correlativo',
 		'documento_id',
 		'anio',
 		'fecha_emision',

@@ -17,9 +17,9 @@ const mix = require('laravel-mix');
     ]);
 */
 
-mix.js('resources/js/adminlte.js', 'public/js').vue();
+mix.js('resources/js/documentos_dti.js', 'public/js').vue();
 
-// mix.sass('resources/sass/adminlte.scss', 'public/css');
+//mix.sass('resources/sass/documentos_dti.scss', 'public/css');
 // mix.sass('resources/sass/cover.scss', 'public/css');
 // mix.sass('resources/sass/floating-labels.scss', 'public/css');
 

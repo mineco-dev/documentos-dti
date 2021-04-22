@@ -4365,16 +4365,15 @@ vee_validate__WEBPACK_IMPORTED_MODULE_4__.Validator.localize('es', (vee_validate
 
       this.$validator.validate().then(function (isValid) {
         if (isValid) {
-          axios.post("/api/documentos?user_id=".concat(_this2.$store.state.user.id, "&type=").concat(_this2.$route.query.type), new FormData(document.getElementById('form'))).then(function (response) {
+          axios.post("/api/documentos?user_id=".concat(_this2.$store.state.user.id, "&table=").concat(document.getElementById('tipo_documento_id')[document.getElementById('tipo_documento_id').selectedIndex].dataset.table), new FormData(document.getElementById('form'))).then(function (response) {
             sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire({
               icon: 'success',
-              title: 'Registro correcto',
-              html: response.data
+              title: 'Registro correcto'
             }).then(function (result) {
               _this2.$router.push({
                 name: 'documentos.index',
                 query: {
-                  tipo_documento_id: documento.tipo_documento_id
+                  tipo_documento_id: _this2.documento.tipo_documento_id
                 }
               });
             });
@@ -4405,16 +4404,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
-/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist/vue.js");
-/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
-/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vee-validate/dist/locale/es */ "./node_modules/vee-validate/dist/locale/es.js");
-/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist/vue.js");
+/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
+/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vee-validate/dist/locale/es */ "./node_modules/vee-validate/dist/locale/es.js");
+/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_6__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 //
@@ -4505,6 +4504,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4513,14 +4519,14 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
-vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_6___default().use(vee_validate__WEBPACK_IMPORTED_MODULE_4__.default, {
+vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_1___default().use(vee_validate__WEBPACK_IMPORTED_MODULE_5__.default, {
   classes: true,
   classNames: {
     valid: '',
     invalid: 'is-invalid'
   }
 });
-vee_validate__WEBPACK_IMPORTED_MODULE_4__.Validator.localize('es', (vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3___default()));
+vee_validate__WEBPACK_IMPORTED_MODULE_5__.Validator.localize('es', (vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_4___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4532,7 +4538,7 @@ vee_validate__WEBPACK_IMPORTED_MODULE_4__.Validator.localize('es', (vee_validate
   },
   components: {
     VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__.VueEditor,
-    'v-select': (vue_select__WEBPACK_IMPORTED_MODULE_1___default())
+    'v-select': (vue_select__WEBPACK_IMPORTED_MODULE_2___default())
   },
   computed: {
     label_destinatario: function label_destinatario() {
@@ -4559,16 +4565,11 @@ vee_validate__WEBPACK_IMPORTED_MODULE_4__.Validator.localize('es', (vee_validate
       this.$validator.validate().then(function (isValid) {
         if (isValid) {
           axios.post("/api/documentos/".concat(_this2.$route.params.id), new FormData(document.getElementById('form'))).then(function (response) {
-            sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire({
+            sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().fire({
               icon: 'success',
               title: 'Registro actualizado'
             }).then(function (result) {
-              _this2.$router.push({
-                name: 'documentos.index',
-                query: {
-                  tipo_documento_id: documento.tipo_documento_id
-                }
-              });
+              _this2.$router.go(-1);
             });
           })["catch"](function (error) {
             if (_typeof(error.response.data) === 'object') {
@@ -4775,7 +4776,7 @@ moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
         documento_id: 1
       },
       per_page: 5,
-      search: null,
+      search: '',
       offset: 3
     };
   },
@@ -4813,7 +4814,7 @@ moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
       var _this = this;
 
       return this.documentos.data.filter(function (documento) {
-        return documento.name.toLowerCase().includes(_this.search.toLowerCase());
+        return "\n                ".concat(documento.correlativo, " ").concat(documento.asunto).toLowerCase().includes(_this.search.toLowerCase());
       });
     }
   },
@@ -4832,7 +4833,8 @@ moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
 
       axios.get("/api/documentos", {
         params: {
-          table: this.documento.tipo_documento_id,
+          user_id: this.$store.state.user.id,
+          tipo_documento_id: this.documento.tipo_documento_id,
           page: page,
           per_page: this.per_page
         }
@@ -4851,9 +4853,9 @@ moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
     reservaSimple: function reservaSimple() {
       var _this3 = this;
 
-      var titulo = document.getElementById('tipo_documento_id')[document.getElementById('tipo_documento_id').selectedIndex].text;
+      var titulo = document.getElementById('tipo_documento_id')[document.getElementById('tipo_documento_id').selectedIndex];
       sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
-        title: 'Reserva simple de ' + titulo,
+        title: 'Reserva simple de ' + titulo.text,
         icon: 'info',
         input: 'textarea',
         inputLabel: 'Asunto',
@@ -4871,7 +4873,6 @@ moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
         cancelButtonText: 'Cancelar',
         showLoaderOnConfirm: true,
         preConfirm: function preConfirm(asunto) {
-          var table = document.getElementById('tipo_documento_id')[document.getElementById('tipo_documento_id').selectedIndex].dataset.table;
           return axios.post("/api/documentos", {
             fecha_emision: null,
             asunto: asunto,
@@ -4879,7 +4880,7 @@ moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
             respuesta: null,
             referencia: null,
             tipo_documento_id: _this3.documento.tipo_documento_id,
-            table: table
+            table: titulo.dataset.table
           }).then(function (response) {
             if (!response) {
               throw new Error("Error");
@@ -4928,7 +4929,7 @@ moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
             sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire('Archivado', 'El documento fue archivado', 'success').then(function (result) {
               _this4.documentos.data.splice(event.target.dataset.index, 1, _objectSpread(_objectSpread({}, _this4.documentos.data[event.target.dataset.index]), {}, {
                 estado: 'Archivado',
-                estado_documento_id: 2
+                estado_documento_id: 3
               }));
             });
           });
@@ -5023,6 +5024,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -5053,17 +5057,773 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     submit: function submit() {
-      var _this2 = this;
-
-      axios.post("/api/documentos/".concat(this.documento.id, "/upload"), new FormData(document.getElementById('form'))).then(function (response) {
+      axios.post("/api/documentos/".concat(this.documento.id, "/upload?directory=").concat(this.$route.query.directory), new FormData(document.getElementById('form'))).then(function (response) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Documento cargado',
           text: response.data
-        }).then(function (result) {
-          _this2.$router.push({
-            name: 'documentos.index'
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var moment_locale_es__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment/locale/es */ "./node_modules/moment/locale/es.js");
+/* harmony import */ var moment_locale_es__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment_locale_es__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      documentos: {
+        data: []
+      },
+      documento: {
+        table: null,
+        documento_id: 1
+      },
+      per_page: 5,
+      search: '',
+      offset: 3
+    };
+  },
+  computed: {
+    isActived: function isActived() {
+      return this.documentos.current_page;
+    },
+    pagesNumber: function pagesNumber() {
+      if (!this.documentos.to) {
+        return [];
+      }
+
+      var from = this.documentos.current_page - this.offset;
+
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + this.offset * 2;
+
+      if (to >= this.documentos.last_page) {
+        to = this.documentos.last_page;
+      }
+
+      var pagesArray = [];
+
+      while (from <= to) {
+        pagesArray.push(from);
+        from++;
+      }
+
+      return pagesArray;
+    },
+    filter: function filter() {
+      var _this = this;
+
+      return this.documentos.data.filter(function (documento) {
+        return "\n                ".concat(documento.correlativo, " ").concat(documento.asunto).toLowerCase().includes(_this.search.toLowerCase());
+      });
+    }
+  },
+  filters: {
+    moment: function moment(date) {
+      return moment__WEBPACK_IMPORTED_MODULE_0___default()(date);
+    }
+  },
+  mounted: function mounted() {
+    this.documento.tipo_documento_id = this.$route.query.tipo_documento_id;
+    this.getList(1);
+  },
+  methods: {
+    getList: function getList(page) {
+      var _this2 = this;
+
+      axios.get("/api/documentos-pendientes", {
+        params: {
+          user_id: this.$store.state.user.id,
+          tipo_documento_id: this.documento.tipo_documento_id,
+          page: page,
+          per_page: this.per_page
+        }
+      }).then(function (response) {
+        _this2.documentos = response.data;
+      })["catch"](function (error) {
+        console.log(error.response);
+      });
+    },
+    cambiarPagina: function cambiarPagina(page) {
+      if (this.documentos.current_page != page) {
+        this.documentos.current_page = page;
+        this.getList(page);
+      }
+    },
+    reservaSimple: function reservaSimple() {
+      var _this3 = this;
+
+      var titulo = document.getElementById('tipo_documento_id')[document.getElementById('tipo_documento_id').selectedIndex];
+      sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+        title: 'Reserva simple de ' + titulo.text,
+        icon: 'info',
+        input: 'textarea',
+        inputLabel: 'Asunto',
+        inputAttributes: {
+          autocapitalize: 'off',
+          name: 'asunto'
+        },
+        inputValidator: function inputValidator(asunto) {
+          if (!asunto) {
+            return 'El campo asunto es requerido';
+          }
+        },
+        showCancelButton: true,
+        confirmButtonText: 'Reservar documento',
+        cancelButtonText: 'Cancelar',
+        showLoaderOnConfirm: true,
+        preConfirm: function preConfirm(asunto) {
+          return axios.post("/api/documentos", {
+            fecha_emision: null,
+            asunto: asunto,
+            destinatario_id: null,
+            respuesta: null,
+            referencia: null,
+            tipo_documento_id: _this3.documento.tipo_documento_id,
+            table: titulo.dataset.table
+          }).then(function (response) {
+            if (!response) {
+              throw new Error("Error");
+            }
+
+            return response;
+          })["catch"](function (error) {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().showValidationMessage("Error en la petici\xF3n: ".concat(error));
           });
+        },
+        allowOutsideClick: function allowOutsideClick() {
+          return !sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().isLoading();
+        }
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this3.documentos.data.unshift(_objectSpread(_objectSpread({}, result.value.data), {}, {
+            documento_id: "".concat(result.value.data.documento_id),
+            prefix: null,
+            responsable: _this3.$store.state.user.name,
+            estado: 'Pendiente de adjuntar',
+            estado_documento_id: 1
+          }));
+
+          _this3.documentos.total = _this3.documentos.total + 1;
+          sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+            icon: 'success',
+            html: "Documento reservado"
+          });
+        }
+      });
+    },
+    archivar: function archivar(event) {
+      var _this4 = this;
+
+      sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+        title: '¿Desea archivar el documento?',
+        text: "El documento ya no podrá ser modificado",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, archivar'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          axios.put("/api/documentos/".concat(event.target.dataset.id, "/archivar")).then(function (response) {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire('Archivado', 'El documento fue archivado', 'success').then(function (result) {
+              _this4.documentos.data.splice(event.target.dataset.index, 1, _objectSpread(_objectSpread({}, _this4.documentos.data[event.target.dataset.index]), {}, {
+                estado: 'Archivado',
+                estado_documento_id: 3
+              }));
+            });
+          });
+        }
+      });
+    },
+    generar: function generar(event) {
+      var _this5 = this;
+
+      sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+        icon: 'info',
+        title: 'Generando documento...',
+        didOpen: function didOpen() {
+          sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().showLoading();
+        }
+      });
+      axios.post("/api/asignaciones/".concat(event.target.dataset.id, "/generar-pdf")).then(function (response) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+          title: "Documento generado",
+          icon: 'success'
+        }).then(function (result) {
+          _this5.documentos.data.splice(event.target.dataset.index, 1, _objectSpread(_objectSpread({}, _this5.documentos.data[event.target.dataset.index]), {}, {
+            file_url: response.data
+          }));
+        });
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+          title: 'Error',
+          icon: 'error',
+          html: error.response.data.message
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/MisDocumentosComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/MisDocumentosComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var moment_locale_es__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment/locale/es */ "./node_modules/moment/locale/es.js");
+/* harmony import */ var moment_locale_es__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment_locale_es__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      documentos: {
+        data: []
+      },
+      documento: {
+        table: null,
+        documento_id: 1
+      },
+      per_page: 5,
+      search: '',
+      offset: 3
+    };
+  },
+  computed: {
+    isActived: function isActived() {
+      return this.documentos.current_page;
+    },
+    pagesNumber: function pagesNumber() {
+      if (!this.documentos.to) {
+        return [];
+      }
+
+      var from = this.documentos.current_page - this.offset;
+
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + this.offset * 2;
+
+      if (to >= this.documentos.last_page) {
+        to = this.documentos.last_page;
+      }
+
+      var pagesArray = [];
+
+      while (from <= to) {
+        pagesArray.push(from);
+        from++;
+      }
+
+      return pagesArray;
+    },
+    filter: function filter() {
+      var _this = this;
+
+      return this.documentos.data.filter(function (documento) {
+        return "\n                ".concat(documento.correlativo, " ").concat(documento.asunto).toLowerCase().includes(_this.search.toLowerCase());
+      });
+    }
+  },
+  filters: {
+    moment: function moment(date) {
+      return moment__WEBPACK_IMPORTED_MODULE_0___default()(date);
+    }
+  },
+  mounted: function mounted() {
+    this.documento.tipo_documento_id = this.$route.query.tipo_documento_id;
+    this.getList(1);
+  },
+  methods: {
+    getList: function getList(page) {
+      var _this2 = this;
+
+      axios.get("/api/mis-documentos", {
+        params: {
+          user_id: this.$store.state.user.id,
+          tipo_documento_id: this.documento.tipo_documento_id,
+          page: page,
+          per_page: this.per_page
+        }
+      }).then(function (response) {
+        _this2.documentos = response.data;
+      })["catch"](function (error) {
+        console.log(error.response);
+      });
+    },
+    cambiarPagina: function cambiarPagina(page) {
+      if (this.documentos.current_page != page) {
+        this.documentos.current_page = page;
+        this.getList(page);
+      }
+    },
+    reservaSimple: function reservaSimple() {
+      var _this3 = this;
+
+      var titulo = document.getElementById('tipo_documento_id')[document.getElementById('tipo_documento_id').selectedIndex];
+      sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+        title: 'Reserva simple de ' + titulo.text,
+        icon: 'info',
+        input: 'textarea',
+        inputLabel: 'Asunto',
+        inputAttributes: {
+          autocapitalize: 'off',
+          name: 'asunto'
+        },
+        inputValidator: function inputValidator(asunto) {
+          if (!asunto) {
+            return 'El campo asunto es requerido';
+          }
+        },
+        showCancelButton: true,
+        confirmButtonText: 'Reservar documento',
+        cancelButtonText: 'Cancelar',
+        showLoaderOnConfirm: true,
+        preConfirm: function preConfirm(asunto) {
+          return axios.post("/api/documentos", {
+            fecha_emision: null,
+            asunto: asunto,
+            destinatario_id: null,
+            respuesta: null,
+            referencia: null,
+            tipo_documento_id: _this3.documento.tipo_documento_id,
+            table: titulo.dataset.table
+          }).then(function (response) {
+            if (!response) {
+              throw new Error("Error");
+            }
+
+            return response;
+          })["catch"](function (error) {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().showValidationMessage("Error en la petici\xF3n: ".concat(error));
+          });
+        },
+        allowOutsideClick: function allowOutsideClick() {
+          return !sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().isLoading();
+        }
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this3.documentos.data.unshift(_objectSpread(_objectSpread({}, result.value.data), {}, {
+            documento_id: "".concat(result.value.data.documento_id),
+            prefix: null,
+            responsable: _this3.$store.state.user.name,
+            estado: 'Pendiente de adjuntar',
+            estado_documento_id: 1
+          }));
+
+          _this3.documentos.total = _this3.documentos.total + 1;
+          sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+            icon: 'success',
+            html: "Documento reservado"
+          });
+        }
+      });
+    },
+    archivar: function archivar(event) {
+      var _this4 = this;
+
+      sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+        title: '¿Desea archivar el documento?',
+        text: "El documento ya no podrá ser modificado",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, archivar'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          axios.put("/api/documentos/".concat(event.target.dataset.id, "/archivar")).then(function (response) {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire('Archivado', 'El documento fue archivado', 'success').then(function (result) {
+              _this4.documentos.data.splice(event.target.dataset.index, 1, _objectSpread(_objectSpread({}, _this4.documentos.data[event.target.dataset.index]), {}, {
+                estado: 'Archivado',
+                estado_documento_id: 3
+              }));
+            });
+          });
+        }
+      });
+    },
+    generar: function generar(event) {
+      var _this5 = this;
+
+      sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+        icon: 'info',
+        title: 'Generando documento...',
+        didOpen: function didOpen() {
+          sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().showLoading();
+        }
+      });
+      axios.post("/api/asignaciones/".concat(event.target.dataset.id, "/generar-pdf")).then(function (response) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+          title: "Documento generado",
+          icon: 'success'
+        }).then(function (result) {
+          _this5.documentos.data.splice(event.target.dataset.index, 1, _objectSpread(_objectSpread({}, _this5.documentos.data[event.target.dataset.index]), {}, {
+            file_url: response.data
+          }));
+        });
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+          title: 'Error',
+          icon: 'error',
+          html: error.response.data.message
         });
       });
     }
@@ -7983,10 +8743,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "./resources/js/bootstrapadminlte.js":
-/*!*******************************************!*\
-  !*** ./resources/js/bootstrapadminlte.js ***!
-  \*******************************************/
+/***/ "./resources/js/bootstrapdocumentos_dti.js":
+/*!*************************************************!*\
+  !*** ./resources/js/bootstrapdocumentos_dti.js ***!
+  \*************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
@@ -8222,99 +8982,21 @@ vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_0___default().use(vue_router__WEBPACK_I
         title: 'Modificar documento'
       }
     }]
-  },
-  /*
-  {
-  path: '/dictamenes',
-  name: 'dictamenes.index',
-  component: require('./components/documentos/IndexComponent').default,
-  meta: { title: 'Listado de dictámenes'}
-  },
-  {
-  path: '/dictamenes/:id',
-  component: require('./components/RouterView').default,
-  children: [
-  {
-  path: '',
-  name: 'dictamenes.show',
-  component: require('./components/documentos/IndexComponent').default,
-  meta: { title: 'Detalle de dictámen'}
-  },
-  {
-  path: 'upload',
-  name: 'dictamenes.upload',
-  component: require('./components/documentos/UploadFileComponent').default,
-  meta: { title: 'Adjuntar documento'}
-  },
-  {
-  path: 'edit',
-  name: 'dictamenes.edit',
-  component: require('./components/documentos/UploadFileComponent').default,
-  meta: { title: 'Modificar dictámen'}
-  }
-  ]
-  },
-  {
-  path: '/memorandums',
-  name: 'memorandums.index',
-  component: require('./components/documentos/IndexComponent').default,
-  meta: { title: 'Listado de memorandos'}
-  },
-  {
-  path: '/memorandums/:id',
-  component: require('./components/RouterView').default,
-  children: [
-  {
-  path: '',
-  name: 'memorandums.show',
-  component: require('./components/documentos/IndexComponent').default,
-  meta: { title: 'Detalle de memorandúm'}
-  },
-  {
-  path: 'upload',
-  name: 'memorandums.upload',
-  component: require('./components/documentos/UploadFileComponent').default,
-  meta: { title: 'Adjuntar documento'}
-  },
-  {
-  path: 'edit',
-  name: 'memorandums.edit',
-  component: require('./components/documentos/UploadFileComponent').default,
-  meta: { title: 'Modificar memorandúm'}
-  }
-  ]
-  },
-  {
-  path: '/providencias',
-  name: 'providencias.index',
-  component: require('./components/documentos/IndexComponent').default,
-  meta: { title: 'Listado de providencias'}
-  },
-  {
-  path: '/providencias/:id',
-  component: require('./components/RouterView').default,
-  children: [
-  {
-  path: '',
-  name: 'providencias.show',
-  component: require('./components/documentos/IndexComponent').default,
-  meta: { title: 'Listado de providnecias'}
-  },
-  {
-  path: 'upload',
-  name: 'providencias.upload',
-  component: require('./components/documentos/UploadFileComponent').default,
-  meta: { title: 'Adjuntar documento'}
-  },
-  {
-  path: 'edit',
-  name: 'providencias.edit',
-  component: require('./components/documentos/UploadFileComponent').default,
-  meta: { title: 'Modificar providencia'}
-  }
-  ]
-  },*/
-  {
+  }, {
+    path: '/mis-documentos',
+    name: 'mis-documentos.index',
+    component: __webpack_require__(/*! ./components/user/MisDocumentosComponent */ "./resources/js/components/user/MisDocumentosComponent.vue").default,
+    meta: {
+      title: 'Mis documentos'
+    }
+  }, {
+    path: '/documentos-pendientes',
+    name: 'documentos.pendientes',
+    component: __webpack_require__(/*! ./components/user/DocumentosPendientesComponent */ "./resources/js/components/user/DocumentosPendientesComponent.vue").default,
+    meta: {
+      title: 'Documentos pendientes'
+    }
+  }, {
     path: '/reservar',
     name: 'documentos.reservar',
     component: __webpack_require__(/*! ./components/documentos/CreateComponent */ "./resources/js/components/documentos/CreateComponent.vue").default,
@@ -95037,6 +95719,84 @@ component.options.__file = "resources/js/components/documentos/UploadFileCompone
 
 /***/ }),
 
+/***/ "./resources/js/components/user/DocumentosPendientesComponent.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/user/DocumentosPendientesComponent.vue ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DocumentosPendientesComponent_vue_vue_type_template_id_500956ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DocumentosPendientesComponent.vue?vue&type=template&id=500956ea& */ "./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=template&id=500956ea&");
+/* harmony import */ var _DocumentosPendientesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DocumentosPendientesComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _DocumentosPendientesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _DocumentosPendientesComponent_vue_vue_type_template_id_500956ea___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DocumentosPendientesComponent_vue_vue_type_template_id_500956ea___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/user/DocumentosPendientesComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/user/MisDocumentosComponent.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/user/MisDocumentosComponent.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MisDocumentosComponent_vue_vue_type_template_id_651e2610___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MisDocumentosComponent.vue?vue&type=template&id=651e2610& */ "./resources/js/components/user/MisDocumentosComponent.vue?vue&type=template&id=651e2610&");
+/* harmony import */ var _MisDocumentosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MisDocumentosComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/user/MisDocumentosComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _MisDocumentosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _MisDocumentosComponent_vue_vue_type_template_id_651e2610___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MisDocumentosComponent_vue_vue_type_template_id_651e2610___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/user/MisDocumentosComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/user/ProfileComponent.vue":
 /*!***********************************************************!*\
   !*** ./resources/js/components/user/ProfileComponent.vue ***!
@@ -95409,6 +96169,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UploadFileComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UploadFileComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/documentos/UploadFileComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UploadFileComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentosPendientesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DocumentosPendientesComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentosPendientesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/user/MisDocumentosComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/user/MisDocumentosComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MisDocumentosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MisDocumentosComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/MisDocumentosComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MisDocumentosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -95858,6 +96650,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=template&id=500956ea&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=template&id=500956ea& ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentosPendientesComponent_vue_vue_type_template_id_500956ea___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentosPendientesComponent_vue_vue_type_template_id_500956ea___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentosPendientesComponent_vue_vue_type_template_id_500956ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DocumentosPendientesComponent.vue?vue&type=template&id=500956ea& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=template&id=500956ea&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/user/MisDocumentosComponent.vue?vue&type=template&id=651e2610&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/user/MisDocumentosComponent.vue?vue&type=template&id=651e2610& ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MisDocumentosComponent_vue_vue_type_template_id_651e2610___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MisDocumentosComponent_vue_vue_type_template_id_651e2610___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MisDocumentosComponent_vue_vue_type_template_id_651e2610___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MisDocumentosComponent.vue?vue&type=template&id=651e2610& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/MisDocumentosComponent.vue?vue&type=template&id=651e2610&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/user/ProfileComponent.vue?vue&type=template&id=91696406&":
 /*!******************************************************************************************!*\
   !*** ./resources/js/components/user/ProfileComponent.vue?vue&type=template&id=91696406& ***!
@@ -95968,11 +96794,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "content-header" }, [
       _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
+        _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", { staticClass: "m-0 text-dark" }, [
-              _vm._v("Página de inicio")
-            ])
+            _c("h1", { staticClass: "m-0 text-dark" }, [_vm._v("Dashboard")])
           ])
         ])
       ])
@@ -100113,16 +100937,13 @@ var render = function() {
               },
               [
                 _c(
-                  "router-link",
+                  "a",
                   {
                     staticClass: "text-muted",
-                    attrs: {
-                      title: "Regresar",
-                      to: {
-                        name: "documentos.index",
-                        query: {
-                          tipo_documento_id: _vm.documento.tipo_documento_id
-                        }
+                    attrs: { href: "#", title: "Regresar" },
+                    on: {
+                      click: function($event) {
+                        return _vm.$router.go(-1)
                       }
                     }
                   },
@@ -100154,7 +100975,10 @@ var render = function() {
                         }
                       ],
                       staticClass: "custom-select",
-                      attrs: { name: "type", id: "type" },
+                      attrs: {
+                        name: "tipo_documento_id",
+                        id: "tipo_documento_id"
+                      },
                       on: {
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -100176,21 +101000,29 @@ var render = function() {
                       }
                     },
                     [
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("Oficio")
-                      ]),
+                      _c(
+                        "option",
+                        { attrs: { value: "1", "data-table": "oficios" } },
+                        [_vm._v("Oficio")]
+                      ),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [
-                        _vm._v("Dictámen")
-                      ]),
+                      _c(
+                        "option",
+                        { attrs: { value: "2", "data-table": "dictamenes" } },
+                        [_vm._v("Dictámen Técnico")]
+                      ),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "3" } }, [
-                        _vm._v("Memorando")
-                      ]),
+                      _c(
+                        "option",
+                        { attrs: { value: "3", "data-table": "memorandums" } },
+                        [_vm._v("Memorándum")]
+                      ),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "4" } }, [
-                        _vm._v("Providencia")
-                      ])
+                      _c(
+                        "option",
+                        { attrs: { value: "4", "data-table": "providencias" } },
+                        [_vm._v("Providencia")]
+                      )
                     ]
                   )
                 ]),
@@ -100502,8 +101334,7 @@ var render = function() {
                   : _vm._e(),
                 _vm._v(" "),
                 _vm._m(2)
-              ],
-              1
+              ]
             )
           ])
         ])
@@ -100598,16 +101429,13 @@ var render = function() {
               },
               [
                 _c(
-                  "router-link",
+                  "a",
                   {
                     staticClass: "text-muted",
-                    attrs: {
-                      title: "Regresar",
-                      to: {
-                        name: "documentos.index",
-                        query: {
-                          tipo_documento_id: _vm.documento.tipo_documento_id
-                        }
+                    attrs: { href: "#", title: "Regresar" },
+                    on: {
+                      click: function($event) {
+                        return _vm.$router.go(-1)
                       }
                     }
                   },
@@ -100668,7 +101496,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "3" } }, [
-                        _vm._v("Memorando")
+                        _vm._v("Memorándum")
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "4" } }, [
@@ -100972,9 +101800,10 @@ var render = function() {
                     ])
                   : _vm._e(),
                 _vm._v(" "),
-                _vm._m(2)
-              ],
-              1
+                _vm._m(2),
+                _vm._v(" "),
+                _vm._m(3)
+              ]
             )
           ])
         ])
@@ -101002,6 +101831,24 @@ var staticRenderFns = [
         "\n                            \tReferencia\n                            \t"
       ),
       _c("small", [_vm._v("(opcional)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group mt-3" }, [
+      _c("label", { attrs: { for: "file" } }, [
+        _vm._v(
+          "\n                                Adjuntar pdf firmado\n                                "
+        ),
+        _c("small", [_vm._v("(opcional)")])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "file", id: "file", name: "file" }
+      })
     ])
   },
   function() {
@@ -101071,11 +101918,885 @@ var render = function() {
               attrs: {
                 to: {
                   name: "documentos.reservar",
-                  query: {
-                    type: "documentos",
-                    title: "documento",
-                    tipo_documento_id: _vm.documento.tipo_documento_id
+                  query: { tipo_documento_id: _vm.documento.tipo_documento_id }
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "fas fa-hand-point-up fa-lg mr-2" }),
+              _vm._v("\n                Reserva completa\n            ")
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "form-row" }, [
+                _c("div", { staticClass: "form-group col-md-2" }, [
+                  _c("label", { attrs: { for: "tipo_documento_id" } }, [
+                    _vm._v("Documento")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.documento.tipo_documento_id,
+                          expression: "documento.tipo_documento_id"
+                        }
+                      ],
+                      staticClass: "custom-select",
+                      attrs: {
+                        name: "tipo_documento_id",
+                        id: "tipo_documento_id"
+                      },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.documento,
+                              "tipo_documento_id",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.getList(1)
+                          }
+                        ]
+                      }
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { value: "1", "data-table": "oficios" } },
+                        [_vm._v("Oficios")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "2", "data-table": "dictamenes" } },
+                        [_vm._v("Dictámenes")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "3", "data-table": "memorandums" } },
+                        [_vm._v("Memorandos")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "4", "data-table": "providencias" } },
+                        [_vm._v("Providencias")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-2" }, [
+                  _c(
+                    "label",
+                    { attrs: { id: "per_page", for: "inputPassword4" } },
+                    [_vm._v("Mostrar")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.per_page,
+                          expression: "per_page"
+                        }
+                      ],
+                      staticClass: "custom-select",
+                      attrs: { id: "per_page" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.per_page = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          function($event) {
+                            return _vm.getList(1)
+                          }
+                        ]
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "5" } }, [
+                        _vm._v("5 registros")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "10" } }, [
+                        _vm._v("10 registros")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "25" } }, [
+                        _vm._v("25 registros")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "50" } }, [
+                        _vm._v("50 registros")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "100" } }, [
+                        _vm._v("100 registros")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { domProps: { value: _vm.documentos.total } },
+                        [_vm._v("todos los registros")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.documentos.total > 10,
+                        expression: "documentos.total > 10"
+                      }
+                    ],
+                    staticClass: "form-group col-md-8"
+                  },
+                  [
+                    _c("label", { attrs: { for: "search" } }, [
+                      _vm._v("Filtrar")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.search,
+                          expression: "search"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "search", id: "search" },
+                      domProps: { value: _vm.search },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.search = $event.target.value
+                        }
+                      }
+                    })
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm.documentos.total > 0
+            ? _c("table", { staticClass: "table table-hover table-bordered" }, [
+                _c("caption", [
+                  _vm._v(
+                    "\n                    Mostrando registros del " +
+                      _vm._s(_vm.documentos.from) +
+                      " al " +
+                      _vm._s(_vm.documentos.to) +
+                      " de un total de " +
+                      _vm._s(_vm.documentos.total) +
+                      " registros \n                    "
+                  ),
+                  _c("nav", { attrs: { "aria-label": "..." } }, [
+                    _c(
+                      "ul",
+                      { staticClass: "pagination justify-content-center" },
+                      [
+                        _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            class: {
+                              disabled: _vm.documentos.current_page == 1
+                            }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: {
+                                  href: "#",
+                                  tabindex: "-1",
+                                  "aria-disabled": "true"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.cambiarPagina(
+                                      _vm.documentos.current_page - 1
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    Anterior\n                                "
+                                )
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(_vm.pagesNumber, function(page) {
+                          return _c(
+                            "li",
+                            {
+                              staticClass: "page-item",
+                              class: { active: page == _vm.isActived }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: { href: "#" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.cambiarPagina(page)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(page) +
+                                      "\n                                "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            class: {
+                              disabled:
+                                _vm.documentos.current_page ==
+                                _vm.documentos.last_page
+                            }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.cambiarPagina(
+                                      _vm.documentos.current_page + 1
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    Siguiente\n                                "
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ],
+                      2
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.filter, function(documento, index) {
+                    return _c(
+                      "tr",
+                      {
+                        class: {
+                          "table-warning": documento.estado_documento_id == 1
+                        }
+                      },
+                      [
+                        _c("th", { attrs: { scope: "row" } }, [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(documento.correlativo) +
+                              "\n                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(documento.asunto) +
+                              "\n                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(documento.responsable))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm
+                                ._f("moment")(documento.created_at)
+                                .format("LLL")
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("i", {
+                            staticClass: "fa fa-bell",
+                            class: {
+                              "text-danger": documento.estado_documento_id == 1,
+                              "text-success":
+                                documento.estado_documento_id == 2,
+                              "text-secondary":
+                                documento.estado_documento_id == 3
+                            }
+                          }),
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(documento.estado) +
+                              "\n                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("div", { staticClass: "btn-group dropleft" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-secondary dropdown-toggle",
+                                attrs: {
+                                  type: "button",
+                                  "data-toggle": "dropdown",
+                                  "aria-haspopup": "true",
+                                  "aria-expanded": "false"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    Opciones\n                                "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "dropdown-menu" },
+                              [
+                                documento.estado_documento_id == 1
+                                  ? _c(
+                                      "button",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          "data-id": documento.id,
+                                          "data-index": index
+                                        },
+                                        on: { click: _vm.generar }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-spinner fa-lg fa-fw text-secondary",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Generar documento",
+                                            "data-id": documento.id,
+                                            "data-index": index
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Generar documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.estado_documento_id == 1
+                                  ? _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          to: {
+                                            name: "documentos.edit",
+                                            params: { id: documento.id }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-edit fa-lg fa-fw text-primary",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Modificar documento"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Modificar documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.estado_documento_id == 1
+                                  ? _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          to: {
+                                            name: "documentos.upload",
+                                            params: { id: documento.id },
+                                            query: {
+                                              directory: documento.directory
+                                            }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-upload fa-lg fa-fw text-success",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Subir documento"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Subir documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.file_referencia_url
+                                  ? _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          target: "_blank",
+                                          href: documento.file_referencia_url
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-file-pdf fa-lg fa-fw text-danger",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Descargar referencia"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Descargar referencia\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.file_url
+                                  ? _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          target: "_blank",
+                                          href: documento.file_url
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-file-pdf fa-lg fa-fw text-danger",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Descargar documento"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Descargar documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.estado_documento_id == 2
+                                  ? _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          to: {
+                                            name: "documentos.upload",
+                                            params: { id: documento.id },
+                                            query: {
+                                              directory: documento.directory
+                                            }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-upload fa-lg fa-fw text-success",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Reemplazar documento"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Reemplazar documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.estado_documento_id == 2 &&
+                                documento.file != null
+                                  ? _c(
+                                      "button",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          "data-id": documento.id,
+                                          "data-index": index
+                                        },
+                                        on: { click: _vm.archivar }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-archive fa-lg fa-fw text-secondary",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Reemplazar documento",
+                                            "data-id": documento.id,
+                                            "data-index": index
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Archivar documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ])
+            : _c("blockquote", { staticClass: "quote-info mt-0" }, [
+                _c("h5", [_vm._v("No hemos encontrado documentos")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                    Es posible que no tenga los permisos suficientes para visualizar los documentos.\n                "
+                  )
+                ])
+              ])
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", [_vm._v("Listado general de documentos")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-light" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Correlativo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Asunto")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Reservado por")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("Fecha y hora de reservación")
+        ]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/documentos/UploadFileComponent.vue?vue&type=template&id=0f32bd0a&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/documentos/UploadFileComponent.vue?vue&type=template&id=0f32bd0a& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "content-header" }, [
+      _c(
+        "a",
+        {
+          staticClass: "text-muted",
+          attrs: { href: "#", title: "Regresar" },
+          on: {
+            click: function($event) {
+              return _vm.$router.go(-1)
+            }
+          }
+        },
+        [_c("i", { staticClass: "fas fa-arrow-left fa-lg" })]
+      ),
+      _vm._v(" "),
+      _c("h1", [_vm._v("Adjuntar pdf al documento:")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "content" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("h3", [
+              _vm._v(
+                "\n\t\t\t\t\t\t" +
+                  _vm._s(_vm.documento.correlativo) +
+                  "\n\t\t\t\t\t"
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-muted" }, [
+              _c("p", { staticClass: "text-sm" }, [
+                _vm._v("Asunto\n\t\t\t\t\t\t\t"),
+                _c("b", { staticClass: "d-block" }, [
+                  _vm._v(_vm._s(_vm.documento.asunto))
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-3" }, [
+            _c(
+              "form",
+              {
+                attrs: { id: "form", enctype: "multipart/form-data" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.submit($event)
                   }
+                }
+              },
+              [
+                _c("input", {
+                  attrs: { type: "hidden", name: "_method", value: "PUT" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _c("div", { staticClass: "custom-file" }, [
+                    _c("input", {
+                      staticClass: "custom-file-input",
+                      attrs: {
+                        type: "file",
+                        id: "pdf",
+                        name: "pdf",
+                        "aria-describedby": "inputGroupFileAddon01"
+                      },
+                      on: { change: _vm.setUrlLocal }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-file-label",
+                        attrs: { for: "pdf" }
+                      },
+                      [_vm._v("Buscar pdf")]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "submit", disabled: _vm.src == null }
+                  },
+                  [
+                    _c("i", { staticClass: "fas fa-upload fa-lg" }),
+                    _vm._v("\n\t\t\t\t\t\t\tSubir pdf\n\t\t\t\t\t\t")
+                  ]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: (_vm.src != null) | (_vm.documento.file_url != null),
+                  expression: "src != null | documento.file_url != null"
+                }
+              ],
+              staticClass: "col-md-9"
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "embed-responsive embed-responsive-16by9" },
+                [
+                  _c("iframe", {
+                    staticClass: "embed-responsive-item",
+                    attrs: {
+                      src: _vm.src ? _vm.src : _vm.documento.file_url,
+                      allowfullscreen: ""
+                    }
+                  })
+                ]
+              )
+            ]
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=template&id=500956ea&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/DocumentosPendientesComponent.vue?vue&type=template&id=500956ea& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "content" }, [
+      _c(
+        "div",
+        { staticClass: "container-fluid" },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-primary ml-2 mb-3",
+              on: { click: _vm.reservaSimple }
+            },
+            [
+              _c("i", { staticClass: "fas fa-bell fa-lg mr-2" }),
+              _vm._v("\n                Reserva simple\n            ")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-outline-primary ml-2 mb-3",
+              attrs: {
+                to: {
+                  name: "documentos.reservar",
+                  query: { tipo_documento_id: _vm.documento.tipo_documento_id }
                 }
               }
             },
@@ -101397,7 +103118,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.documentos.data, function(documento, index) {
+                  _vm._l(_vm.filter, function(documento, index) {
                     return _c(
                       "tr",
                       {
@@ -101407,18 +103128,9 @@ var render = function() {
                       },
                       [
                         _c("th", { attrs: { scope: "row" } }, [
-                          _vm._v(_vm._s(documento.id))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
                           _vm._v(
-                            "\n                            DTI-" +
-                              _vm._s(
-                                documento.prefix ? documento.prefix + "-" : ""
-                              ) +
-                              _vm._s(documento.documento_id) +
-                              "-" +
-                              _vm._s(documento.anio) +
+                            "\n                            " +
+                              _vm._s(documento.correlativo) +
                               "\n                        "
                           )
                         ]),
@@ -101551,7 +103263,10 @@ var render = function() {
                                         attrs: {
                                           to: {
                                             name: "documentos.upload",
-                                            params: { id: documento.id }
+                                            params: { id: documento.id },
+                                            query: {
+                                              directory: documento.directory
+                                            }
                                           }
                                         }
                                       },
@@ -101587,7 +103302,7 @@ var render = function() {
                                             "fas fa-file-pdf fa-lg fa-fw text-danger",
                                           attrs: {
                                             role: "button",
-                                            title: "Reemplazar documento"
+                                            title: "Descargar referencia"
                                           }
                                         }),
                                         _vm._v(
@@ -101613,7 +103328,7 @@ var render = function() {
                                             "fas fa-file-pdf fa-lg fa-fw text-danger",
                                           attrs: {
                                             role: "button",
-                                            title: "Reemplazar documento"
+                                            title: "Descargar documento"
                                           }
                                         }),
                                         _vm._v(
@@ -101631,7 +103346,725 @@ var render = function() {
                                         attrs: {
                                           to: {
                                             name: "documentos.upload",
+                                            params: { id: documento.id },
+                                            query: {
+                                              directory: documento.directory
+                                            }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-upload fa-lg fa-fw text-success",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Reemplazar documento"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Reemplazar documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.estado_documento_id == 2 &&
+                                documento.file != null
+                                  ? _c(
+                                      "button",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          "data-id": documento.id,
+                                          "data-index": index
+                                        },
+                                        on: { click: _vm.archivar }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-archive fa-lg fa-fw text-secondary",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Reemplazar documento",
+                                            "data-id": documento.id,
+                                            "data-index": index
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Archivar documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ])
+            : _c("blockquote", { staticClass: "quote-info mt-0" }, [
+                _c("h5", [_vm._v("No hemos encontrado documentos")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                    Usted no tiene ningún documento pendiente de adjuntar\n                "
+                  )
+                ])
+              ])
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", [_vm._v("Documentos pendientes de adjuntar pdf")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-light" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Correlativo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Asunto")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Reservado por")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("Fecha y hora de reservación")
+        ]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/MisDocumentosComponent.vue?vue&type=template&id=651e2610&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/user/MisDocumentosComponent.vue?vue&type=template&id=651e2610& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "content" }, [
+      _c(
+        "div",
+        { staticClass: "container-fluid" },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-primary ml-2 mb-3",
+              on: { click: _vm.reservaSimple }
+            },
+            [
+              _c("i", { staticClass: "fas fa-bell fa-lg mr-2" }),
+              _vm._v("\n                Reserva simple\n            ")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-outline-primary ml-2 mb-3",
+              attrs: {
+                to: {
+                  name: "documentos.reservar",
+                  query: { tipo_documento_id: _vm.documento.tipo_documento_id }
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "fas fa-hand-point-up fa-lg mr-2" }),
+              _vm._v("\n                Reserva completa\n            ")
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "form-row" }, [
+                _c("div", { staticClass: "form-group col-md-2" }, [
+                  _c("label", { attrs: { for: "tipo_documento_id" } }, [
+                    _vm._v("Documento")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.documento.tipo_documento_id,
+                          expression: "documento.tipo_documento_id"
+                        }
+                      ],
+                      staticClass: "custom-select",
+                      attrs: {
+                        name: "tipo_documento_id",
+                        id: "tipo_documento_id"
+                      },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.documento,
+                              "tipo_documento_id",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.getList(1)
+                          }
+                        ]
+                      }
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { value: "1", "data-table": "oficios" } },
+                        [_vm._v("Oficios")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "2", "data-table": "dictamenes" } },
+                        [_vm._v("Dictámenes")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "3", "data-table": "memorandums" } },
+                        [_vm._v("Memorandos")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "4", "data-table": "providencias" } },
+                        [_vm._v("Providencias")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-md-2" }, [
+                  _c(
+                    "label",
+                    { attrs: { id: "per_page", for: "inputPassword4" } },
+                    [_vm._v("Mostrar")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.per_page,
+                          expression: "per_page"
+                        }
+                      ],
+                      staticClass: "custom-select",
+                      attrs: { id: "per_page" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.per_page = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          function($event) {
+                            return _vm.getList(1)
+                          }
+                        ]
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "5" } }, [
+                        _vm._v("5 registros")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "10" } }, [
+                        _vm._v("10 registros")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "25" } }, [
+                        _vm._v("25 registros")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "50" } }, [
+                        _vm._v("50 registros")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "100" } }, [
+                        _vm._v("100 registros")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { domProps: { value: _vm.documentos.total } },
+                        [_vm._v("todos los registros")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.documentos.total > 10,
+                        expression: "documentos.total > 10"
+                      }
+                    ],
+                    staticClass: "form-group col-md-8"
+                  },
+                  [
+                    _c("label", { attrs: { for: "search" } }, [
+                      _vm._v("Filtrar")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.search,
+                          expression: "search"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "search", id: "search" },
+                      domProps: { value: _vm.search },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.search = $event.target.value
+                        }
+                      }
+                    })
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm.documentos.total > 0
+            ? _c("table", { staticClass: "table table-hover table-bordered" }, [
+                _c("caption", [
+                  _c("nav", { attrs: { "aria-label": "..." } }, [
+                    _c(
+                      "ul",
+                      { staticClass: "pagination justify-content-center" },
+                      [
+                        _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            class: {
+                              disabled: _vm.documentos.current_page == 1
+                            }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: {
+                                  href: "#",
+                                  tabindex: "-1",
+                                  "aria-disabled": "true"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.cambiarPagina(
+                                      _vm.documentos.current_page - 1
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    Anterior\n                                "
+                                )
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(_vm.pagesNumber, function(page) {
+                          return _c(
+                            "li",
+                            {
+                              staticClass: "page-item",
+                              class: { active: page == _vm.isActived }
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: { href: "#" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.cambiarPagina(page)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(page) +
+                                      "\n                                "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            class: {
+                              disabled:
+                                _vm.documentos.current_page ==
+                                _vm.documentos.last_page
+                            }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.cambiarPagina(
+                                      _vm.documentos.current_page + 1
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    Siguiente\n                                "
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ],
+                      2
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.filter, function(documento, index) {
+                    return _c(
+                      "tr",
+                      {
+                        class: {
+                          "table-warning": documento.estado_documento_id == 1
+                        }
+                      },
+                      [
+                        _c("th", { attrs: { scope: "row" } }, [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(documento.correlativo) +
+                              "\n                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(documento.asunto) +
+                              "\n                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(documento.responsable))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              _vm
+                                ._f("moment")(documento.created_at)
+                                .format("LLL")
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("i", {
+                            staticClass: "fa fa-bell",
+                            class: {
+                              "text-danger": documento.estado_documento_id == 1,
+                              "text-success":
+                                documento.estado_documento_id == 2,
+                              "text-secondary":
+                                documento.estado_documento_id == 3
+                            }
+                          }),
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(documento.estado) +
+                              "\n                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("div", { staticClass: "btn-group dropleft" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-secondary dropdown-toggle",
+                                attrs: {
+                                  type: "button",
+                                  "data-toggle": "dropdown",
+                                  "aria-haspopup": "true",
+                                  "aria-expanded": "false"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    Opciones\n                                "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "dropdown-menu" },
+                              [
+                                documento.estado_documento_id == 1
+                                  ? _c(
+                                      "button",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          "data-id": documento.id,
+                                          "data-index": index
+                                        },
+                                        on: { click: _vm.generar }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-spinner fa-lg fa-fw text-secondary",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Generar documento",
+                                            "data-id": documento.id,
+                                            "data-index": index
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Generar documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.estado_documento_id == 1
+                                  ? _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          to: {
+                                            name: "documentos.edit",
                                             params: { id: documento.id }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-edit fa-lg fa-fw text-primary",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Modificar documento"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Modificar documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.estado_documento_id == 1
+                                  ? _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          to: {
+                                            name: "documentos.upload",
+                                            params: { id: documento.id },
+                                            query: {
+                                              directory: documento.directory
+                                            }
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-upload fa-lg fa-fw text-success",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Subir documento"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Subir documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.file_referencia_url
+                                  ? _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          target: "_blank",
+                                          href: documento.file_referencia_url
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-file-pdf fa-lg fa-fw text-danger",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Descargar referencia"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Descargar referencia\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.file_url
+                                  ? _c(
+                                      "a",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          target: "_blank",
+                                          href: documento.file_url
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-file-pdf fa-lg fa-fw text-danger",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Descargar documento"
+                                          }
+                                        }),
+                                        _vm._v(
+                                          "\n                                        Descargar documento\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                documento.estado_documento_id == 2
+                                  ? _c(
+                                      "router-link",
+                                      {
+                                        staticClass: "dropdown-item",
+                                        attrs: {
+                                          to: {
+                                            name: "documentos.upload",
+                                            params: { id: documento.id },
+                                            query: {
+                                              directory: documento.directory
+                                            }
                                           }
                                         }
                                       },
@@ -101714,7 +104147,9 @@ var staticRenderFns = [
     return _c("div", { staticClass: "content-header" }, [
       _c("div", { staticClass: "container-fluid" }, [
         _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" })
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", [_vm._v("Documentos que he reservado")])
+          ])
         ])
       ])
     ])
@@ -101725,8 +104160,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
-        _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Correlativo")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Asunto")]),
@@ -101741,156 +104174,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } })
       ])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/documentos/UploadFileComponent.vue?vue&type=template&id=0f32bd0a&":
-/*!******************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/documentos/UploadFileComponent.vue?vue&type=template&id=0f32bd0a& ***!
-  \******************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "content" }, [
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("h3", [
-              _vm._v(
-                "\n\t\t\t\t\t\tDTI-" +
-                  _vm._s(_vm.documento.prefix) +
-                  _vm._s(this.documento.documento_id) +
-                  "-" +
-                  _vm._s(this.documento.anio) +
-                  "\n\t\t\t\t\t"
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-muted" }, [
-              _c("p", { staticClass: "text-sm" }, [
-                _vm._v("Asunto\n\t\t\t\t\t\t\t"),
-                _c("b", { staticClass: "d-block" }, [
-                  _vm._v(_vm._s(_vm.documento.asunto))
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c(
-              "form",
-              {
-                attrs: { id: "form", enctype: "multipart/form-data" },
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.submit($event)
-                  }
-                }
-              },
-              [
-                _c("input", {
-                  attrs: { type: "hidden", name: "_method", value: "PUT" }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group mb-3" }, [
-                  _c("div", { staticClass: "custom-file" }, [
-                    _c("input", {
-                      staticClass: "custom-file-input",
-                      attrs: {
-                        type: "file",
-                        id: "pdf",
-                        name: "pdf",
-                        "aria-describedby": "inputGroupFileAddon01"
-                      },
-                      on: { change: _vm.setUrlLocal }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-file-label",
-                        attrs: { for: "pdf" }
-                      },
-                      [_vm._v("Buscar documento")]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { type: "submit", disabled: _vm.src == null }
-                  },
-                  [
-                    _c("i", { staticClass: "fas fa-upload fa-lg" }),
-                    _vm._v("\n\t\t\t\t\t\t\tSubir documento\n\t\t\t\t\t\t")
-                  ]
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: (_vm.src != null) | (_vm.documento.file_url != null),
-                  expression: "src != null | documento.file_url != null"
-                }
-              ],
-              staticClass: "col-md-9"
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "embed-responsive embed-responsive-16by9" },
-                [
-                  _c("iframe", {
-                    staticClass: "embed-responsive-item",
-                    attrs: {
-                      src: _vm.src ? _vm.src : _vm.documento.file_url,
-                      allowfullscreen: ""
-                    }
-                  })
-                ]
-              )
-            ]
-          )
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-header" }, [
-      _c("h1", [_vm._v("Adjuntar documento")])
     ])
   }
 ]
@@ -119706,9 +121989,9 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/*!**********************************!*\
-  !*** ./resources/js/adminlte.js ***!
-  \**********************************/
+/*!****************************************!*\
+  !*** ./resources/js/documentos_dti.js ***!
+  \****************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 /* harmony import */ var _vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vuex */ "./resources/js/vuex.js");
@@ -119717,7 +122000,7 @@ __webpack_require__.r(__webpack_exports__);
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrapadminlte */ "./resources/js/bootstrapadminlte.js");
+__webpack_require__(/*! ./bootstrapdocumentos_dti */ "./resources/js/bootstrapdocumentos_dti.js");
 
 window.Vue = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist/vue.js");
 /**
@@ -119738,20 +122021,18 @@ window.Vue = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist
  */
 
 
+
 _router__WEBPACK_IMPORTED_MODULE_0__.default.beforeEach(function (to, from, next) {
   document.title = to.meta.title;
   next();
 });
-
 var app = new Vue({
   el: '#wrapper',
   router: _router__WEBPACK_IMPORTED_MODULE_0__.default,
   store: _vuex__WEBPACK_IMPORTED_MODULE_1__.default,
   mounted: function mounted() {
-    var _this = this;
-
     axios.get('/api/user').then(function (response) {
-      _this.$store.commit('setUser', response.data);
+      _vuex__WEBPACK_IMPORTED_MODULE_1__.default.commit('setUser', response.data);
     });
   }
 });

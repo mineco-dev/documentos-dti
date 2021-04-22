@@ -71,6 +71,10 @@ Route::prefix('documentos')->middleware(['auth:api'])->group(function () {
 	Route::post('{id}/generar', [App\Http\Controllers\DocumentoController::class, 'generar']);
 });
 
+Route::get('mis-documentos', [App\Http\Controllers\Auth\UserController::class, 'misDocumentos']);
+
+Route::get('documentos-pendientes', [App\Http\Controllers\DocumentoController::class, 'documentosPendientes']);
+
 Route::prefix('asignaciones')->middleware(['auth:api'])->group(function () {
 	Route::post('{id}/generar-pdf', [App\Http\Controllers\AsignacionController::class, 'generarPdf']);
 });

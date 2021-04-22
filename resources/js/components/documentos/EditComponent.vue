@@ -10,9 +10,9 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <form autocomplete="off" enctype="multipart/form-data" class="shadow-lg p-3 mb-5 bg-white rounded" id="form" v-on:submit.prevent="submit">
-                            <router-link class="text-muted" title="Regresar" :to="{ name: 'documentos.index', query: { tipo_documento_id: documento.tipo_documento_id } }">
+                            <a class="text-muted" href="#" title="Regresar" v-on:click="$router.go(-1)">
                                 <i class="fas fa-arrow-left fa-lg"></i>
-                            </router-link>
+                            </a>
                             <input type="hidden" name="_method" value="PUT">
                             <div class="form-group mt-3">
                                 <label for="tipo_documento_id">
@@ -21,7 +21,7 @@
                                 <select class="custom-select" v-model="documento.tipo_documento_id" disabled>
                                     <option value="1">Oficio</option>
                                     <option value="2">Dictámen</option>
-                                    <option value="3">Memorando</option>
+                                    <option value="3">Memorándum</option>
                                     <option value="4">Providencia</option>
                                 </select>
                             </div>
@@ -72,6 +72,13 @@
                                 <small id="file_referencia_help" class="form-text text-muted">
                                     Pdf del documento al que se la dará respuesta
                                 </small>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="file">
+                                    Adjuntar pdf firmado
+                                    <small>(opcional)</small>
+                                </label>
+                                <input type="file" class="form-control" id="file" name="file">
                             </div>
                             <div class="form-group mb-3">
                                 <button type="submit" class="btn btn-primary">
@@ -150,9 +157,7 @@
                                 title: 'Registro actualizado'
                             })
                             .then(result => {
-                                this.$router.push({name: 'documentos.index', query: {
-                                    tipo_documento_id: documento.tipo_documento_id
-                                }})
+                                this.$router.go(-1)
                             })
                         })
                         .catch(error => {

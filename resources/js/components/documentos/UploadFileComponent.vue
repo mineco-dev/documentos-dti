@@ -1,14 +1,17 @@
 <template>
 	<div>
 		<div class="content-header">
-			<h1>Adjuntar documento</h1>
+			<a class="text-muted" href="#" title="Regresar" v-on:click="$router.go(-1)">
+				<i class="fas fa-arrow-left fa-lg"></i>
+			</a>
+			<h1>Adjuntar pdf al documento:</h1>
 		</div>
 		<div class="content">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
 						<h3>
-							DTI-{{documento.prefix}}{{this.documento.documento_id}}-{{this.documento.anio}}
+							{{ documento.correlativo }}
 						</h3>
 						<div class="text-muted">
 							<p class="text-sm">Asunto
@@ -22,12 +25,12 @@
 							<div class="input-group mb-3">
 								<div class="custom-file">
 									<input type="file" class="custom-file-input" id="pdf" name="pdf" aria-describedby="inputGroupFileAddon01" v-on:change="setUrlLocal">
-									<label class="custom-file-label" for="pdf">Buscar documento</label>
+									<label class="custom-file-label" for="pdf">Buscar pdf</label>
 								</div>
 							</div>
 							<button class="btn btn-primary" type="submit" v-bind:disabled="src == null">
 								<i class="fas fa-upload fa-lg"></i>
-								Subir documento
+								Subir pdf
 							</button>
 						</form>
 					</div>
@@ -56,7 +59,7 @@
 		},
 		mounted() {
 			axios.get(`/api/documentos/${this.$route.params.id}?type=flat`)
-				.then(response => this.documento = response.data)
+			.then(response => this.documento = response.data)
 		},
 		methods: {
 			setUrlLocal(event) {
@@ -69,15 +72,12 @@
 				}
 			},
 			submit() {
-				axios.post(`/api/documentos/${this.documento.id}/upload`, new FormData(document.getElementById('form')))
+				axios.post(`/api/documentos/${this.documento.id}/upload?directory=${this.$route.query.directory}`, new FormData(document.getElementById('form')))
 				.then(response => {
 					Swal.fire({
 						icon: 'success',
 						title: 'Documento cargado',
 						text: response.data
-					})
-					.then(result => {
-						this.$router.push({name: 'documentos.index'})
 					})
 				})
 			}

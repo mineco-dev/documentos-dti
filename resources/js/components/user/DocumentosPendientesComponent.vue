@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Listado general de documentos</h1>
+                        <h1>Documentos pendientes de adjuntar pdf</h1>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,6 @@
                 </div>
                 <table class="table table-hover table-bordered" v-if="documentos.total > 0">
                     <caption>
-                        Mostrando registros del {{ documentos.from }} al {{ documentos.to }} de un total de {{ documentos.total }} registros 
                         <nav aria-label="...">
                             <ul class="pagination justify-content-center">
                                 <li class="page-item" v-bind:class="{'disabled': documentos.current_page == 1}">
@@ -140,7 +139,7 @@
                 <blockquote class="quote-info mt-0" v-else>
                     <h5>No hemos encontrado documentos</h5>
                     <p>
-                        Es posible que no tenga los permisos suficientes para visualizar los documentos.
+                        Usted no tiene ningún documento pendiente de adjuntar
                     </p>
                 </blockquote>
             </div>
@@ -207,7 +206,7 @@
         },
         methods: {
             getList(page) {
-                axios.get(`/api/documentos`, {
+                axios.get(`/api/documentos-pendientes`, {
                     params: {
                         user_id: this.$store.state.user.id,
                         tipo_documento_id: this.documento.tipo_documento_id,
@@ -311,7 +310,7 @@
                             this.documentos.data.splice(event.target.dataset.index, 1, {
                                 ...this.documentos.data[event.target.dataset.index],
                                 estado: 'Archivado',
-                                estado_documento_id: 3,
+                                estado_documento_id: 3
                             })
                         })
                     })

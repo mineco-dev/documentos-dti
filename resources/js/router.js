@@ -169,97 +169,19 @@ export default new Router({
 			meta: { title: 'Modificar documento'}
 		}
 		]
-	},/*
-	{
-		path: '/dictamenes',
-		name: 'dictamenes.index',
-		component: require('./components/documentos/IndexComponent').default,
-		meta: { title: 'Listado de dictámenes'}
 	},
 	{
-		path: '/dictamenes/:id',
-		component: require('./components/RouterView').default,
-		children: [
-		{
-			path: '',
-			name: 'dictamenes.show',
-			component: require('./components/documentos/IndexComponent').default,
-			meta: { title: 'Detalle de dictámen'}
-		},
-		{
-			path: 'upload',
-			name: 'dictamenes.upload',
-			component: require('./components/documentos/UploadFileComponent').default,
-			meta: { title: 'Adjuntar documento'}
-		},
-		{
-			path: 'edit',
-			name: 'dictamenes.edit',
-			component: require('./components/documentos/UploadFileComponent').default,
-			meta: { title: 'Modificar dictámen'}
-		}
-		]
+		path: '/mis-documentos',
+		name: 'mis-documentos.index',
+		component: require('./components/user/MisDocumentosComponent').default,
+		meta: { title: 'Mis documentos'}
 	},
 	{
-		path: '/memorandums',
-		name: 'memorandums.index',
-		component: require('./components/documentos/IndexComponent').default,
-		meta: { title: 'Listado de memorandos'}
+		path: '/documentos-pendientes',
+		name: 'documentos.pendientes',
+		component: require('./components/user/DocumentosPendientesComponent').default,
+		meta: { title: 'Documentos pendientes'}
 	},
-	{
-		path: '/memorandums/:id',
-		component: require('./components/RouterView').default,
-		children: [
-		{
-			path: '',
-			name: 'memorandums.show',
-			component: require('./components/documentos/IndexComponent').default,
-			meta: { title: 'Detalle de memorandúm'}
-		},
-		{
-			path: 'upload',
-			name: 'memorandums.upload',
-			component: require('./components/documentos/UploadFileComponent').default,
-			meta: { title: 'Adjuntar documento'}
-		},
-		{
-			path: 'edit',
-			name: 'memorandums.edit',
-			component: require('./components/documentos/UploadFileComponent').default,
-			meta: { title: 'Modificar memorandúm'}
-		}
-		]
-	},
-	{
-		path: '/providencias',
-		name: 'providencias.index',
-		component: require('./components/documentos/IndexComponent').default,
-		meta: { title: 'Listado de providencias'}
-	},
-	{
-		path: '/providencias/:id',
-		component: require('./components/RouterView').default,
-		children: [
-		{
-			path: '',
-			name: 'providencias.show',
-			component: require('./components/documentos/IndexComponent').default,
-			meta: { title: 'Listado de providnecias'}
-		},
-		{
-			path: 'upload',
-			name: 'providencias.upload',
-			component: require('./components/documentos/UploadFileComponent').default,
-			meta: { title: 'Adjuntar documento'}
-		},
-		{
-			path: 'edit',
-			name: 'providencias.edit',
-			component: require('./components/documentos/UploadFileComponent').default,
-			meta: { title: 'Modificar providencia'}
-		}
-		]
-	},*/
 	{
 		path: '/reservar',
 		name: 'documentos.reservar',

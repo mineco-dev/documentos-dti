@@ -13,11 +13,12 @@ class DocumentoController extends Controller
 	public function index(Request $request)
 	{
 		return response()->json(Asignacion::
-			leftJoin('users AS u', 'asignaciones.user_id', 'u.id')
-			->leftJoin('tipo_documentos AS td', 'asignaciones.tipo_documento_id', 'td.id')
-			->leftJoin('estado_documentos AS ed', 'asignaciones.estado_documento_id', 'ed.id')
+			join('users AS u', 'asignaciones.user_id', 'u.id')
+			->join('tipo_documentos AS td', 'asignaciones.tipo_documento_id', 'td.id')
+			->join('estado_documentos AS ed', 'asignaciones.estado_documento_id', 'ed.id')
 			->select([
 				'asignaciones.id',
+				'asignaciones.correlativo',
 				'asignaciones.documento_id',
 				'asignaciones.anio',
 				'asignaciones.asunto',
@@ -27,9 +28,10 @@ class DocumentoController extends Controller
 				'asignaciones.created_at',
 				'u.name AS responsable',
 				'td.prefix',
+				'td.directory',
 				'ed.name AS estado'
 			])
-			->where('asignaciones.tipo_documento_id', $request->table)
+			->where('asignaciones.tipo_documento_id', $request->tipo_documento_id)
 			->orderBy('asignaciones.anio', 'DESC')
 			->orderBy('asignaciones.documento_id', 'DESC')
 			->paginate($request->per_page), 200);
@@ -43,7 +45,18 @@ class DocumentoController extends Controller
 			$id = DB::table($request->table)->insertGetId([]);
 			$director_id = DB::table('users')->where('es_director', 1)->select('id')->first()->id;
 
+			$tipo_documento = DB::table('tipo_documentos')->where('id', $request->tipo_documento_id)->select('prefix')->first()->prefix;
+
+			$anio = date("Y");
+
+			$correlativo = $tipo_documento;
+			$correlativo .= '-';
+			$correlativo .= str_pad($id, 3, '0', STR_PAD_LEFT);
+			$correlativo .= '-';
+			$correlativo .= $anio;
+
 			$documento = Asignacion::create([
+				'correlativo' => $correlativo,
 				'documento_id' => $id,
 				'anio' =>  date("Y"),
 				'fecha_emision' => $request->fecha_emision,
@@ -57,9 +70,9 @@ class DocumentoController extends Controller
 			]);
 
 			if($request->file('file_referencia')) {
-				$hash_pdf = "$documento->id-";
-				$hash_pdf = $hash_pdf . \Str::random(7);;
-				$path = $request->file_referencia->storeAs("public/documentos/$documento->anio", "$hash_pdf.pdf");
+				$hash_pdf = "$documento->id";
+				$hash_pdf = '_' . $hash_pdf . \Str::random(7);;
+				$path = $request->file_referencia->storeAs("public/$request->table/$documento->anio", "$hash_pdf.pdf");
 
 				$documento->file_referencia = $path;
 				$documento->save();
@@ -69,9 +82,9 @@ class DocumentoController extends Controller
 
 			return response()->json($documento, 200);
 			
-		} catch (ErrorException $e) {
+		} catch (\Exception $e) {
 			DB::rollback();
-			return response()->json($e, 500);
+			return response()->json($e->getMessage(), 500);
 		}
 	}
 
@@ -120,9 +133,9 @@ class DocumentoController extends Controller
 
 			\Storage::delete($documento->file);
 
-			$hash_pdf = "$id-";
-			$hash_pdf = $hash_pdf . \Str::random(7);;
-			$path = $request->pdf->storeAs("public/documentos/$documento->anio", "$hash_pdf.pdf");
+			$hash_pdf = "$id";
+			$hash_pdf = '_' . $hash_pdf . \Str::random(7);;
+			$path = $request->pdf->storeAs("public/$request->directory/$documento->anio", "$hash_pdf.pdf");
 
 			$documento->file = $path;
 			$documento->estado_documento_id = $DOCUMENTO_CARGADO;
@@ -142,12 +155,14 @@ class DocumentoController extends Controller
 		try {
 			$documento = Asignacion::findOrFail($id);
 
+			$directory = DB::table('tipo_documentos')->select('directory')->where('id', $documento->tipo_documento_id)->first();
+
 			$path_file = null;
 			if($request->file('file')) {
 				\Storage::delete($documento->file);
 				$hash_pdf = "$documento->id-";
 				$hash_pdf = $hash_pdf . \Str::random(7);;
-				$path_file = $request->file->storeAs("public/$request->type/$documento->anio", "$hash_pdf.pdf");
+				$path_file = $request->file->storeAs("public/$directory/$documento->anio", "$hash_pdf.pdf");
 
 			}
 
@@ -156,7 +171,7 @@ class DocumentoController extends Controller
 				\Storage::delete($documento->file_referencia);
 				$hash_pdf = "$documento->id-";
 				$hash_pdf = $hash_pdf . \Str::random(7);;
-				$path_referencia_file = $request->file_referencia->storeAs("public/$request->type/$documento->anio", "$hash_pdf.pdf");
+				$path_referencia_file = $request->file_referencia->storeAs("public/$directory/$documento->anio", "$hash_pdf.pdf");
 			}
 
 			if($path_file == null) {
@@ -195,4 +210,32 @@ class DocumentoController extends Controller
 
 		return response()->json("Archivado", 200);
 	}
+
+	public function documentosPendientes(Request $request)
+    {
+        return response()->json(Asignacion::
+            leftJoin('users AS u', 'asignaciones.user_id', 'u.id')
+            ->leftJoin('tipo_documentos AS td', 'asignaciones.tipo_documento_id', 'td.id')
+            ->leftJoin('estado_documentos AS ed', 'asignaciones.estado_documento_id', 'ed.id')
+            ->select([
+                'asignaciones.id',
+                'asignaciones.correlativo',
+                'asignaciones.documento_id',
+                'asignaciones.anio',
+                'asignaciones.asunto',
+                'asignaciones.file',
+                'asignaciones.file_referencia',
+                'asignaciones.estado_documento_id',
+                'asignaciones.created_at',
+                'u.name AS responsable',
+                'td.prefix',
+                'td.directory',
+                'ed.name AS estado'
+            ])
+            ->where('asignaciones.tipo_documento_id', $request->tipo_documento_id)
+            ->where('asignaciones.estado_documento_id', 1)
+            ->orderBy('asignaciones.anio', 'DESC')
+            ->orderBy('asignaciones.documento_id', 'DESC')
+            ->paginate($request->per_page), 200);
+    }
 }

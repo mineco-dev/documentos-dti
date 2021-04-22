@@ -20,7 +20,7 @@ class EstadisticaController extends Controller
     	])
     	->join('tipo_documentos AS td', 'a.tipo_documento_id', 'td.id')
     	->where("a.$request->column", $request->value)
-        ->groupBy('tipo_documento')
+        ->groupBy('td.name')
     	->get();
 
     	return response()->json($conteos, 200);

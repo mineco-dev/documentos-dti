@@ -15,6 +15,7 @@ class CreateAsignacionesTable extends Migration
     {
         Schema::create('asignaciones', function (Blueprint $table) {
             $table->id();
+            $table->string('correlativo')->nullable();
             $table->integer('documento_id');
             $table->integer('anio');
             $table->date('fecha_emision')->nullable();
@@ -25,9 +26,9 @@ class CreateAsignacionesTable extends Migration
             $table->string('referencia')->nullable();
             $table->string('file_referencia')->nullable();
             $table->foreignId('tipo_documento_id')->constrained('tipo_documentos');
-            $table->foreignId('estado_documento_id')->default(1)->constrained('estado_documentos');
+            $table->foreignId('estado_documento_id')->nullable()->constrained('estado_documentos');
             $table->foreignId('user_id')->constrained()->comment('Usuario que reservó el documento');
-            $table->foreignId('director_actual')
+            $table->foreignId('director_actual')->nullable()
                 ->constrained('users')
                 ->comment('Director actual');
             $table->timestamps();

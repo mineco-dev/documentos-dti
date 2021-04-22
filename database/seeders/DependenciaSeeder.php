@@ -110,7 +110,7 @@ class DependenciaSeeder extends Seeder
     	]);
 
     	Dependencia::create([
-    		'name' => 'Tecnologías de la Información',
+    		'name' => 'Dirección de Tecnologías de la Información',
     		'prefix' => 'la'
     	]);
 

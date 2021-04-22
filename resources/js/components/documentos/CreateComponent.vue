@@ -10,18 +10,18 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <form autocomplete="off" enctype="multipart/form-data" class="shadow-lg p-3 mb-5 bg-white rounded" id="form" v-on:submit.prevent="submit">
-                            <router-link class="text-muted" title="Regresar" :to="{ name: 'documentos.index', query: { tipo_documento_id: documento.tipo_documento_id } }">
+                            <a class="text-muted" href="#" title="Regresar" v-on:click="$router.go(-1)">
                                 <i class="fas fa-arrow-left fa-lg"></i>
-                            </router-link>
+                            </a>
                             <div class="form-group mt-3">
                                 <label for="tipo_documento_id">
                                     Reservar
                                 </label>
-                                <select class="custom-select" name="type" id="type" v-model="documento.tipo_documento_id" v-validate="'required'">
-                                    <option value="1">Oficio</option>
-                                    <option value="2">Dictámen</option>
-                                    <option value="3">Memorando</option>
-                                    <option value="4">Providencia</option>
+                                <select class="custom-select" name="tipo_documento_id" id="tipo_documento_id" v-model="documento.tipo_documento_id" v-validate="'required'">
+                                    <option value="1" data-table="oficios">Oficio</option>
+                                    <option value="2" data-table="dictamenes">Dictámen Técnico</option>
+                                    <option value="3" data-table="memorandums">Memorándum</option>
+                                    <option value="4" data-table="providencias">Providencia</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -143,16 +143,15 @@
             submit() {
                 this.$validator.validate().then(isValid => {
                     if(isValid) {
-                        axios.post(`/api/documentos?user_id=${this.$store.state.user.id}&type=${this.$route.query.type}`, new FormData(document.getElementById('form')))
+                        axios.post(`/api/documentos?user_id=${this.$store.state.user.id}&table=${document.getElementById('tipo_documento_id')[document.getElementById('tipo_documento_id').selectedIndex].dataset.table}`, new FormData(document.getElementById('form')))
                         .then(response => {
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Registro correcto',
-                                html: response.data
+                                title: 'Registro correcto'
                             })
                             .then(result => {
                                 this.$router.push({name: 'documentos.index', query: {
-                                    tipo_documento_id: documento.tipo_documento_id
+                                    tipo_documento_id: this.documento.tipo_documento_id
                                 }})
                             })
                         })

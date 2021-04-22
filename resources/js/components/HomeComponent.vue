@@ -2,9 +2,9 @@
     <div>
         <section class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
+                <div class="row">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Página de inicio</h1>
+                        <h1 class="m-0 text-dark">Dashboard</h1>
                     </div>
                 </div>
             </div>

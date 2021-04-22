@@ -4,7 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
- require('./bootstrapadminlte');
+ require('./bootstrapdocumentos_dti');
 
  window.Vue = require('vue/dist/vue.js');
 
@@ -29,13 +29,12 @@
  */
 
  import router from './router';
+ import store from './vuex';
 
  router.beforeEach((to, from, next) => {
  	document.title = to.meta.title
  	next()
  });
-
- import store from './vuex';
 
 const app = new Vue({
 	el: '#wrapper',
@@ -43,7 +42,7 @@ const app = new Vue({
  	store,
  	mounted() {
  		axios.get('/api/user').then(response => {
- 			this.$store.commit('setUser', response.data)
+ 			store.commit('setUser', response.data)
  		})
  	}
  });
