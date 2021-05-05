@@ -15,7 +15,7 @@
                     <i class="fas fa-bell fa-lg mr-2"></i>
                     Reserva simple
                 </button>
-                <router-link class="btn btn-outline-primary ml-2 mb-3" :to="{ name: 'documentos.reservar', query: { 'tipo_documento_id': documento.tipo_documento_id } }">
+                <router-link class="btn btn-outline-primary ml-2 mb-3" :to="{ name: 'documentos.reservar', query: { 'type': documento.tipo_documento_id } }">
                     <i class="fas fa-hand-point-up fa-lg mr-2"></i>
                     Reserva completa
                 </router-link>
@@ -201,7 +201,7 @@
             }
         },
         mounted() {
-            this.documento.tipo_documento_id = this.$route.query.tipo_documento_id
+            this.documento.tipo_documento_id = this.$route.query.type
             this.getList(1)
         },
         methods: {

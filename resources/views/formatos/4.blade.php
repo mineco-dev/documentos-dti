@@ -3,8 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>
-		Providencia
-		DTI-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
+		Providencia {{ $documento->correlativo }}
 	</title>
 	<style>
 		@page {
@@ -75,7 +74,7 @@
 			<br>
 			<b>Dirección de Tecnologías de la Información</b> <br>
 			<b>Providencia</b>
-			DTI-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
+			{{ $documento->correlativo }}
 		</p>
 		<p align="right">
 			<b>ASUNTO</b>: {{ $documento->asunto }}

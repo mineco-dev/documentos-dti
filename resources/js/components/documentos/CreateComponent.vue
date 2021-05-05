@@ -132,7 +132,7 @@
                 this.destinatarios = response[0].data
             })
 
-            this.documento.tipo_documento_id = this.$route.query.tipo_documento_id
+            this.documento.tipo_documento_id = this.$route.query.type
         },
         methods: {
             setDestinatario(value) {

@@ -141,6 +141,12 @@ export default new Router({
 		]
 	},
 	{
+		path: '/tipo-documentos',
+		name: 'tipo-documentos.index',
+		component: require('./components/TipoDocumentosComponent').default,
+		meta: { title: 'Tipo de documentos'}
+	},
+	{
 		path: '/documentos',
 		name: 'documentos.index',
 		component: require('./components/documentos/IndexComponent').default,
@@ -183,13 +189,13 @@ export default new Router({
 		meta: { title: 'Documentos pendientes'}
 	},
 	{
-		path: '/reservar',
+		path: '/reserva',
 		name: 'documentos.reservar',
 		component: require('./components/documentos/CreateComponent').default,
 		meta: { title: 'Reservar documento'}
 	},
 	{
-		path: '/documentos/:id',
+		path: '/documento/:id',
 		name: 'documentos.show',
 		component: require('./components/ShowDocumentComponent').default,
 		meta: { title: 'Detalle de documento'}

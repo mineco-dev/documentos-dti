@@ -3,8 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>
-		Memorándum
-		DTI-{{ $documento->prefix }}-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
+		Memorándum {{ $documento->correlativo }}
 	</title>
 	<style>
 		@page {
@@ -73,7 +72,7 @@
 	<div class="container">
 		<p align="center">
 			MEMORÁNDUM <br>
-			DTI-{{ $documento->prefix }}-{{ str_pad($documento->documento_id, 3, '0', STR_PAD_LEFT) }}-{{ $documento->anio }}
+			{{ $documento->correlativo }}
 		</p>
 		<br>
 		<table style="width: 100%;">

@@ -59,6 +59,11 @@ Route::prefix('destinatarios')->middleware(['auth:api'])->group(function () {
 	Route::delete('{id}', [App\Http\Controllers\DestinatarioController::class, 'delete']);
 });
 
+Route::prefix('tipo-documentos')->middleware(['auth:api'])->group(function () {
+	Route::get('', [App\Http\Controllers\TipoDocumentoController::class, 'index']);
+	Route::put('{id}', [App\Http\Controllers\TipoDocumentoController::class, 'update']);
+});
+
 Route::prefix('documentos')->middleware(['auth:api'])->group(function () {
 	Route::get('', [App\Http\Controllers\DocumentoController::class, 'index']);
 	Route::post('', [App\Http\Controllers\DocumentoController::class, 'store']);

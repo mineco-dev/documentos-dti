@@ -15,7 +15,7 @@
                     <i class="fas fa-bell fa-lg mr-2"></i>
                     Reserva simple
                 </button>
-                <router-link class="btn btn-outline-primary ml-2 mb-3" :to="{ name: 'documentos.reservar', query: { 'tipo_documento_id': documento.tipo_documento_id } }">
+                <router-link class="btn btn-outline-primary ml-2 mb-3" :to="{ name: 'documentos.reservar', query: { 'type': documento.tipo_documento_id } }">
                     <i class="fas fa-hand-point-up fa-lg mr-2"></i>
                     Reserva completa
                 </router-link>
@@ -25,10 +25,10 @@
                             <div class="form-group col-md-2">
                                 <label for="tipo_documento_id">Documento</label>
                                 <select class="custom-select" name="tipo_documento_id" id="tipo_documento_id" v-model="documento.tipo_documento_id" v-on:change="getList(1)">
-                                    <option value="1" data-table="oficios">Oficios</option>
-                                    <option value="2" data-table="dictamenes">Dictámenes</option>
-                                    <option value="3" data-table="memorandums">Memorandos</option>
-                                    <option value="4" data-table="providencias">Providencias</option>
+                                    <option value="1">Oficios</option>
+                                    <option value="2">Dictámenes</option>
+                                    <option value="3">Memorandos</option>
+                                    <option value="4">Providencias</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
@@ -159,7 +159,6 @@
             return {
                 documentos: {data: []},
                 documento: {
-                    table: null,
                     documento_id: 1
                 },
                 per_page: 5,
@@ -202,7 +201,7 @@
             }
         },
         mounted() {
-            this.documento.tipo_documento_id = this.$route.query.tipo_documento_id
+            this.documento.tipo_documento_id = this.$route.query.type
             this.getList(1)
         },
         methods: {
@@ -255,8 +254,7 @@
                             destinatario_id: null,
                             respuesta: null,
                             referencia: null,
-                            tipo_documento_id: this.documento.tipo_documento_id,
-                            table: titulo.dataset.table
+                            tipo_documento_id: this.documento.tipo_documento_id
                         })
                         .then(response => {
                             if (!response) {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Oficio;
+use App\Models\TipoDocumento;
 use App\Models\Asignacion;
 use App\Models\User;
 use DB;
@@ -42,32 +42,33 @@ class DocumentoController extends Controller
 		DB::beginTransaction();
 
 		try {
-			$id = DB::table($request->table)->insertGetId([]);
 			$director_id = DB::table('users')->where('es_director', 1)->select('id')->first()->id;
 
-			$tipo_documento = DB::table('tipo_documentos')->where('id', $request->tipo_documento_id)->select('prefix')->first()->prefix;
+			$tipo_documento = TipoDocumento::findOrFail($request->tipo_documento_id);
 
-			$anio = date("Y");
-
-			$correlativo = $tipo_documento;
+			$correlativo = $tipo_documento->prefix;
 			$correlativo .= '-';
-			$correlativo .= str_pad($id, 3, '0', STR_PAD_LEFT);
+			$correlativo .= str_pad($tipo_documento->correlativo, 3, '0', STR_PAD_LEFT);
 			$correlativo .= '-';
-			$correlativo .= $anio;
+			$correlativo .= $tipo_documento->anio;
 
 			$documento = Asignacion::create([
 				'correlativo' => $correlativo,
-				'documento_id' => $id,
-				'anio' =>  date("Y"),
+				'documento_id' => $tipo_documento->correlativo,
+				'anio' =>  $tipo_documento->anio,
 				'fecha_emision' => $request->fecha_emision,
 				'asunto' => $request->asunto,
 				'destinatario_id' => $request->destinatario_id,
 				'respuesta' => $request->respuesta,
 				'referencia' => $request->referencia,
 				'tipo_documento_id' => $request->tipo_documento_id,
+				'estado_documento_id' => 1,
 				'user_id' => $request->user()->id,
 				'director_actual' => $director_id
 			]);
+
+			$tipo_documento->correlativo = $tipo_documento->correlativo + 1;
+			$tipo_documento->save();
 
 			if($request->file('file_referencia')) {
 				$hash_pdf = "$documento->id";
@@ -91,7 +92,7 @@ class DocumentoController extends Controller
 	public function show(Request $request, $id)
 	{
 		if($request->type == 'flat') {
-			return Asignacion::findOrFail($id);
+			return response()->json(Asignacion::findOrFail($id), 200);
 		}
 
 		$documento = Asignacion::

@@ -27,7 +27,9 @@
                     </div>
                 </blockquote>
                 <blockquote class="quote-danger mx-0 p-3">
-                    <h4>Documentos pendientes de adjuntar el pdf firmado por el Director</h4>
+                    <h4>
+                        Documentos pendientes de adjuntar: pdf firmado por el Director y sello de recibido
+                    </h4>
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-3" v-for="pendiente in pendientes">
                             <div class="info-box">

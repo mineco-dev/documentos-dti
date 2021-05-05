@@ -18,6 +18,8 @@ class CreateTipoDocumentosTable extends Migration
             $table->string('name')->unique();
             $table->string('prefix', 8)->nullable();
             $table->string('directory')->nullable();
+            $table->integer('correlativo');
+            $table->integer('anio');
             $table->timestamps();
         });
     }

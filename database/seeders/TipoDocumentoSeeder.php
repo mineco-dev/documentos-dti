@@ -17,22 +17,30 @@ class TipoDocumentoSeeder extends Seeder
         TipoDocumento::create([
             'name' => 'Oficios',
             'prefix' => 'DTI-OF',
-            'directory' => 'oficios'
+            'directory' => 'oficios',
+            'correlativo' => 1,
+            'anio' => 2021,
         ]);
         TipoDocumento::create([
             'name' => 'Dictámenes Técnicos',
             'prefix' => 'DTI',
-            'directory' => 'dictamenes'
+            'directory' => 'dictamenes',
+            'correlativo' => 1,
+            'anio' => 2021,
         ]);
         TipoDocumento::create([
             'name' => 'Memorandos',
             'prefix' => 'DTI-ME',
-            'directory' => 'memorandums'
+            'directory' => 'memorandums',
+            'correlativo' => 1,
+            'anio' => 2021,
         ]);
         TipoDocumento::create([
             'name' => 'Providencia',
             'prefix' => 'DTI',
-            'directory' => 'providencias'
+            'directory' => 'providencias',
+            'correlativo' => 1,
+            'anio' => 2021,
         ]);
     }
 }

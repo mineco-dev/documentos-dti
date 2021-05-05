@@ -13,14 +13,12 @@ class AsignacionController extends Controller
 	{
 		$documento = Asignacion::
 		select([
-			'td.prefix',
-			'td.name AS tipo_documento',
-			'td.directory',
 			'd.name AS destinatario',
 			's.name AS saludo',
 			'd2.name AS dependencia',
 			'e.name AS entidad',
 			'c.name AS cargo',
+			'asignaciones.correlativo',
 			'asignaciones.asunto',
 			'asignaciones.fecha_emision',
 			'asignaciones.respuesta',
@@ -29,7 +27,6 @@ class AsignacionController extends Controller
 			'asignaciones.anio',
 			'asignaciones.tipo_documento_id'
 		])
-		->join('tipo_documentos AS td', 'asignaciones.tipo_documento_id', 'td.id')
 		->join('destinatarios AS d', 'asignaciones.destinatario_id', 'd.id')
 		->join('saludos AS s', 'd.saludo_id', 's.id')
 		->join('dependencias AS d2', 'd.dependencia_id', 'd2.id')

@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Detalle de {{$route.query.title}} {{correlativo}}</h1>
+                        <h1 class="m-0 text-dark">Detalle de {{ documento.correlativo }}</h1>
                     </div>
                 </div>
             </div>
@@ -89,13 +89,8 @@
                 documento: {}
             }
         },
-        computed: {
-            correlativo() {
-                return `DTI-${this.documento.prefix}-${this.documento.documento_id}-${this.documento.anio}`
-            }
-        },
         mounted() {
-            axios.get(`/api/${this.$route.query.type}/${this.$route.params.id}`).then(response => this.documento = response.data)
+            axios.get(`/api/documentos/${this.$route.params.id}?type=flat`).then(response => this.documento = response.data)
             .catch(error => alert(error.response))
         }
     }

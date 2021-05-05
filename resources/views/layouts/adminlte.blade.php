@@ -86,6 +86,14 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
+                  <router-link class="nav-link" :to="{ name: 'tipo-documentos.index'} ">
+                    <i class="nav-icon fas fa-sort-numeric-up"></i>
+                    <p>
+                      Correlativos
+                    </p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
                   <router-link class="nav-link" :to="{ name: 'saludos.index'} ">
                     <i class="nav-icon fas fa-university"></i>
                     <p>
@@ -126,19 +134,19 @@
               </ul>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'documentos.index', query: { tipo_documento_id: 1 } }">
+              <router-link class="nav-link" :to="{ name: 'documentos.index', query: { type: 1 } }">
                 <i class="nav-icon fas fa-file-alt"></i>
                 <p>Documentos</p>
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'mis-documentos.index', query: { tipo_documento_id: 1 } }">
+              <router-link class="nav-link" :to="{ name: 'mis-documentos.index', query: { type: 1 } }">
                 <i class="nav-icon fas fa-file-alt"></i>
                 <p>Mis documentos</p>
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'documentos.pendientes', query: { tipo_documento_id: 1 } }">
+              <router-link class="nav-link" :to="{ name: 'documentos.pendientes', query: { type: 1 } }">
                 <i class="nav-icon fas fa-file-alt"></i>
                 <p>Pendientes</p>
               </router-link>
