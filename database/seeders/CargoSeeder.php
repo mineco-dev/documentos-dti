@@ -15,7 +15,10 @@ class CargoSeeder extends Seeder
     public function run()
     {
         Cargo::create(['name' => 'Ministro']);
+        Cargo::create(['name' => 'Ministra']);
         Cargo::create(['name' => 'Viceministro']);
+        Cargo::create(['name' => 'Viceministra']);
         Cargo::create(['name' => 'Director']);
+        Cargo::create(['name' => 'Directora']);
     }
 }

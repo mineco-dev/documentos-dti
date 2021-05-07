@@ -80,10 +80,15 @@
                                 </label>
                                 <input type="file" class="form-control" id="file" name="file">
                             </div>
+                            <ul>
+                                <li class="text-danger" v-for="error in errors_server">
+                                    {{ error }}
+                                </li>
+                            </ul>
                             <div class="form-group mb-3">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fas fa-save fa-lg mr-2"></i>
-                                    Guardar asignación
+                                    Actualizar asignación
                                 </button>
                             </div>
                         </form>
@@ -119,7 +124,8 @@
                 destinatarios: [],
                 documento: {
                     referencia: null
-                }
+                },
+                errors_server: []
             }
         },
         components: {
@@ -161,10 +167,10 @@
                             })
                         })
                         .catch(error => {
-                            if (typeof error.response.data === 'object') {
+                            if (error.response.status == 422 && typeof error.response.data === 'object') {
                                 this.errors_server = _.flatten(_.toArray(error.response.data.errors));
                             } else {
-                                this.errors_server = ['Something went wrong. Please try again.'];
+                                this.errors_server = [error.response.data.message ? error.response.data.message : error.response.data];
                             }
                         })
                     }

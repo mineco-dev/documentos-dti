@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\DocumentoStoreRequest;
+use App\Http\Requests\DocumentoUpdateRequest;
+use App\Http\Requests\DocumentoUploadRequest;
 use App\Models\TipoDocumento;
 use App\Models\Asignacion;
 use App\Models\User;
@@ -37,7 +40,7 @@ class DocumentoController extends Controller
 			->paginate($request->per_page), 200);
 	}
 
-	public function store(Request $request)
+	public function store(DocumentoStoreRequest $request)
 	{
 		DB::beginTransaction();
 
@@ -72,7 +75,7 @@ class DocumentoController extends Controller
 
 			if($request->file('file_referencia')) {
 				$hash_pdf = "$documento->id";
-				$hash_pdf = '_' . $hash_pdf . \Str::random(7);;
+				$hash_pdf = '_' . $hash_pdf . \Str::random(7);
 				$path = $request->file_referencia->storeAs("public/$request->table/$documento->anio", "$hash_pdf.pdf");
 
 				$documento->file_referencia = $path;
@@ -124,7 +127,7 @@ class DocumentoController extends Controller
 		return response()->json($documento, 200);
 	}
 
-	public function upload(Request $request, $id)
+	public function upload(DocumentoUploadRequest $request, $id)
 	{
 		DB::beginTransaction();
 		try {
@@ -135,7 +138,7 @@ class DocumentoController extends Controller
 			\Storage::delete($documento->file);
 
 			$hash_pdf = "$id";
-			$hash_pdf = '_' . $hash_pdf . \Str::random(7);;
+			$hash_pdf = '_' . $hash_pdf . \Str::random(7);
 			$path = $request->pdf->storeAs("public/$request->directory/$documento->anio", "$hash_pdf.pdf");
 
 			$documento->file = $path;
@@ -150,35 +153,44 @@ class DocumentoController extends Controller
 		}
 	}
 
-	public function update(Request $request, $id)
+	public function update(DocumentoUpdateRequest $request, $id)
 	{
 		DB::beginTransaction();
 		try {
 			$documento = Asignacion::findOrFail($id);
 
-			$directory = DB::table('tipo_documentos')->select('directory')->where('id', $documento->tipo_documento_id)->first();
+			$td = DB::table('tipo_documentos')->where('id', $documento->tipo_documento_id)->first(['directory']);
 
 			$path_file = null;
-			if($request->file('file')) {
+
+
+			if($request->hasFile('file')) {
+				$hash_pdf = "$id" . "_";
+				$hash_pdf = $hash_pdf. \Str::random(7);
+				
+				$path_file = $request->file->storeAs("public/$td->directory/$documento->anio", $hash_pdf . '.pdf');
 				\Storage::delete($documento->file);
-				$hash_pdf = "$documento->id-";
-				$hash_pdf = $hash_pdf . \Str::random(7);;
-				$path_file = $request->file->storeAs("public/$directory/$documento->anio", "$hash_pdf.pdf");
 
 			}
 
 			$path_referencia_file = null;
-			if($request->file('file_referencia')) {
-				\Storage::delete($documento->file_referencia);
+
+			if($request->hasFile('file_referencia')) {
 				$hash_pdf = "$documento->id-";
-				$hash_pdf = $hash_pdf . \Str::random(7);;
-				$path_referencia_file = $request->file_referencia->storeAs("public/$directory/$documento->anio", "$hash_pdf.pdf");
+				$hash_pdf = $hash_pdf . \Str::random(7);
+				$path_referencia_file = $request->file_referencia->storeAs("public/$td->directory/$documento->anio", "$hash_pdf.pdf");
+				\Storage::delete($documento->file_referencia);
 			}
 
 			if($path_file == null) {
 				$path_file = $documento->file;
 			}
-			$documento->fill([
+
+			if($path_referencia_file == null) {
+				$path_referencia_file = $documento->file_referencia;
+			}
+
+			$documento->update([
 				'fecha_emision' => $request->fecha_emision,
 				'asunto' => $request->asunto,
 				'destinatario_id' => $request->destinatario_id,
@@ -187,8 +199,6 @@ class DocumentoController extends Controller
 				'referencia' => $request->referencia,
 				'file_referencia' => $path_referencia_file
 			]);
-
-			$documento->save();
 
 			DB::commit();
 			return response()->json($documento, 200);
