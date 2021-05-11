@@ -7368,7 +7368,6 @@ button.bg-dark:focus {
 }
 
 .position-sticky {
-  position: -webkit-sticky !important;
   position: sticky !important;
 }
 
@@ -7388,9 +7387,8 @@ button.bg-dark:focus {
   z-index: 1030;
 }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
   .sticky-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -10030,14 +10028,14 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #004972;
+  /*background-color: #004972;*/
 }
 
 body {
   display: flex;
-  color: #fff;
-  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+  /*color: #fff;*/
+  /*text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);*/
+  /*box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);*/
 }
 
 .cover-container {
