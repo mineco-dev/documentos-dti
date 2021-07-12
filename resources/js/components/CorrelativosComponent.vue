@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -11,33 +11,38 @@
         </div>
         <div class="content">
             <div class="container-fluid">
-                <table class="table table-hover table-bordered" v-if="tipos.length > 0">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Prefijo</th>
-                            <th scope="col">Correlativo</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="(documento, index) in tipos">
-                            <th scope="row">
-                                {{ documento.name }}
-                            </th>
-                            <td>{{documento.prefix}}</td>
-                            <td>
-                                {{ documento.correlativo}}-{{ documento.anio }}
-                            </td>
-                            <td align="center">
-                                <i class="fas fa-edit fa-lg" role="button" title="Modificar" v-bind:data-index="index" v-bind:data-id="documento.id" v-on:click="edit"></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <blockquote class="quote-info mt-0" v-else>
-                    <h5>No hemos encontrado tipos de documentos</h5>
-                </blockquote>
+                <div class="card">
+                    <div class="card-body p-0">
+                        <table class="table table-striped" v-if="tipos.length > 0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Prefijo</th>
+                                    <th scope="col">Correlativo</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(documento, index) in tipos">
+                                    <td>
+                                        {{ documento.name }}
+                                    </td>
+                                    <td>{{documento.prefix}}</td>
+                                    <td>
+                                        {{ documento.correlativo}}-{{ documento.anio }}
+                                    </td>
+                                    <td align="center">
+                                        <i class="fas fa-edit fa-lg" role="button" title="Modificar" v-bind:data-index="index" v-bind:data-id="documento.id" v-on:click="edit" v-if="$store.state.user.role_id == 1"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <blockquote class="quote-info mt-0" v-else>
+                            <h5>No hemos encontrado tipos de documentos</h5>
+                        </blockquote>
+                    </div>
+                </div>
+                
             </div>
         </div>
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

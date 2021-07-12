@@ -8,9 +8,9 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
   <link rel="stylesheet" href="/css/documentos_dti.css">
 </head>
-<body class="sidebar-mini layout-fixed layout-navbar-fixed">
+<body class="sidebar-mini layout-fixed">
   <div class="wrapper" id="wrapper">
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-dark">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button">
@@ -175,9 +175,7 @@
         </nav>
       </div>
     </aside>
-    <div class="content-wrapper">
-      <router-view></router-view>
-    </div>
+    <router-view></router-view>
   </div>
   <script src="/js/documentos_dti.js"></script>
 </body>

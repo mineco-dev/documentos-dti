@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -49,94 +49,98 @@
                         </div>
                     </div>
                 </div>
-                <table class="table table-hover table-bordered" v-if="documentos.total > 0">
-                    <caption>
-                        Mostrando registros del {{ documentos.from }} al {{ documentos.to }} de un total de {{ documentos.total }} registros 
-                        <nav aria-label="...">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item" v-bind:class="{'disabled': documentos.current_page == 1}">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true" v-on:click.prevent="cambiarPagina(documentos.current_page - 1)">
-                                        Anterior
-                                    </a>
-                                </li>
-                                <li class="page-item" v-for="page in pagesNumber" v-bind:class="{'active': page == isActived}">
-                                    <a class="page-link" href="#" v-on:click.prevent="cambiarPagina(page)">
-                                        {{page}}
-                                    </a>
-                                </li>
-                                <li class="page-item" v-bind:class="{'disabled': documentos.current_page == documentos.last_page}">
-                                    <a class="page-link" href="#" v-on:click.prevent="cambiarPagina(documentos.current_page + 1)">
-                                        Siguiente
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </caption>
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Correlativo</th>
-                            <th scope="col">Asunto</th>
-                            <th scope="col">Reservado por</th>
-                            <th scope="col">Fecha y hora de reservación</th>
-                            <th scope="col">Estado</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="(documento, index) in filter" v-bind:class="{ 'table-warning': documento.estado_documento_id == 1}">
-                            <th scope="row">
-                                {{ documento.correlativo }}
-                            </th>
-                            <td>
-                                {{documento.asunto}}
-                            </td>
-                            <td>{{documento.responsable}}</td>
-                            <td>{{documento.created_at | moment().format("LLL")}}</td>
-                            <td>
-                                <i class="fa fa-bell" v-bind:class="{ 'text-danger': documento.estado_documento_id == 1, 'text-success': documento.estado_documento_id == 2, 'text-secondary': documento.estado_documento_id == 3}"></i>
-                                {{documento.estado}}
-                            </td>
-                            <td>
-                                <div class="btn-group dropleft">
-                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Opciones
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <button class="dropdown-item" v-if="documento.estado_documento_id == 1" v-on:click="generar" v-bind:data-id="documento.id" v-bind:data-index="index">
-                                            <i class="fas fa-spinner fa-lg fa-fw text-secondary" role="button" title="Generar documento" v-bind:data-id="documento.id" v-bind:data-index="index"></i>
-                                            Generar documento
-                                        </button>
-                                        <router-link class="dropdown-item" :to="{ name: 'documentos.edit', params: { id: documento.id}}" v-if="documento.estado_documento_id == 1">
-                                            <i class="fas fa-edit fa-lg fa-fw text-primary" role="button" title="Modificar documento"></i>
-                                            Modificar documento
-                                        </router-link>
-                                        <router-link class="dropdown-item" :to="{ name: 'documentos.upload', params: { id: documento.id }, query: { directory: documento.directory } }" v-if="documento.estado_documento_id == 1">
-                                            <i class="fas fa-upload fa-lg fa-fw text-success" role="button" title="Subir documento"></i>
-                                            Subir documento
-                                        </router-link>
+                <div class="card" v-if="documentos.total > 0">
+                    <div class="card-body p-0">
+                        <table class="table table-hover table-bordered">
+                            <caption>
+                                Mostrando registros del {{ documentos.from }} al {{ documentos.to }} de un total de {{ documentos.total }} registros 
+                                <nav aria-label="...">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item" v-bind:class="{'disabled': documentos.current_page == 1}">
+                                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true" v-on:click.prevent="cambiarPagina(documentos.current_page - 1)">
+                                                Anterior
+                                            </a>
+                                        </li>
+                                        <li class="page-item" v-for="page in pagesNumber" v-bind:class="{'active': page == isActived}">
+                                            <a class="page-link" href="#" v-on:click.prevent="cambiarPagina(page)">
+                                                {{page}}
+                                            </a>
+                                        </li>
+                                        <li class="page-item" v-bind:class="{'disabled': documentos.current_page == documentos.last_page}">
+                                            <a class="page-link" href="#" v-on:click.prevent="cambiarPagina(documentos.current_page + 1)">
+                                                Siguiente
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </caption>
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Correlativo</th>
+                                    <th scope="col">Asunto</th>
+                                    <th scope="col">Reservado por</th>
+                                    <th scope="col">Fecha y hora de reservación</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(documento, index) in filter" v-bind:class="{ 'table-warning': documento.estado_documento_id == 1}">
+                                    <th scope="row">
+                                        {{ documento.correlativo }}
+                                    </th>
+                                    <td>
+                                        {{documento.asunto}}
+                                    </td>
+                                    <td>{{documento.responsable}}</td>
+                                    <td>{{documento.created_at | moment().format("LLL")}}</td>
+                                    <td>
+                                        <i class="fa fa-bell" v-bind:class="{ 'text-danger': documento.estado_documento_id == 1, 'text-success': documento.estado_documento_id == 2, 'text-secondary': documento.estado_documento_id == 3}"></i>
+                                        {{documento.estado}}
+                                    </td>
+                                    <td>
+                                        <div class="btn-group dropleft">
+                                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Opciones
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <button class="dropdown-item" v-if="documento.estado_documento_id == 1 && documento.destinatario_id != null" v-on:click="generar" v-bind:data-id="documento.id" v-bind:data-index="index">
+                                                    <i class="fas fa-spinner fa-lg fa-fw text-secondary" role="button" title="Generar documento" v-bind:data-id="documento.id" v-bind:data-index="index"></i>
+                                                    Generar documento
+                                                </button>
+                                                <router-link class="dropdown-item" :to="{ name: 'documentos.edit', params: { id: documento.id}}" v-if="documento.estado_documento_id == 1">
+                                                    <i class="fas fa-edit fa-lg fa-fw text-primary" role="button"></i>
+                                                    Modificar documento
+                                                </router-link>
+                                                <router-link class="dropdown-item" :to="{ name: 'documentos.upload', params: { id: documento.id }, query: { directory: documento.directory } }" v-if="documento.estado_documento_id == 1">
+                                                    <i class="fas fa-upload fa-lg fa-fw text-success" role="button" title="Subir documento"></i>
+                                                    Subir documento
+                                                </router-link>
 
-                                        <a class="dropdown-item" target="_blank" v-bind:href="documento.file_referencia_url" v-if="documento.file_referencia_url">
-                                            <i class="fas fa-file-pdf fa-lg fa-fw text-danger" role="button" title="Descargar referencia"></i>
-                                            Descargar referencia
-                                        </a>
-                                        <a class="dropdown-item" target="_blank" v-bind:href="documento.file_url" v-if="documento.file_url">
-                                            <i class="fas fa-file-pdf fa-lg fa-fw text-danger" role="button" title="Descargar documento"></i>
-                                            Descargar documento
-                                        </a>
-                                        <router-link class="dropdown-item" :to="{ name: 'documentos.upload', params: { id: documento.id }, query: { directory: documento.directory } }" v-if="documento.estado_documento_id == 2">
-                                            <i class="fas fa-upload fa-lg fa-fw text-success" role="button" title="Reemplazar documento"></i>
-                                            Reemplazar documento
-                                        </router-link>
-                                        <button class="dropdown-item" v-if="documento.estado_documento_id == 2 && documento.file != null" v-on:click="archivar" v-bind:data-id="documento.id" v-bind:data-index="index">
-                                            <i class="fas fa-archive fa-lg fa-fw text-secondary" role="button" title="Reemplazar documento" v-bind:data-id="documento.id" v-bind:data-index="index"></i>
-                                            Archivar documento
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                                <a class="dropdown-item" target="_blank" v-bind:href="documento.file_referencia_url" v-if="documento.file_referencia_url">
+                                                    <i class="fas fa-file-pdf fa-lg fa-fw text-danger" role="button" title="Descargar referencia"></i>
+                                                    Descargar referencia
+                                                </a>
+                                                <a class="dropdown-item" target="_blank" v-bind:href="documento.file_url" v-if="documento.file_url">
+                                                    <i class="fas fa-file-pdf fa-lg fa-fw text-danger" role="button" title="Descargar documento"></i>
+                                                    Descargar documento
+                                                </a>
+                                                <router-link class="dropdown-item" :to="{ name: 'documentos.upload', params: { id: documento.id }, query: { directory: documento.directory } }" v-if="documento.estado_documento_id == 2">
+                                                    <i class="fas fa-upload fa-lg fa-fw text-success" role="button" title="Reemplazar documento"></i>
+                                                    Reemplazar documento
+                                                </router-link>
+                                                <button class="dropdown-item" v-if="documento.estado_documento_id == 2 && documento.file != null" v-on:click="archivar" v-bind:data-id="documento.id" v-bind:data-index="index">
+                                                    <i class="fas fa-archive fa-lg fa-fw text-secondary" role="button" title="Reemplazar documento" v-bind:data-id="documento.id" v-bind:data-index="index"></i>
+                                                    Archivar documento
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 <blockquote class="quote-info mt-0" v-else>
                     <h5>No hemos encontrado documentos</h5>
                     <p>
@@ -260,6 +264,7 @@
                             if (!response) {
                                 throw new Error("Error")
                             }
+                            this.documentos.total += 1;
                             return response
                         })
                         .catch(error => {

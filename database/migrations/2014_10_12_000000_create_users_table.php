@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('profile_photo_path')->nullable();
             $table->foreignId('genero_id')->nullable()->constrained();
             $table->foreignId('departamento_id')->nullable()->constrained();
-            $table->tinyInteger('es_director')->nullable();
+            $table->foreignId('role_id')->nullable()->constrained();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

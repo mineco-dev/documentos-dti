@@ -1,7 +1,13 @@
 <template>
-  <div>
+  <div class="content-wrapper">
     <div class="content-header">
-      <h1 class="text-dark">Dependencias</h1>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <h1>Dependencias</h1>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="content">
       <div class="container-fluid">
@@ -32,18 +38,28 @@
             </router-link>
           </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-5">
-          <div class="col mb-4" v-for="(dependencia, index) in filter">
-            <div class="card h-100 rounded shadow-sm border-0">
-              <div class="card-body p-4">
-                <h5 class="text-dark">
-                  {{dependencia.name}}
-                </h5>
-              </div>
-              <div class="card-footer text-muted">
-                <router-link class="text-muted" title="Modificar dependencia" :to="{ name: 'dependencias.edit', params: { id: dependencia.id} }">
-                  <i class="fas fa-edit fa-2x fa-fw"></i>
-                </router-link>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <table class="table table-striped table-valign-middle">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <td></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(dependencia, index) in filter">
+                      <td>{{ dependencia.name }}</td>
+                      <td>
+                        <router-link :to="{ name: 'dependencias.edit', params: { id: dependencia.id} }">
+                          Modificar
+                        </router-link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -85,7 +101,7 @@
     data() {
       return {
         dependencias: {data: []},
-        paginate: 10,
+        paginate: 5,
         search: '',
         offset: 3
       }

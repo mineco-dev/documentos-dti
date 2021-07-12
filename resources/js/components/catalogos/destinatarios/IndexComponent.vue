@@ -1,7 +1,13 @@
 <template>
-  <div>
+  <div class="content-wrapper">
     <div class="content-header">
-      <h1 class="text-dark">Destinatarios</h1>
+      <div class="container-fluid">
+        <div class="rol">
+          <div class="col-12">
+            <h1>Destinatarios</h1>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="content">
       <div class="container-fluid">
@@ -32,23 +38,37 @@
             </router-link>
           </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-3">
-          <div class="col mb-4" v-for="(destinatario, index) in filter">
-            <div class="card h-100 rounded shadow-sm border-0">
-              <div class="card-body p-4">
-                <h5 class="text-dark">
-                  {{destinatario.saludo ? destinatario.saludo.substring(0,3) : ''}} {{destinatario.name}}
-                </h5>
-                <p>
-                  <small>Cargo:</small> {{destinatario.cargo}} <br>
-                  <small>Dependencia:</small> {{destinatario.dependencia}} <br>
-                  <small>Entidad:</small> {{destinatario.entidad}}
-                </p>
-              </div>
-              <div class="card-footer">
-                <router-link class="text-muted" v-bind:title="'Modificar el destinatario: '+ destinatario.name" :to="{ name: 'destinatarios.edit', params: { id: destinatario.id} }">
-                  <i class="fas fa-edit fa-2x fa-fw"></i>
-                </router-link>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <table class="table table-striped table-valign-middle">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Cargo</th>
+                      <th>Dependencia</th>
+                      <th>Entidad</th>
+                      <td></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(destinatario, index) in filter">
+                      <td>
+                        {{ destinatario.saludo ? destinatario.saludo.substring(0,3) : '' }}
+                        {{ destinatario.name }}
+                      </td>
+                      <td>{{ destinatario.cargo }}</td>
+                      <td>{{ destinatario.dependencia }}</td>
+                      <td>{{ destinatario.entidad }}</td>
+                      <td>
+                        <router-link :to="{ name: 'destinatarios.edit', params: { id: destinatario.id} }">
+                          Modificar
+                        </router-link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

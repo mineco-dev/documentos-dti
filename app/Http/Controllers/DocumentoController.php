@@ -45,7 +45,7 @@ class DocumentoController extends Controller
 		DB::beginTransaction();
 
 		try {
-			$director_id = DB::table('users')->where('es_director', 1)->select('id')->first()->id;
+			$director_id = DB::table('users')->where('departamento_id', 1)->select('id')->first()->id;
 
 			$tipo_documento = TipoDocumento::findOrFail($request->tipo_documento_id);
 

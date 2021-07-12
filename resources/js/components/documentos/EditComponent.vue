@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <h1 class="text-dark"></h1>
@@ -16,7 +16,7 @@
                             <input type="hidden" name="_method" value="PUT">
                             <div class="form-group mt-3">
                                 <label for="tipo_documento_id">
-                                    Modificar
+                                    Modificando
                                 </label>
                                 <select class="custom-select" v-model="documento.tipo_documento_id" disabled>
                                     <option value="1">Oficio</option>

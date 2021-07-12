@@ -32,5 +32,8 @@ class DepartamentoSeeder extends Seeder
         Departamento::create([
         	'name' => 'Desarrollo'
         ]);
+        Departamento::create([
+            'name' => 'Anterior director'
+        ]);
     }
 }

@@ -1,7 +1,13 @@
 <template>
-  <div>
+  <div class="content-wrapper">
     <div class="content-header">
-      <h1 class="text-dark">Saludos</h1>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="text-dark">Saludos</h1>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="content">
       <div class="container-fluid">
@@ -15,7 +21,7 @@
               <div class="form-group col-md-2">
                 <label id="paginated" for="inputPassword4">Mostrar</label>
                 <select class="form-control" id="paginated" v-model="paginate" v-on:change="getList">
-                  <option value="5">5 registros de un </option>
+                  <option value="5">5 registros</option>
                   <option value="10">10 registros</option>
                   <option value="25">25 registros</option>
                   <option value="50">50 registros</option>
@@ -32,18 +38,28 @@
             </router-link>
           </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-5">
-          <div class="col mb-4" v-for="(saludo, index) in filter">
-            <div class="card h-100 rounded shadow-sm border-0">
-              <div class="card-body p-4">
-                <h5 class="text-dark">
-                  {{saludo.name}}
-                </h5>
-              </div>
-              <div class="card-footer">
-                <router-link class="text-muted" title="Modificar saludo" :to="{ name: 'saludos.edit', params: { id: saludo.id} }">
-                  <i class="fas fa-edit fa-2x fa-fw"></i>
-                </router-link>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <table class="table table-striped table-valign-middle">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <td></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(saludo, index) in filter">
+                      <td>{{ saludo.name }}</td>
+                      <td>
+                        <router-link :to="{ name: 'saludos.edit', params: { id: saludo.id} }">
+                          Modificar
+                        </router-link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

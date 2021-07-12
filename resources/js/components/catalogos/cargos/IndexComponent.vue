@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content-wrapper">
     <div class="content-header">
       <h1 class="text-dark">Cargos</h1>
     </div>
@@ -32,18 +32,28 @@
             </router-link>
           </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-5">
-          <div class="col mb-4" v-for="(cargo, index) in filter">
-            <div class="card h-100 rounded shadow-sm border-0">
-              <div class="card-body p-4">
-                <h5 class="text-dark">
-                  {{cargo.name}}
-                </h5>
-              </div>
-              <div class="card-footer text-muted">
-                <router-link class="text-muted" title="Modificar cargo" :to="{ name: 'cargos.edit', params: { id: cargo.id} }">
-                  <i class="fas fa-edit fa-2x fa-fw"></i>
-                </router-link>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <table class="table table-striped table-valign-middle">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <td></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(cargo, index) in filter">
+                      <td>{{ cargo.name }}</td>
+                      <td>
+                        <router-link :to="{ name: 'cargos.edit', params: { id: cargo.id} }">
+                          Modificar
+                        </router-link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -85,7 +95,7 @@
     data() {
       return {
         cargos: {data: []},
-        paginate: 10,
+        paginate: 5,
         search: '',
         offset: 3
       }

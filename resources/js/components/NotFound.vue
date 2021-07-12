@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="content-wrapper">
 		<section class="content">
 			<div class="error-page p-5">
 				<h2 class="headline text-danger"> 404</h2>

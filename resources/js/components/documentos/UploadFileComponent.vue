@@ -1,10 +1,16 @@
 <template>
-	<div>
+	<div class="content-wrapper">
 		<div class="content-header">
-			<a class="text-muted" href="#" title="Regresar" v-on:click="$router.go(-1)">
-				<i class="fas fa-arrow-left fa-lg"></i>
-			</a>
-			<h1>Adjuntar pdf al documento:</h1>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12">
+						<a class="text-muted" href="#" title="Regresar" v-on:click="$router.go(-1)">
+							<i class="fas fa-arrow-left fa-lg"></i>
+						</a>
+						<h1>Adjuntar pdf al documento:</h1>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="content">
 			<div class="container-fluid">

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content-wrapper">
         <div class="content-header">
             <h1 class="text-dark">Crear dependencia</h1>
         </div>

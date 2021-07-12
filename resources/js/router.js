@@ -52,19 +52,19 @@ export default new Router({
 			path: 'index',
 			name: 'dependencias.index',
 			component: require('./components/catalogos/dependencias/IndexComponent').default,
-			meta: { title: 'Títulos'}
+			meta: { title: 'Dependencias'}
 		},
 		{
 			path: 'create',
 			name: 'dependencias.create',
 			component: require('./components/catalogos/dependencias/CreateComponent').default,
-			meta: { title: 'Registrar saludo'}
+			meta: { title: 'Registrar dependencia'}
 		},
 		{
 			path: ':id/edit',
 			name: 'dependencias.edit',
 			component: require('./components/catalogos/dependencias/EditComponent').default,
-			meta: { title: 'Modificar saludo'}
+			meta: { title: 'Modificar dependencia'}
 		}
 		]
 	},
@@ -76,19 +76,19 @@ export default new Router({
 			path: 'index',
 			name: 'entidades.index',
 			component: require('./components/catalogos/entidades/IndexComponent').default,
-			meta: { title: 'Títulos'}
+			meta: { title: 'Entidades'}
 		},
 		{
 			path: 'create',
 			name: 'entidades.create',
 			component: require('./components/catalogos/entidades/CreateComponent').default,
-			meta: { title: 'Registrar saludo'}
+			meta: { title: 'Registrar entidad'}
 		},
 		{
 			path: ':id/edit',
 			name: 'entidades.edit',
 			component: require('./components/catalogos/entidades/EditComponent').default,
-			meta: { title: 'Modificar saludo'}
+			meta: { title: 'Modificar entidad'}
 		}
 		]
 	},
@@ -124,26 +124,26 @@ export default new Router({
 			path: 'index',
 			name: 'destinatarios.index',
 			component: require('./components/catalogos/destinatarios/IndexComponent').default,
-			meta: { title: 'Títulos'}
+			meta: { title: 'Destinatarios'}
 		},
 		{
 			path: 'create',
 			name: 'destinatarios.create',
 			component: require('./components/catalogos/destinatarios/CreateComponent').default,
-			meta: { title: 'Registrar saludo'}
+			meta: { title: 'Registrar destinatario'}
 		},
 		{
 			path: ':id/edit',
 			name: 'destinatarios.edit',
 			component: require('./components/catalogos/destinatarios/EditComponent').default,
-			meta: { title: 'Modificar saludo'}
+			meta: { title: 'Modificar destinatario'}
 		}
 		]
 	},
 	{
 		path: '/tipo-documentos',
 		name: 'tipo-documentos.index',
-		component: require('./components/TipoDocumentosComponent').default,
+		component: require('./components/CorrelativosComponent').default,
 		meta: { title: 'Tipo de documentos'}
 	},
 	{

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content-wrapper">
         <div class="content-header">
             <h1 class="text-dark">Modificar destinatario</h1>
         </div>
@@ -13,8 +13,11 @@
                             </a>
                             <div class="form-group mt-3">
                                 <label>Saludo</label>
-                                <v-select v-bind:options="saludos" @input="setSaludo"></v-select>
-                                <input type="hidden" id="saludo" name="saludo" v-model="destinatario.saludo_id" v-validate="'required'">
+                                <select class="custom-select" name="saludo_id" id="saludo_id" v-model="destinatario.saludo_id" v-validate="'required'">
+                                    <option v-bind:value="saludo.code" v-for="saludo in saludos">
+                                        {{ saludo.label }}
+                                    </option>
+                                </select>
                                 <div class="invalid-feedback">{{ errors.first('saludo') }}</div>
                                 <small class="form-text text-muted">
                                     <router-link :to="{ name: 'saludos.create' }">Agregar saludo</router-link>
@@ -120,11 +123,6 @@
                         })
                     }
                 })
-            },
-            setSaludo(value) {
-                if(value != null) {
-                    this.destinatario.saludo_id = value.code
-                }
             },
             setDependencia(value) {
                 if(value != null) {
