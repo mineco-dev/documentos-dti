@@ -11,28 +11,24 @@
         </div>
         <div class="content">
             <div class="container-fluid">
-                <button class="btn btn-outline-primary ml-2 mb-3" v-on:click="reservaSimple">
-                    <i class="fas fa-bell fa-lg mr-2"></i>
-                    Reserva simple
-                </button>
-                <router-link class="btn btn-outline-primary ml-2 mb-3" :to="{ name: 'documentos.reservar', query: { 'type': documento.tipo_documento_id } }">
-                    <i class="fas fa-hand-point-up fa-lg mr-2"></i>
-                    Reserva completa
-                </router-link>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-row">
+                            <div class="col-1">
+                                <i class="fas fa-bolt fa-2x fa-w text-warning" title="Reserva simple. Con esta opción únicamente es requerido el asunto" role="button" v-on:click="reservaSimple"></i>
+                                <router-link title="Reserva completa. Con esta opción usted podrá reservar un documento y generar el pdf" :to="{ name: 'documentos.reservar', query: { 'type': documento.tipo_documento_id } }">
+                                    <i class="fas fa-file-alt fa-2x"></i>
+                                </router-link>
+                            </div>
                             <div class="form-group col-md-2">
-                                <label for="tipo_documento_id">Documento</label>
                                 <select class="custom-select" name="tipo_documento_id" id="tipo_documento_id" v-model="documento.tipo_documento_id" v-on:change="getList(1)">
-                                    <option value="1" data-table="oficios">Oficios</option>
-                                    <option value="2" data-table="dictamenes">Dictámenes</option>
-                                    <option value="3" data-table="memorandums">Memorandos</option>
-                                    <option value="4" data-table="providencias">Providencias</option>
+                                    <option value="1">Oficios</option>
+                                    <option value="2">Dictámenes</option>
+                                    <option value="3">Memorandos</option>
+                                    <option value="4">Providencias</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
-                                <label id="per_page" for="inputPassword4">Mostrar</label>
                                 <select class="custom-select" id="per_page" v-model="per_page" v-on:change="getList(1)">
                                     <option value="5">5 registros</option>
                                     <option value="10">10 registros</option>
@@ -42,15 +38,76 @@
                                     <option v-bind:value="documentos.total">todos los registros</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-8" v-show="documentos.total > 10">
-                                <label for="search">Filtrar</label>
+                            <div class="form-group col-md-7" v-show="documentos.to > 10">
                                 <input type="search" class="form-control" id="search" v-model="search">
                             </div>
                         </div>
                     </div>
                 </div>
-                <table class="table table-hover table-bordered" v-if="documentos.total > 0">
-                    <caption>
+                <div class="card" v-if="documentos.total > 0">
+                    <div class="card-body p-0">
+                        <table class="table table-hover table-valign-middle">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Correlativo</th>
+                                    <th scope="col">Asunto</th>
+                                    <th scope="col">Reservado por</th>
+                                    <th scope="col">Fecha y hora</th>
+                                    <th scope="col">Estado</th>
+                                    <th class="text-center" scope="col" style="width: 15%;">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(documento, index) in filter" v-bind:class="{ 'table-warning': documento.estado_documento_id == 1}">
+                                    <td>{{ documento.correlativo }}</td>
+                                    <td>
+                                        {{documento.asunto}}
+                                    </td>
+                                    <td>{{documento.responsable}}</td>
+                                    <td>{{documento.created_at | moment().format("LLL")}}</td>
+                                    <td>
+                                        {{documento.estado}}
+                                    </td>
+                                    <td class="text-center" v-if="documento.estado_documento_id != 3">
+                                        <i class="fas fa-spinner fa-lg text-secondary" role="button" title="Generar documento" v-bind:data-id="documento.id" v-bind:data-index="index" v-on:click="generar" v-bind:data-directory="documento.directory" v-if="documento.destinatario_id != null"></i>
+                                        <router-link title="Modificar documento" :to="{ name: 'documentos.edit', params: { id: documento.id}}">
+                                            <i class="fas fa-edit fa-lg text-primary" role="button"></i>
+                                        </router-link>
+                                        <router-link title="Adjuntar o reemplazar el documento firmado y sello de recibido" :to="{ name: 'documentos.upload', params: { id: documento.id }, query: { directory: documento.directory } }">
+                                            <i class="fas fa-upload fa-lg text-success"></i>
+                                        </router-link>
+
+                                        <a target="_blank" title="Descargar referencia" v-bind:href="documento.file_referencia_url">
+                                            <i class="fas fa-paperclip fa-lg text-danger"></i>
+                                        </a>
+                                        <a target="_blank" title="Descargar documento" v-bind:href="documento.file_url">
+                                            <i class="fas fa-file-pdf fa-lg text-danger"></i>
+                                        </a>
+                                        <i class="fas fa-file-archive fa-lg text-secondary" role="button" title="Archivar" v-on:click="archivar" v-bind:data-id="documento.id" v-bind:data-index="index"></i>
+                                    </td>
+                                    <td class="text-center" v-else>
+                                        <a target="_blank" title="Descargar referencia" v-bind:href="documento.file_referencia_url">
+                                            <i class="fas fa-paperclip fa-lg text-danger"></i>
+                                        </a>
+                                        <a target="_blank" title="Descargar documento" v-bind:href="documento.file_url">
+                                            <i class="fas fa-file-pdf fa-lg text-danger"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <blockquote class="quote-info mt-0" v-else>
+                    <h5>No hemos encontrado documentos</h5>
+                    <p>
+                        Es posible que no tenga los permisos suficientes para visualizar los documentos.
+                    </p>
+                </blockquote>
+                <div class="row">
+                    <div class="col-12">
+                        Mostrando registros del {{ documentos.from }} al {{ documentos.to }} de un total de {{ documentos.total }} registros 
                         <nav aria-label="...">
                             <ul class="pagination justify-content-center">
                                 <li class="page-item" v-bind:class="{'disabled': documentos.current_page == 1}">
@@ -70,78 +127,8 @@
                                 </li>
                             </ul>
                         </nav>
-                    </caption>
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Correlativo</th>
-                            <th scope="col">Asunto</th>
-                            <th scope="col">Reservado por</th>
-                            <th scope="col">Fecha y hora de reservación</th>
-                            <th scope="col">Estado</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="(documento, index) in filter" v-bind:class="{ 'table-warning': documento.estado_documento_id == 1}">
-                            <th scope="row">
-                                {{ documento.correlativo }}
-                            </th>
-                            <td>
-                                {{documento.asunto}}
-                            </td>
-                            <td>{{documento.responsable}}</td>
-                            <td>{{documento.created_at | moment().format("LLL")}}</td>
-                            <td>
-                                <i class="fa fa-bell" v-bind:class="{ 'text-danger': documento.estado_documento_id == 1, 'text-success': documento.estado_documento_id == 2, 'text-secondary': documento.estado_documento_id == 3}"></i>
-                                {{documento.estado}}
-                            </td>
-                            <td>
-                                <div class="btn-group dropleft">
-                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Opciones
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <button class="dropdown-item" v-if="documento.estado_documento_id == 1" v-on:click="generar" v-bind:data-id="documento.id" v-bind:data-index="index">
-                                            <i class="fas fa-spinner fa-lg fa-fw text-secondary" role="button" title="Generar documento" v-bind:data-id="documento.id" v-bind:data-index="index"></i>
-                                            Generar documento
-                                        </button>
-                                        <router-link class="dropdown-item" :to="{ name: 'documentos.edit', params: { id: documento.id}}" v-if="documento.estado_documento_id == 1">
-                                            <i class="fas fa-edit fa-lg fa-fw text-primary" role="button" title="Modificar documento"></i>
-                                            Modificar documento
-                                        </router-link>
-                                        <router-link class="dropdown-item" :to="{ name: 'documentos.upload', params: { id: documento.id }, query: { directory: documento.directory } }" v-if="documento.estado_documento_id == 1">
-                                            <i class="fas fa-upload fa-lg fa-fw text-success" role="button" title="Subir documento"></i>
-                                            Subir documento
-                                        </router-link>
-
-                                        <a class="dropdown-item" target="_blank" v-bind:href="documento.file_referencia_url" v-if="documento.file_referencia_url">
-                                            <i class="fas fa-file-pdf fa-lg fa-fw text-danger" role="button" title="Descargar referencia"></i>
-                                            Descargar referencia
-                                        </a>
-                                        <a class="dropdown-item" target="_blank" v-bind:href="documento.file_url" v-if="documento.file_url">
-                                            <i class="fas fa-file-pdf fa-lg fa-fw text-danger" role="button" title="Descargar documento"></i>
-                                            Descargar documento
-                                        </a>
-                                        <router-link class="dropdown-item" :to="{ name: 'documentos.upload', params: { id: documento.id }, query: { directory: documento.directory } }" v-if="documento.estado_documento_id == 2">
-                                            <i class="fas fa-upload fa-lg fa-fw text-success" role="button" title="Reemplazar documento"></i>
-                                            Reemplazar documento
-                                        </router-link>
-                                        <button class="dropdown-item" v-if="documento.estado_documento_id == 2 && documento.file != null" v-on:click="archivar" v-bind:data-id="documento.id" v-bind:data-index="index">
-                                            <i class="fas fa-archive fa-lg fa-fw text-secondary" role="button" title="Reemplazar documento" v-bind:data-id="documento.id" v-bind:data-index="index"></i>
-                                            Archivar documento
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <blockquote class="quote-info mt-0" v-else>
-                    <h5>No hemos encontrado documentos</h5>
-                    <p>
-                        Usted no tiene ningún documento pendiente de adjuntar
-                    </p>
-                </blockquote>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

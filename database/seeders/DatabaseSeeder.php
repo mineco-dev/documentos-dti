@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             EstadoDocumentoSeeder::class,
         	GeneroSeeder::class,
             SaludoSeeder::class,
-            TipoDocumentoSeeder::class,
+            //TipoDocumentoSeeder::class,
         ]);
     }
 }

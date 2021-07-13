@@ -25,7 +25,7 @@ class CreateAsignacionesTable extends Migration
             $table->string('file')->nullable();
             $table->string('referencia')->nullable();
             $table->string('file_referencia')->nullable();
-            $table->foreignId('tipo_documento_id')->constrained('tipo_documentos');
+            $table->foreignId('tipo_documento_id')->nullable()->constrained('tipo_documentos');
             $table->foreignId('estado_documento_id')->nullable()->constrained('estado_documentos');
             $table->foreignId('user_id')->constrained()->comment('Usuario que reservó el documento');
             $table->foreignId('director_actual')->nullable()

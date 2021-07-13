@@ -9,7 +9,7 @@ use Mpdf\Mpdf;
 
 class AsignacionController extends Controller
 {
-	public function generarPdf($id)
+	public function generarPdf(Request $request, $id)
 	{
 		$documento = Asignacion::
 		select([
@@ -37,7 +37,7 @@ class AsignacionController extends Controller
 		$mpdf = new Mpdf(['format' => 'letter']);
 		$html = \View::make('formatos.'. $documento->tipo_documento_id, compact('documento'));
 		$mpdf->WriteHTML($html);
-		$path = "$documento->directory";
+		$path = "$request->directory";
 		$path .= '/'.date('Y');
 		$path .= "/$documento->documento_id";
 		$path .= "-$documento->anio";

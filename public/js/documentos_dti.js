@@ -3030,16 +3030,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist/vue.js");
-/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
-/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vee-validate/dist/locale/es */ "./node_modules/vee-validate/dist/locale/es.js");
-/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist/vue.js");
+/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
+/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vee-validate/dist/locale/es */ "./node_modules/vee-validate/dist/locale/es.js");
+/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 //
@@ -3127,17 +3127,17 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
-vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_0___default().use(vee_validate__WEBPACK_IMPORTED_MODULE_4__.default, {
+vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_5___default().use(vee_validate__WEBPACK_IMPORTED_MODULE_3__.default, {
   classes: true,
   classNames: {
     valid: '',
     invalid: 'is-invalid'
   }
 });
-vee_validate__WEBPACK_IMPORTED_MODULE_4__.Validator.localize('es', (vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3___default()));
+vee_validate__WEBPACK_IMPORTED_MODULE_3__.Validator.localize('es', (vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_2___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    'v-select': (vue_select__WEBPACK_IMPORTED_MODULE_1___default())
+    'v-select': (vue_select__WEBPACK_IMPORTED_MODULE_0___default())
   },
   data: function data() {
     return {
@@ -3161,7 +3161,7 @@ vee_validate__WEBPACK_IMPORTED_MODULE_4__.Validator.localize('es', (vee_validate
       this.$validator.validate().then(function (isValid) {
         if (isValid) {
           axios.post('/api/destinatarios', _this.destinatario).then(function (response) {
-            sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire({
+            sweetalert2__WEBPACK_IMPORTED_MODULE_4___default().fire({
               icon: 'success',
               title: 'Registro correcto',
               html: response.data
@@ -3226,16 +3226,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist/vue.js");
-/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
-/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vee-validate/dist/locale/es */ "./node_modules/vee-validate/dist/locale/es.js");
-/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue/dist/vue.js */ "./node_modules/vue/dist/vue.js");
+/* harmony import */ var vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
+/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vee-validate/dist/locale/es */ "./node_modules/vee-validate/dist/locale/es.js");
+/* harmony import */ var vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vee_validate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vee-validate */ "./node_modules/vee-validate/dist/vee-validate.esm.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 //
@@ -3311,17 +3311,17 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
-vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_0___default().use(vee_validate__WEBPACK_IMPORTED_MODULE_4__.default, {
+vue_dist_vue_js__WEBPACK_IMPORTED_MODULE_5___default().use(vee_validate__WEBPACK_IMPORTED_MODULE_3__.default, {
   classes: true,
   classNames: {
     valid: '',
     invalid: 'is-invalid'
   }
 });
-vee_validate__WEBPACK_IMPORTED_MODULE_4__.Validator.localize('es', (vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_3___default()));
+vee_validate__WEBPACK_IMPORTED_MODULE_3__.Validator.localize('es', (vee_validate_dist_locale_es__WEBPACK_IMPORTED_MODULE_2___default()));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    'v-select': (vue_select__WEBPACK_IMPORTED_MODULE_1___default())
+    'v-select': (vue_select__WEBPACK_IMPORTED_MODULE_0___default())
   },
   data: function data() {
     return {
@@ -3345,7 +3345,7 @@ vee_validate__WEBPACK_IMPORTED_MODULE_4__.Validator.localize('es', (vee_validate
       this.$validator.validate().then(function (isValid) {
         if (isValid) {
           axios.put('/api/destinatarios/' + _this.destinatario.id, _this.destinatario).then(function (response) {
-            sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire({
+            sweetalert2__WEBPACK_IMPORTED_MODULE_4___default().fire({
               icon: 'success',
               title: 'Actualización correcta',
               html: response.data
@@ -4980,24 +4980,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -5069,6 +5051,7 @@ moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
     getList: function getList(page) {
       var _this2 = this;
 
+      this.$route.query.type = this.documento.tipo_documento_id;
       axios.get("/api/documentos", {
         params: {
           user_id: this.$store.state.user.id,
@@ -5184,7 +5167,9 @@ moment__WEBPACK_IMPORTED_MODULE_0___default().locale('es');
           sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().showLoading();
         }
       });
-      axios.post("/api/asignaciones/".concat(event.target.dataset.id, "/generar-pdf")).then(function (response) {
+      axios.post("/api/asignaciones/".concat(event.target.dataset.id, "/generar-pdf"), {
+        directory: event.target.dataset.directory
+      }).then(function (response) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
           title: "Documento generado",
           icon: 'success'
@@ -5337,19 +5322,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -5718,19 +5690,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -101727,7 +101686,7 @@ var render = function() {
                 _c("div", { staticClass: "form-group mt-3" }, [
                   _c("label", { attrs: { for: "tipo_documento_id" } }, [
                     _vm._v(
-                      "\n                                Reservar\n                            "
+                      "\n                                Reserva completa de\n                            "
                     )
                   ]),
                   _vm._v(" "),
@@ -102683,679 +102642,549 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "content" }, [
-      _c(
-        "div",
-        { staticClass: "container-fluid" },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-primary ml-2 mb-3",
-              on: { click: _vm.reservaSimple }
-            },
-            [
-              _c("i", { staticClass: "fas fa-bell fa-lg mr-2" }),
-              _vm._v("\n                Reserva simple\n            ")
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "btn btn-outline-primary ml-2 mb-3",
-              attrs: {
-                to: {
-                  name: "documentos.reservar",
-                  query: { type: _vm.documento.tipo_documento_id }
-                }
-              }
-            },
-            [
-              _c("i", { staticClass: "fas fa-hand-point-up fa-lg mr-2" }),
-              _vm._v("\n                Reserva completa\n            ")
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "form-row" }, [
-                _c("div", { staticClass: "form-group col-md-2" }, [
-                  _c("label", { attrs: { for: "tipo_documento_id" } }, [
-                    _vm._v("Documento")
-                  ]),
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "form-row" }, [
+              _c(
+                "div",
+                { staticClass: "col-1" },
+                [
+                  _c("i", {
+                    staticClass: "fas fa-bolt fa-2x fa-w text-warning",
+                    attrs: {
+                      title:
+                        "Reserva simple. Con esta opción únicamente es requerido el asunto",
+                      role: "button"
+                    },
+                    on: { click: _vm.reservaSimple }
+                  }),
                   _vm._v(" "),
                   _c(
-                    "select",
+                    "router-link",
                     {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.documento.tipo_documento_id,
-                          expression: "documento.tipo_documento_id"
-                        }
-                      ],
-                      staticClass: "custom-select",
                       attrs: {
-                        name: "tipo_documento_id",
-                        id: "tipo_documento_id"
-                      },
-                      on: {
-                        change: [
-                          function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.documento,
-                              "tipo_documento_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                          function($event) {
-                            return _vm.getList(1)
-                          }
-                        ]
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("Oficios")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [
-                        _vm._v("Dictámenes")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "3" } }, [
-                        _vm._v("Memorandos")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "4" } }, [
-                        _vm._v("Providencias")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group col-md-2" }, [
-                  _c(
-                    "label",
-                    { attrs: { id: "per_page", for: "inputPassword4" } },
-                    [_vm._v("Mostrar")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.per_page,
-                          expression: "per_page"
+                        title:
+                          "Reserva completa. Con esta opción usted podrá reservar un documento y generar el pdf",
+                        to: {
+                          name: "documentos.reservar",
+                          query: { type: _vm.documento.tipo_documento_id }
                         }
-                      ],
-                      staticClass: "custom-select",
-                      attrs: { id: "per_page" },
-                      on: {
-                        change: [
-                          function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.per_page = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          },
-                          function($event) {
-                            return _vm.getList(1)
-                          }
-                        ]
                       }
                     },
-                    [
-                      _c("option", { attrs: { value: "5" } }, [
-                        _vm._v("5 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "10" } }, [
-                        _vm._v("10 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "25" } }, [
-                        _vm._v("25 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "50" } }, [
-                        _vm._v("50 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "100" } }, [
-                        _vm._v("100 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { domProps: { value: _vm.documentos.total } },
-                        [_vm._v("todos los registros")]
-                      )
-                    ]
+                    [_c("i", { staticClass: "fas fa-file-alt fa-2x" })]
                   )
-                ]),
-                _vm._v(" "),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group col-md-2" }, [
                 _c(
-                  "div",
+                  "select",
                   {
                     directives: [
                       {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.documentos.total > 10,
-                        expression: "documentos.total > 10"
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.documento.tipo_documento_id,
+                        expression: "documento.tipo_documento_id"
                       }
                     ],
-                    staticClass: "form-group col-md-8"
+                    staticClass: "custom-select",
+                    attrs: {
+                      name: "tipo_documento_id",
+                      id: "tipo_documento_id"
+                    },
+                    on: {
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.documento,
+                            "tipo_documento_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
+                        function($event) {
+                          return _vm.getList(1)
+                        }
+                      ]
+                    }
                   },
                   [
-                    _c("label", { attrs: { for: "search" } }, [
-                      _vm._v("Filtrar")
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Oficios")
                     ]),
                     _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.search,
-                          expression: "search"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "search", id: "search" },
-                      domProps: { value: _vm.search },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.search = $event.target.value
-                        }
-                      }
-                    })
+                    _c("option", { attrs: { value: "2" } }, [
+                      _vm._v("Dictámenes")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("Memorandos")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [
+                      _vm._v("Providencias")
+                    ])
                   ]
                 )
-              ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group col-md-2" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.per_page,
+                        expression: "per_page"
+                      }
+                    ],
+                    staticClass: "custom-select",
+                    attrs: { id: "per_page" },
+                    on: {
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.per_page = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                        function($event) {
+                          return _vm.getList(1)
+                        }
+                      ]
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "5" } }, [
+                      _vm._v("5 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [
+                      _vm._v("10 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "25" } }, [
+                      _vm._v("25 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "50" } }, [
+                      _vm._v("50 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "100" } }, [
+                      _vm._v("100 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { domProps: { value: _vm.documentos.total } },
+                      [_vm._v("todos los registros")]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.documentos.to > 10,
+                      expression: "documentos.to > 10"
+                    }
+                  ],
+                  staticClass: "form-group col-md-7"
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search,
+                        expression: "search"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "search", id: "search" },
+                    domProps: { value: _vm.search },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.search = $event.target.value
+                      }
+                    }
+                  })
+                ]
+              )
             ])
-          ]),
-          _vm._v(" "),
-          _vm.documentos.total > 0
-            ? _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-body p-0" }, [
-                  _c(
-                    "table",
-                    { staticClass: "table table-hover table-bordered" },
-                    [
-                      _c("caption", [
-                        _vm._v(
-                          "\n                            Mostrando registros del " +
-                            _vm._s(_vm.documentos.from) +
-                            " al " +
-                            _vm._s(_vm.documentos.to) +
-                            " de un total de " +
-                            _vm._s(_vm.documentos.total) +
-                            " registros \n                            "
-                        ),
-                        _c("nav", { attrs: { "aria-label": "..." } }, [
-                          _c(
-                            "ul",
-                            {
-                              staticClass: "pagination justify-content-center"
-                            },
-                            [
-                              _c(
-                                "li",
-                                {
-                                  staticClass: "page-item",
-                                  class: {
-                                    disabled: _vm.documentos.current_page == 1
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "page-link",
-                                      attrs: {
-                                        href: "#",
-                                        tabindex: "-1",
-                                        "aria-disabled": "true"
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          $event.preventDefault()
-                                          return _vm.cambiarPagina(
-                                            _vm.documentos.current_page - 1
-                                          )
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                            Anterior\n                                        "
-                                      )
-                                    ]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm._l(_vm.pagesNumber, function(page) {
-                                return _c(
-                                  "li",
-                                  {
-                                    staticClass: "page-item",
-                                    class: { active: page == _vm.isActived }
-                                  },
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.documentos.total > 0
+          ? _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-body p-0" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-hover table-valign-middle" },
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.filter, function(documento, index) {
+                        return _c(
+                          "tr",
+                          {
+                            class: {
+                              "table-warning":
+                                documento.estado_documento_id == 1
+                            }
+                          },
+                          [
+                            _c("td", [_vm._v(_vm._s(documento.correlativo))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(documento.asunto) +
+                                  "\n                                "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(documento.responsable))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm
+                                    ._f("moment")(documento.created_at)
+                                    .format("LLL")
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(documento.estado) +
+                                  "\n                                "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            documento.estado_documento_id != 3
+                              ? _c(
+                                  "td",
+                                  { staticClass: "text-center" },
                                   [
+                                    documento.destinatario_id != null
+                                      ? _c("i", {
+                                          staticClass:
+                                            "fas fa-spinner fa-lg text-secondary",
+                                          attrs: {
+                                            role: "button",
+                                            title: "Generar documento",
+                                            "data-id": documento.id,
+                                            "data-index": index,
+                                            "data-directory":
+                                              documento.directory
+                                          },
+                                          on: { click: _vm.generar }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
                                     _c(
-                                      "a",
+                                      "router-link",
                                       {
-                                        staticClass: "page-link",
-                                        attrs: { href: "#" },
-                                        on: {
-                                          click: function($event) {
-                                            $event.preventDefault()
-                                            return _vm.cambiarPagina(page)
+                                        attrs: {
+                                          title: "Modificar documento",
+                                          to: {
+                                            name: "documentos.edit",
+                                            params: { id: documento.id }
                                           }
                                         }
                                       },
                                       [
-                                        _vm._v(
-                                          "\n                                            " +
-                                            _vm._s(page) +
-                                            "\n                                        "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                {
-                                  staticClass: "page-item",
-                                  class: {
-                                    disabled:
-                                      _vm.documentos.current_page ==
-                                      _vm.documentos.last_page
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "page-link",
-                                      attrs: { href: "#" },
-                                      on: {
-                                        click: function($event) {
-                                          $event.preventDefault()
-                                          return _vm.cambiarPagina(
-                                            _vm.documentos.current_page + 1
-                                          )
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                            Siguiente\n                                        "
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ],
-                            2
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _c(
-                        "tbody",
-                        _vm._l(_vm.filter, function(documento, index) {
-                          return _c(
-                            "tr",
-                            {
-                              class: {
-                                "table-warning":
-                                  documento.estado_documento_id == 1
-                              }
-                            },
-                            [
-                              _c("th", { attrs: { scope: "row" } }, [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(documento.correlativo) +
-                                    "\n                                "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(documento.asunto) +
-                                    "\n                                "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(documento.responsable))]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _vm._v(
-                                  _vm._s(
-                                    _vm
-                                      ._f("moment")(documento.created_at)
-                                      .format("LLL")
-                                  )
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("i", {
-                                  staticClass: "fa fa-bell",
-                                  class: {
-                                    "text-danger":
-                                      documento.estado_documento_id == 1,
-                                    "text-success":
-                                      documento.estado_documento_id == 2,
-                                    "text-secondary":
-                                      documento.estado_documento_id == 3
-                                  }
-                                }),
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(documento.estado) +
-                                    "\n                                "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c(
-                                  "div",
-                                  { staticClass: "btn-group dropleft" },
-                                  [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn btn-secondary dropdown-toggle",
-                                        attrs: {
-                                          type: "button",
-                                          "data-toggle": "dropdown",
-                                          "aria-haspopup": "true",
-                                          "aria-expanded": "false"
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                            Opciones\n                                        "
-                                        )
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-edit fa-lg text-primary",
+                                          attrs: { role: "button" }
+                                        })
                                       ]
                                     ),
                                     _vm._v(" "),
                                     _c(
-                                      "div",
-                                      { staticClass: "dropdown-menu" },
+                                      "router-link",
+                                      {
+                                        attrs: {
+                                          title:
+                                            "Adjuntar o reemplazar el documento firmado y sello de recibido",
+                                          to: {
+                                            name: "documentos.upload",
+                                            params: { id: documento.id },
+                                            query: {
+                                              directory: documento.directory
+                                            }
+                                          }
+                                        }
+                                      },
                                       [
-                                        documento.estado_documento_id == 1 &&
-                                        documento.destinatario_id != null
-                                          ? _c(
-                                              "button",
-                                              {
-                                                staticClass: "dropdown-item",
-                                                attrs: {
-                                                  "data-id": documento.id,
-                                                  "data-index": index
-                                                },
-                                                on: { click: _vm.generar }
-                                              },
-                                              [
-                                                _c("i", {
-                                                  staticClass:
-                                                    "fas fa-spinner fa-lg fa-fw text-secondary",
-                                                  attrs: {
-                                                    role: "button",
-                                                    title: "Generar documento",
-                                                    "data-id": documento.id,
-                                                    "data-index": index
-                                                  }
-                                                }),
-                                                _vm._v(
-                                                  "\n                                                Generar documento\n                                            "
-                                                )
-                                              ]
-                                            )
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        documento.estado_documento_id == 1
-                                          ? _c(
-                                              "router-link",
-                                              {
-                                                staticClass: "dropdown-item",
-                                                attrs: {
-                                                  to: {
-                                                    name: "documentos.edit",
-                                                    params: { id: documento.id }
-                                                  }
-                                                }
-                                              },
-                                              [
-                                                _c("i", {
-                                                  staticClass:
-                                                    "fas fa-edit fa-lg fa-fw text-primary",
-                                                  attrs: { role: "button" }
-                                                }),
-                                                _vm._v(
-                                                  "\n                                                Modificar documento\n                                            "
-                                                )
-                                              ]
-                                            )
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        documento.estado_documento_id == 1
-                                          ? _c(
-                                              "router-link",
-                                              {
-                                                staticClass: "dropdown-item",
-                                                attrs: {
-                                                  to: {
-                                                    name: "documentos.upload",
-                                                    params: {
-                                                      id: documento.id
-                                                    },
-                                                    query: {
-                                                      directory:
-                                                        documento.directory
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              [
-                                                _c("i", {
-                                                  staticClass:
-                                                    "fas fa-upload fa-lg fa-fw text-success",
-                                                  attrs: {
-                                                    role: "button",
-                                                    title: "Subir documento"
-                                                  }
-                                                }),
-                                                _vm._v(
-                                                  "\n                                                Subir documento\n                                            "
-                                                )
-                                              ]
-                                            )
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        documento.file_referencia_url
-                                          ? _c(
-                                              "a",
-                                              {
-                                                staticClass: "dropdown-item",
-                                                attrs: {
-                                                  target: "_blank",
-                                                  href:
-                                                    documento.file_referencia_url
-                                                }
-                                              },
-                                              [
-                                                _c("i", {
-                                                  staticClass:
-                                                    "fas fa-file-pdf fa-lg fa-fw text-danger",
-                                                  attrs: {
-                                                    role: "button",
-                                                    title:
-                                                      "Descargar referencia"
-                                                  }
-                                                }),
-                                                _vm._v(
-                                                  "\n                                                Descargar referencia\n                                            "
-                                                )
-                                              ]
-                                            )
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        documento.file_url
-                                          ? _c(
-                                              "a",
-                                              {
-                                                staticClass: "dropdown-item",
-                                                attrs: {
-                                                  target: "_blank",
-                                                  href: documento.file_url
-                                                }
-                                              },
-                                              [
-                                                _c("i", {
-                                                  staticClass:
-                                                    "fas fa-file-pdf fa-lg fa-fw text-danger",
-                                                  attrs: {
-                                                    role: "button",
-                                                    title: "Descargar documento"
-                                                  }
-                                                }),
-                                                _vm._v(
-                                                  "\n                                                Descargar documento\n                                            "
-                                                )
-                                              ]
-                                            )
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        documento.estado_documento_id == 2
-                                          ? _c(
-                                              "router-link",
-                                              {
-                                                staticClass: "dropdown-item",
-                                                attrs: {
-                                                  to: {
-                                                    name: "documentos.upload",
-                                                    params: {
-                                                      id: documento.id
-                                                    },
-                                                    query: {
-                                                      directory:
-                                                        documento.directory
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              [
-                                                _c("i", {
-                                                  staticClass:
-                                                    "fas fa-upload fa-lg fa-fw text-success",
-                                                  attrs: {
-                                                    role: "button",
-                                                    title:
-                                                      "Reemplazar documento"
-                                                  }
-                                                }),
-                                                _vm._v(
-                                                  "\n                                                Reemplazar documento\n                                            "
-                                                )
-                                              ]
-                                            )
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        documento.estado_documento_id == 2 &&
-                                        documento.file != null
-                                          ? _c(
-                                              "button",
-                                              {
-                                                staticClass: "dropdown-item",
-                                                attrs: {
-                                                  "data-id": documento.id,
-                                                  "data-index": index
-                                                },
-                                                on: { click: _vm.archivar }
-                                              },
-                                              [
-                                                _c("i", {
-                                                  staticClass:
-                                                    "fas fa-archive fa-lg fa-fw text-secondary",
-                                                  attrs: {
-                                                    role: "button",
-                                                    title:
-                                                      "Reemplazar documento",
-                                                    "data-id": documento.id,
-                                                    "data-index": index
-                                                  }
-                                                }),
-                                                _vm._v(
-                                                  "\n                                                Archivar documento\n                                            "
-                                                )
-                                              ]
-                                            )
-                                          : _vm._e()
-                                      ],
-                                      1
-                                    )
-                                  ]
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-upload fa-lg text-success"
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: {
+                                          target: "_blank",
+                                          title: "Descargar referencia",
+                                          href: documento.file_referencia_url
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-paperclip fa-lg text-danger"
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: {
+                                          target: "_blank",
+                                          title: "Descargar documento",
+                                          href: documento.file_url
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-file-pdf fa-lg text-danger"
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass:
+                                        "fas fa-file-archive fa-lg text-secondary",
+                                      attrs: {
+                                        role: "button",
+                                        title: "Archivar",
+                                        "data-id": documento.id,
+                                        "data-index": index
+                                      },
+                                      on: { click: _vm.archivar }
+                                    })
+                                  ],
+                                  1
                                 )
-                              ])
-                            ]
+                              : _c("td", { staticClass: "text-center" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        target: "_blank",
+                                        title: "Descargar referencia",
+                                        href: documento.file_referencia_url
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fas fa-paperclip fa-lg text-danger"
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        target: "_blank",
+                                        title: "Descargar documento",
+                                        href: documento.file_url
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fas fa-file-pdf fa-lg text-danger"
+                                      })
+                                    ]
+                                  )
+                                ])
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
+            ])
+          : _c("blockquote", { staticClass: "quote-info mt-0" }, [
+              _c("h5", [_vm._v("No hemos encontrado documentos")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                    Es posible que no tenga los permisos suficientes para visualizar los documentos.\n                "
+                )
+              ])
+            ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _vm._v(
+              "\n                    Mostrando registros del " +
+                _vm._s(_vm.documentos.from) +
+                " al " +
+                _vm._s(_vm.documentos.to) +
+                " de un total de " +
+                _vm._s(_vm.documentos.total) +
+                " registros \n                    "
+            ),
+            _c("nav", { attrs: { "aria-label": "..." } }, [
+              _c(
+                "ul",
+                { staticClass: "pagination justify-content-center" },
+                [
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: { disabled: _vm.documentos.current_page == 1 }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: {
+                            href: "#",
+                            tabindex: "-1",
+                            "aria-disabled": "true"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.cambiarPagina(
+                                _vm.documentos.current_page - 1
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Anterior\n                                "
                           )
-                        }),
-                        0
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.pagesNumber, function(page) {
+                    return _c(
+                      "li",
+                      {
+                        staticClass: "page-item",
+                        class: { active: page == _vm.isActived }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.cambiarPagina(page)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(page) +
+                                "\n                                "
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: {
+                        disabled:
+                          _vm.documentos.current_page ==
+                          _vm.documentos.last_page
+                      }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.cambiarPagina(
+                                _vm.documentos.current_page + 1
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Siguiente\n                                "
+                          )
+                        ]
                       )
                     ]
                   )
-                ])
-              ])
-            : _c("blockquote", { staticClass: "quote-info mt-0" }, [
-                _c("h5", [_vm._v("No hemos encontrado documentos")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "\n                    Es posible que no tenga los permisos suficientes para visualizar los documentos.\n                "
-                  )
-                ])
-              ])
-        ],
-        1
-      )
+                ],
+                2
+              )
+            ])
+          ])
+        ])
+      ])
     ])
   ])
 }
@@ -103366,8 +103195,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content-header" }, [
       _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row mb-2" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12" }, [
             _c("h1", [_vm._v("Listado general de documentos")])
           ])
         ])
@@ -103386,13 +103215,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Reservado por")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [
-          _vm._v("Fecha y hora de reservación")
-        ]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha y hora")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } })
+        _c("th", {
+          staticClass: "text-center",
+          staticStyle: { width: "15%" },
+          attrs: { scope: "col" }
+        })
       ])
     ])
   }
@@ -103583,466 +103414,287 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "content" }, [
-      _c(
-        "div",
-        { staticClass: "container-fluid" },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-primary ml-2 mb-3",
-              on: { click: _vm.reservaSimple }
-            },
-            [
-              _c("i", { staticClass: "fas fa-bell fa-lg mr-2" }),
-              _vm._v("\n                Reserva simple\n            ")
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "btn btn-outline-primary ml-2 mb-3",
-              attrs: {
-                to: {
-                  name: "documentos.reservar",
-                  query: { type: _vm.documento.tipo_documento_id }
-                }
-              }
-            },
-            [
-              _c("i", { staticClass: "fas fa-hand-point-up fa-lg mr-2" }),
-              _vm._v("\n                Reserva completa\n            ")
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "form-row" }, [
-                _c("div", { staticClass: "form-group col-md-2" }, [
-                  _c("label", { attrs: { for: "tipo_documento_id" } }, [
-                    _vm._v("Documento")
-                  ]),
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "form-row" }, [
+              _c(
+                "div",
+                { staticClass: "col-1" },
+                [
+                  _c("i", {
+                    staticClass: "fas fa-bolt fa-2x fa-w text-warning",
+                    attrs: {
+                      title:
+                        "Reserva simple. Con esta opción únicamente es requerido el asunto",
+                      role: "button"
+                    },
+                    on: { click: _vm.reservaSimple }
+                  }),
                   _vm._v(" "),
                   _c(
-                    "select",
+                    "router-link",
                     {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.documento.tipo_documento_id,
-                          expression: "documento.tipo_documento_id"
-                        }
-                      ],
-                      staticClass: "custom-select",
                       attrs: {
-                        name: "tipo_documento_id",
-                        id: "tipo_documento_id"
-                      },
-                      on: {
-                        change: [
-                          function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.documento,
-                              "tipo_documento_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                          function($event) {
-                            return _vm.getList(1)
-                          }
-                        ]
-                      }
-                    },
-                    [
-                      _c(
-                        "option",
-                        { attrs: { value: "1", "data-table": "oficios" } },
-                        [_vm._v("Oficios")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { attrs: { value: "2", "data-table": "dictamenes" } },
-                        [_vm._v("Dictámenes")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { attrs: { value: "3", "data-table": "memorandums" } },
-                        [_vm._v("Memorandos")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { attrs: { value: "4", "data-table": "providencias" } },
-                        [_vm._v("Providencias")]
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group col-md-2" }, [
-                  _c(
-                    "label",
-                    { attrs: { id: "per_page", for: "inputPassword4" } },
-                    [_vm._v("Mostrar")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.per_page,
-                          expression: "per_page"
+                        title:
+                          "Reserva completa. Con esta opción usted podrá reservar un documento y generar el pdf",
+                        to: {
+                          name: "documentos.reservar",
+                          query: { type: _vm.documento.tipo_documento_id }
                         }
-                      ],
-                      staticClass: "custom-select",
-                      attrs: { id: "per_page" },
-                      on: {
-                        change: [
-                          function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.per_page = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          },
-                          function($event) {
-                            return _vm.getList(1)
-                          }
-                        ]
                       }
                     },
-                    [
-                      _c("option", { attrs: { value: "5" } }, [
-                        _vm._v("5 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "10" } }, [
-                        _vm._v("10 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "25" } }, [
-                        _vm._v("25 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "50" } }, [
-                        _vm._v("50 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "100" } }, [
-                        _vm._v("100 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { domProps: { value: _vm.documentos.total } },
-                        [_vm._v("todos los registros")]
-                      )
-                    ]
+                    [_c("i", { staticClass: "fas fa-file-alt fa-2x" })]
                   )
-                ]),
-                _vm._v(" "),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group col-md-2" }, [
                 _c(
-                  "div",
+                  "select",
                   {
                     directives: [
                       {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.documentos.total > 10,
-                        expression: "documentos.total > 10"
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.documento.tipo_documento_id,
+                        expression: "documento.tipo_documento_id"
                       }
                     ],
-                    staticClass: "form-group col-md-8"
+                    staticClass: "custom-select",
+                    attrs: {
+                      name: "tipo_documento_id",
+                      id: "tipo_documento_id"
+                    },
+                    on: {
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.documento,
+                            "tipo_documento_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
+                        function($event) {
+                          return _vm.getList(1)
+                        }
+                      ]
+                    }
                   },
                   [
-                    _c("label", { attrs: { for: "search" } }, [
-                      _vm._v("Filtrar")
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Oficios")
                     ]),
                     _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.search,
-                          expression: "search"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "search", id: "search" },
-                      domProps: { value: _vm.search },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.search = $event.target.value
-                        }
-                      }
-                    })
+                    _c("option", { attrs: { value: "2" } }, [
+                      _vm._v("Dictámenes")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("Memorandos")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [
+                      _vm._v("Providencias")
+                    ])
                   ]
                 )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _vm.documentos.total > 0
-            ? _c("table", { staticClass: "table table-hover table-bordered" }, [
-                _c("caption", [
-                  _c("nav", { attrs: { "aria-label": "..." } }, [
-                    _c(
-                      "ul",
-                      { staticClass: "pagination justify-content-center" },
-                      [
-                        _c(
-                          "li",
-                          {
-                            staticClass: "page-item",
-                            class: {
-                              disabled: _vm.documentos.current_page == 1
-                            }
-                          },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "page-link",
-                                attrs: {
-                                  href: "#",
-                                  tabindex: "-1",
-                                  "aria-disabled": "true"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.cambiarPagina(
-                                      _vm.documentos.current_page - 1
-                                    )
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    Anterior\n                                "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._l(_vm.pagesNumber, function(page) {
-                          return _c(
-                            "li",
-                            {
-                              staticClass: "page-item",
-                              class: { active: page == _vm.isActived }
-                            },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "page-link",
-                                  attrs: { href: "#" },
-                                  on: {
-                                    click: function($event) {
-                                      $event.preventDefault()
-                                      return _vm.cambiarPagina(page)
-                                    }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                    " +
-                                      _vm._s(page) +
-                                      "\n                                "
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "li",
-                          {
-                            staticClass: "page-item",
-                            class: {
-                              disabled:
-                                _vm.documentos.current_page ==
-                                _vm.documentos.last_page
-                            }
-                          },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "page-link",
-                                attrs: { href: "#" },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.cambiarPagina(
-                                      _vm.documentos.current_page + 1
-                                    )
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    Siguiente\n                                "
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ],
-                      2
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group col-md-2" }, [
                 _c(
-                  "tbody",
-                  _vm._l(_vm.filter, function(documento, index) {
-                    return _c(
-                      "tr",
+                  "select",
+                  {
+                    directives: [
                       {
-                        class: {
-                          "table-warning": documento.estado_documento_id == 1
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.per_page,
+                        expression: "per_page"
+                      }
+                    ],
+                    staticClass: "custom-select",
+                    attrs: { id: "per_page" },
+                    on: {
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.per_page = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                        function($event) {
+                          return _vm.getList(1)
                         }
-                      },
-                      [
-                        _c("th", { attrs: { scope: "row" } }, [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(documento.correlativo) +
-                              "\n                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(documento.asunto) +
-                              "\n                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(documento.responsable))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            _vm._s(
-                              _vm
-                                ._f("moment")(documento.created_at)
-                                .format("LLL")
-                            )
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("i", {
-                            staticClass: "fa fa-bell",
+                      ]
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "5" } }, [
+                      _vm._v("5 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [
+                      _vm._v("10 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "25" } }, [
+                      _vm._v("25 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "50" } }, [
+                      _vm._v("50 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "100" } }, [
+                      _vm._v("100 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { domProps: { value: _vm.documentos.total } },
+                      [_vm._v("todos los registros")]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.documentos.to > 10,
+                      expression: "documentos.to > 10"
+                    }
+                  ],
+                  staticClass: "form-group col-md-7"
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search,
+                        expression: "search"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "search", id: "search" },
+                    domProps: { value: _vm.search },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.search = $event.target.value
+                      }
+                    }
+                  })
+                ]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.documentos.total > 0
+          ? _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-body p-0" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-hover table-valign-middle" },
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.filter, function(documento, index) {
+                        return _c(
+                          "tr",
+                          {
                             class: {
-                              "text-danger": documento.estado_documento_id == 1,
-                              "text-success":
-                                documento.estado_documento_id == 2,
-                              "text-secondary":
-                                documento.estado_documento_id == 3
-                            }
-                          }),
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(documento.estado) +
-                              "\n                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("div", { staticClass: "btn-group dropleft" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-secondary dropdown-toggle",
-                                attrs: {
-                                  type: "button",
-                                  "data-toggle": "dropdown",
-                                  "aria-haspopup": "true",
-                                  "aria-expanded": "false"
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    Opciones\n                                "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "dropdown-menu" },
-                              [
+                              "table-warning":
                                 documento.estado_documento_id == 1
-                                  ? _c(
-                                      "button",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: {
-                                          "data-id": documento.id,
-                                          "data-index": index
-                                        },
-                                        on: { click: _vm.generar }
-                                      },
-                                      [
-                                        _c("i", {
+                            }
+                          },
+                          [
+                            _c("td", [_vm._v(_vm._s(documento.correlativo))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(documento.asunto) +
+                                  "\n                                "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(documento.responsable))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm
+                                    ._f("moment")(documento.created_at)
+                                    .format("LLL")
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(documento.estado) +
+                                  "\n                                "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            documento.estado_documento_id != 3
+                              ? _c(
+                                  "td",
+                                  { staticClass: "text-center" },
+                                  [
+                                    documento.destinatario_id != null
+                                      ? _c("i", {
                                           staticClass:
-                                            "fas fa-spinner fa-lg fa-fw text-secondary",
+                                            "fas fa-spinner fa-lg text-secondary",
                                           attrs: {
                                             role: "button",
                                             title: "Generar documento",
                                             "data-id": documento.id,
-                                            "data-index": index
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Generar documento\n                                    "
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.estado_documento_id == 1
-                                  ? _c(
+                                            "data-index": index,
+                                            "data-directory":
+                                              documento.directory
+                                          },
+                                          on: { click: _vm.generar }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _c(
                                       "router-link",
                                       {
-                                        staticClass: "dropdown-item",
                                         attrs: {
+                                          title: "Modificar documento",
                                           to: {
                                             name: "documentos.edit",
                                             params: { id: documento.id }
@@ -104052,25 +103704,18 @@ var render = function() {
                                       [
                                         _c("i", {
                                           staticClass:
-                                            "fas fa-edit fa-lg fa-fw text-primary",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Modificar documento"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Modificar documento\n                                    "
-                                        )
+                                            "fas fa-edit fa-lg text-primary",
+                                          attrs: { role: "button" }
+                                        })
                                       ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.estado_documento_id == 1
-                                  ? _c(
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
                                       "router-link",
                                       {
-                                        staticClass: "dropdown-item",
                                         attrs: {
+                                          title:
+                                            "Adjuntar o reemplazar el documento firmado y sello de recibido",
                                           to: {
                                             name: "documentos.upload",
                                             params: { id: documento.id },
@@ -104083,154 +103728,235 @@ var render = function() {
                                       [
                                         _c("i", {
                                           staticClass:
-                                            "fas fa-upload fa-lg fa-fw text-success",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Subir documento"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Subir documento\n                                    "
-                                        )
+                                            "fas fa-upload fa-lg text-success"
+                                        })
                                       ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.file_referencia_url
-                                  ? _c(
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
                                       "a",
                                       {
-                                        staticClass: "dropdown-item",
                                         attrs: {
                                           target: "_blank",
+                                          title: "Descargar referencia",
                                           href: documento.file_referencia_url
                                         }
                                       },
                                       [
                                         _c("i", {
                                           staticClass:
-                                            "fas fa-file-pdf fa-lg fa-fw text-danger",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Descargar referencia"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Descargar referencia\n                                    "
-                                        )
+                                            "fas fa-paperclip fa-lg text-danger"
+                                        })
                                       ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.file_url
-                                  ? _c(
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
                                       "a",
                                       {
-                                        staticClass: "dropdown-item",
                                         attrs: {
                                           target: "_blank",
+                                          title: "Descargar documento",
                                           href: documento.file_url
                                         }
                                       },
                                       [
                                         _c("i", {
                                           staticClass:
-                                            "fas fa-file-pdf fa-lg fa-fw text-danger",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Descargar documento"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Descargar documento\n                                    "
-                                        )
+                                            "fas fa-file-pdf fa-lg text-danger"
+                                        })
                                       ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.estado_documento_id == 2
-                                  ? _c(
-                                      "router-link",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: {
-                                          to: {
-                                            name: "documentos.upload",
-                                            params: { id: documento.id },
-                                            query: {
-                                              directory: documento.directory
-                                            }
-                                          }
-                                        }
+                                    ),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass:
+                                        "fas fa-file-archive fa-lg text-secondary",
+                                      attrs: {
+                                        role: "button",
+                                        title: "Archivar",
+                                        "data-id": documento.id,
+                                        "data-index": index
                                       },
-                                      [
-                                        _c("i", {
-                                          staticClass:
-                                            "fas fa-upload fa-lg fa-fw text-success",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Reemplazar documento"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Reemplazar documento\n                                    "
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.estado_documento_id == 2 &&
-                                documento.file != null
-                                  ? _c(
-                                      "button",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: {
-                                          "data-id": documento.id,
-                                          "data-index": index
-                                        },
-                                        on: { click: _vm.archivar }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass:
-                                            "fas fa-archive fa-lg fa-fw text-secondary",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Reemplazar documento",
-                                            "data-id": documento.id,
-                                            "data-index": index
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Archivar documento\n                                    "
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e()
-                              ],
-                              1
+                                      on: { click: _vm.archivar }
+                                    })
+                                  ],
+                                  1
+                                )
+                              : _c("td", { staticClass: "text-center" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        target: "_blank",
+                                        title: "Descargar referencia",
+                                        href: documento.file_referencia_url
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fas fa-paperclip fa-lg text-danger"
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        target: "_blank",
+                                        title: "Descargar documento",
+                                        href: documento.file_url
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fas fa-file-pdf fa-lg text-danger"
+                                      })
+                                    ]
+                                  )
+                                ])
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
+            ])
+          : _c("blockquote", { staticClass: "quote-info mt-0" }, [
+              _c("h5", [_vm._v("No hemos encontrado documentos")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                    Es posible que no tenga los permisos suficientes para visualizar los documentos.\n                "
+                )
+              ])
+            ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _vm._v(
+              "\n                    Mostrando registros del " +
+                _vm._s(_vm.documentos.from) +
+                " al " +
+                _vm._s(_vm.documentos.to) +
+                " de un total de " +
+                _vm._s(_vm.documentos.total) +
+                " registros \n                    "
+            ),
+            _c("nav", { attrs: { "aria-label": "..." } }, [
+              _c(
+                "ul",
+                { staticClass: "pagination justify-content-center" },
+                [
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: { disabled: _vm.documentos.current_page == 1 }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: {
+                            href: "#",
+                            tabindex: "-1",
+                            "aria-disabled": "true"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.cambiarPagina(
+                                _vm.documentos.current_page - 1
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Anterior\n                                "
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.pagesNumber, function(page) {
+                    return _c(
+                      "li",
+                      {
+                        staticClass: "page-item",
+                        class: { active: page == _vm.isActived }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.cambiarPagina(page)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(page) +
+                                "\n                                "
                             )
-                          ])
-                        ])
+                          ]
+                        )
                       ]
                     )
                   }),
-                  0
-                )
-              ])
-            : _c("blockquote", { staticClass: "quote-info mt-0" }, [
-                _c("h5", [_vm._v("No hemos encontrado documentos")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "\n                    Usted no tiene ningún documento pendiente de adjuntar\n                "
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: {
+                        disabled:
+                          _vm.documentos.current_page ==
+                          _vm.documentos.last_page
+                      }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.cambiarPagina(
+                                _vm.documentos.current_page + 1
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Siguiente\n                                "
+                          )
+                        ]
+                      )
+                    ]
                   )
-                ])
-              ])
-        ],
-        1
-      )
+                ],
+                2
+              )
+            ])
+          ])
+        ])
+      ])
     ])
   ])
 }
@@ -104261,13 +103987,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Reservado por")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [
-          _vm._v("Fecha y hora de reservación")
-        ]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha y hora")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } })
+        _c("th", {
+          staticClass: "text-center",
+          staticStyle: { width: "15%" },
+          attrs: { scope: "col" }
+        })
       ])
     ])
   }
@@ -104298,466 +104026,287 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "content" }, [
-      _c(
-        "div",
-        { staticClass: "container-fluid" },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-primary ml-2 mb-3",
-              on: { click: _vm.reservaSimple }
-            },
-            [
-              _c("i", { staticClass: "fas fa-bell fa-lg mr-2" }),
-              _vm._v("\n                Reserva simple\n            ")
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "btn btn-outline-primary ml-2 mb-3",
-              attrs: {
-                to: {
-                  name: "documentos.reservar",
-                  query: { type: _vm.documento.tipo_documento_id }
-                }
-              }
-            },
-            [
-              _c("i", { staticClass: "fas fa-hand-point-up fa-lg mr-2" }),
-              _vm._v("\n                Reserva completa\n            ")
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "form-row" }, [
-                _c("div", { staticClass: "form-group col-md-2" }, [
-                  _c("label", { attrs: { for: "tipo_documento_id" } }, [
-                    _vm._v("Documento")
-                  ]),
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "form-row" }, [
+              _c(
+                "div",
+                { staticClass: "col-1" },
+                [
+                  _c("i", {
+                    staticClass: "fas fa-bolt fa-2x fa-w text-warning",
+                    attrs: {
+                      title:
+                        "Reserva simple. Con esta opción únicamente es requerido el asunto",
+                      role: "button"
+                    },
+                    on: { click: _vm.reservaSimple }
+                  }),
                   _vm._v(" "),
                   _c(
-                    "select",
+                    "router-link",
                     {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.documento.tipo_documento_id,
-                          expression: "documento.tipo_documento_id"
-                        }
-                      ],
-                      staticClass: "custom-select",
                       attrs: {
-                        name: "tipo_documento_id",
-                        id: "tipo_documento_id"
-                      },
-                      on: {
-                        change: [
-                          function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.documento,
-                              "tipo_documento_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                          function($event) {
-                            return _vm.getList(1)
-                          }
-                        ]
-                      }
-                    },
-                    [
-                      _c(
-                        "option",
-                        { attrs: { value: "1", "data-table": "oficios" } },
-                        [_vm._v("Oficios")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { attrs: { value: "2", "data-table": "dictamenes" } },
-                        [_vm._v("Dictámenes")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { attrs: { value: "3", "data-table": "memorandums" } },
-                        [_vm._v("Memorandos")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { attrs: { value: "4", "data-table": "providencias" } },
-                        [_vm._v("Providencias")]
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group col-md-2" }, [
-                  _c(
-                    "label",
-                    { attrs: { id: "per_page", for: "inputPassword4" } },
-                    [_vm._v("Mostrar")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.per_page,
-                          expression: "per_page"
+                        title:
+                          "Reserva completa. Con esta opción usted podrá reservar un documento y generar el pdf",
+                        to: {
+                          name: "documentos.reservar",
+                          query: { type: _vm.documento.tipo_documento_id }
                         }
-                      ],
-                      staticClass: "custom-select",
-                      attrs: { id: "per_page" },
-                      on: {
-                        change: [
-                          function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.per_page = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          },
-                          function($event) {
-                            return _vm.getList(1)
-                          }
-                        ]
                       }
                     },
-                    [
-                      _c("option", { attrs: { value: "5" } }, [
-                        _vm._v("5 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "10" } }, [
-                        _vm._v("10 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "25" } }, [
-                        _vm._v("25 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "50" } }, [
-                        _vm._v("50 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "100" } }, [
-                        _vm._v("100 registros")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { domProps: { value: _vm.documentos.total } },
-                        [_vm._v("todos los registros")]
-                      )
-                    ]
+                    [_c("i", { staticClass: "fas fa-file-alt fa-2x" })]
                   )
-                ]),
-                _vm._v(" "),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group col-md-2" }, [
                 _c(
-                  "div",
+                  "select",
                   {
                     directives: [
                       {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.documentos.total > 10,
-                        expression: "documentos.total > 10"
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.documento.tipo_documento_id,
+                        expression: "documento.tipo_documento_id"
                       }
                     ],
-                    staticClass: "form-group col-md-8"
+                    staticClass: "custom-select",
+                    attrs: {
+                      name: "tipo_documento_id",
+                      id: "tipo_documento_id"
+                    },
+                    on: {
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.documento,
+                            "tipo_documento_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
+                        function($event) {
+                          return _vm.getList(1)
+                        }
+                      ]
+                    }
                   },
                   [
-                    _c("label", { attrs: { for: "search" } }, [
-                      _vm._v("Filtrar")
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Oficios")
                     ]),
                     _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.search,
-                          expression: "search"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "search", id: "search" },
-                      domProps: { value: _vm.search },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.search = $event.target.value
-                        }
-                      }
-                    })
+                    _c("option", { attrs: { value: "2" } }, [
+                      _vm._v("Dictámenes")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("Memorandos")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "4" } }, [
+                      _vm._v("Providencias")
+                    ])
                   ]
                 )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _vm.documentos.total > 0
-            ? _c("table", { staticClass: "table table-hover table-bordered" }, [
-                _c("caption", [
-                  _c("nav", { attrs: { "aria-label": "..." } }, [
-                    _c(
-                      "ul",
-                      { staticClass: "pagination justify-content-center" },
-                      [
-                        _c(
-                          "li",
-                          {
-                            staticClass: "page-item",
-                            class: {
-                              disabled: _vm.documentos.current_page == 1
-                            }
-                          },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "page-link",
-                                attrs: {
-                                  href: "#",
-                                  tabindex: "-1",
-                                  "aria-disabled": "true"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.cambiarPagina(
-                                      _vm.documentos.current_page - 1
-                                    )
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    Anterior\n                                "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._l(_vm.pagesNumber, function(page) {
-                          return _c(
-                            "li",
-                            {
-                              staticClass: "page-item",
-                              class: { active: page == _vm.isActived }
-                            },
-                            [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "page-link",
-                                  attrs: { href: "#" },
-                                  on: {
-                                    click: function($event) {
-                                      $event.preventDefault()
-                                      return _vm.cambiarPagina(page)
-                                    }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                    " +
-                                      _vm._s(page) +
-                                      "\n                                "
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "li",
-                          {
-                            staticClass: "page-item",
-                            class: {
-                              disabled:
-                                _vm.documentos.current_page ==
-                                _vm.documentos.last_page
-                            }
-                          },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "page-link",
-                                attrs: { href: "#" },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.cambiarPagina(
-                                      _vm.documentos.current_page + 1
-                                    )
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    Siguiente\n                                "
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ],
-                      2
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group col-md-2" }, [
                 _c(
-                  "tbody",
-                  _vm._l(_vm.filter, function(documento, index) {
-                    return _c(
-                      "tr",
+                  "select",
+                  {
+                    directives: [
                       {
-                        class: {
-                          "table-warning": documento.estado_documento_id == 1
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.per_page,
+                        expression: "per_page"
+                      }
+                    ],
+                    staticClass: "custom-select",
+                    attrs: { id: "per_page" },
+                    on: {
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.per_page = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                        function($event) {
+                          return _vm.getList(1)
                         }
-                      },
-                      [
-                        _c("th", { attrs: { scope: "row" } }, [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(documento.correlativo) +
-                              "\n                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(documento.asunto) +
-                              "\n                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(documento.responsable))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            _vm._s(
-                              _vm
-                                ._f("moment")(documento.created_at)
-                                .format("LLL")
-                            )
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("i", {
-                            staticClass: "fa fa-bell",
+                      ]
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "5" } }, [
+                      _vm._v("5 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [
+                      _vm._v("10 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "25" } }, [
+                      _vm._v("25 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "50" } }, [
+                      _vm._v("50 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "100" } }, [
+                      _vm._v("100 registros")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { domProps: { value: _vm.documentos.total } },
+                      [_vm._v("todos los registros")]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.documentos.to > 10,
+                      expression: "documentos.to > 10"
+                    }
+                  ],
+                  staticClass: "form-group col-md-7"
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search,
+                        expression: "search"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "search", id: "search" },
+                    domProps: { value: _vm.search },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.search = $event.target.value
+                      }
+                    }
+                  })
+                ]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.documentos.total > 0
+          ? _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-body p-0" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-hover table-valign-middle" },
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.filter, function(documento, index) {
+                        return _c(
+                          "tr",
+                          {
                             class: {
-                              "text-danger": documento.estado_documento_id == 1,
-                              "text-success":
-                                documento.estado_documento_id == 2,
-                              "text-secondary":
-                                documento.estado_documento_id == 3
-                            }
-                          }),
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(documento.estado) +
-                              "\n                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("div", { staticClass: "btn-group dropleft" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-secondary dropdown-toggle",
-                                attrs: {
-                                  type: "button",
-                                  "data-toggle": "dropdown",
-                                  "aria-haspopup": "true",
-                                  "aria-expanded": "false"
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    Opciones\n                                "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "dropdown-menu" },
-                              [
+                              "table-warning":
                                 documento.estado_documento_id == 1
-                                  ? _c(
-                                      "button",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: {
-                                          "data-id": documento.id,
-                                          "data-index": index
-                                        },
-                                        on: { click: _vm.generar }
-                                      },
-                                      [
-                                        _c("i", {
+                            }
+                          },
+                          [
+                            _c("td", [_vm._v(_vm._s(documento.correlativo))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(documento.asunto) +
+                                  "\n                                "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(documento.responsable))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm
+                                    ._f("moment")(documento.created_at)
+                                    .format("LLL")
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(documento.estado) +
+                                  "\n                                "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            documento.estado_documento_id != 3
+                              ? _c(
+                                  "td",
+                                  { staticClass: "text-center" },
+                                  [
+                                    documento.destinatario_id != null
+                                      ? _c("i", {
                                           staticClass:
-                                            "fas fa-spinner fa-lg fa-fw text-secondary",
+                                            "fas fa-spinner fa-lg text-secondary",
                                           attrs: {
                                             role: "button",
                                             title: "Generar documento",
                                             "data-id": documento.id,
-                                            "data-index": index
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Generar documento\n                                    "
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.estado_documento_id == 1
-                                  ? _c(
+                                            "data-index": index,
+                                            "data-directory":
+                                              documento.directory
+                                          },
+                                          on: { click: _vm.generar }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _c(
                                       "router-link",
                                       {
-                                        staticClass: "dropdown-item",
                                         attrs: {
+                                          title: "Modificar documento",
                                           to: {
                                             name: "documentos.edit",
                                             params: { id: documento.id }
@@ -104767,25 +104316,18 @@ var render = function() {
                                       [
                                         _c("i", {
                                           staticClass:
-                                            "fas fa-edit fa-lg fa-fw text-primary",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Modificar documento"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Modificar documento\n                                    "
-                                        )
+                                            "fas fa-edit fa-lg text-primary",
+                                          attrs: { role: "button" }
+                                        })
                                       ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.estado_documento_id == 1
-                                  ? _c(
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
                                       "router-link",
                                       {
-                                        staticClass: "dropdown-item",
                                         attrs: {
+                                          title:
+                                            "Adjuntar o reemplazar el documento firmado y sello de recibido",
                                           to: {
                                             name: "documentos.upload",
                                             params: { id: documento.id },
@@ -104798,154 +104340,235 @@ var render = function() {
                                       [
                                         _c("i", {
                                           staticClass:
-                                            "fas fa-upload fa-lg fa-fw text-success",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Subir documento"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Subir documento\n                                    "
-                                        )
+                                            "fas fa-upload fa-lg text-success"
+                                        })
                                       ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.file_referencia_url
-                                  ? _c(
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
                                       "a",
                                       {
-                                        staticClass: "dropdown-item",
                                         attrs: {
                                           target: "_blank",
+                                          title: "Descargar referencia",
                                           href: documento.file_referencia_url
                                         }
                                       },
                                       [
                                         _c("i", {
                                           staticClass:
-                                            "fas fa-file-pdf fa-lg fa-fw text-danger",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Descargar referencia"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Descargar referencia\n                                    "
-                                        )
+                                            "fas fa-paperclip fa-lg text-danger"
+                                        })
                                       ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.file_url
-                                  ? _c(
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
                                       "a",
                                       {
-                                        staticClass: "dropdown-item",
                                         attrs: {
                                           target: "_blank",
+                                          title: "Descargar documento",
                                           href: documento.file_url
                                         }
                                       },
                                       [
                                         _c("i", {
                                           staticClass:
-                                            "fas fa-file-pdf fa-lg fa-fw text-danger",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Descargar documento"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Descargar documento\n                                    "
-                                        )
+                                            "fas fa-file-pdf fa-lg text-danger"
+                                        })
                                       ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.estado_documento_id == 2
-                                  ? _c(
-                                      "router-link",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: {
-                                          to: {
-                                            name: "documentos.upload",
-                                            params: { id: documento.id },
-                                            query: {
-                                              directory: documento.directory
-                                            }
-                                          }
-                                        }
+                                    ),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass:
+                                        "fas fa-file-archive fa-lg text-secondary",
+                                      attrs: {
+                                        role: "button",
+                                        title: "Archivar",
+                                        "data-id": documento.id,
+                                        "data-index": index
                                       },
-                                      [
-                                        _c("i", {
-                                          staticClass:
-                                            "fas fa-upload fa-lg fa-fw text-success",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Reemplazar documento"
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Reemplazar documento\n                                    "
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                documento.estado_documento_id == 2 &&
-                                documento.file != null
-                                  ? _c(
-                                      "button",
-                                      {
-                                        staticClass: "dropdown-item",
-                                        attrs: {
-                                          "data-id": documento.id,
-                                          "data-index": index
-                                        },
-                                        on: { click: _vm.archivar }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass:
-                                            "fas fa-archive fa-lg fa-fw text-secondary",
-                                          attrs: {
-                                            role: "button",
-                                            title: "Reemplazar documento",
-                                            "data-id": documento.id,
-                                            "data-index": index
-                                          }
-                                        }),
-                                        _vm._v(
-                                          "\n                                        Archivar documento\n                                    "
-                                        )
-                                      ]
-                                    )
-                                  : _vm._e()
-                              ],
-                              1
+                                      on: { click: _vm.archivar }
+                                    })
+                                  ],
+                                  1
+                                )
+                              : _c("td", { staticClass: "text-center" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        target: "_blank",
+                                        title: "Descargar referencia",
+                                        href: documento.file_referencia_url
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fas fa-paperclip fa-lg text-danger"
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        target: "_blank",
+                                        title: "Descargar documento",
+                                        href: documento.file_url
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass:
+                                          "fas fa-file-pdf fa-lg text-danger"
+                                      })
+                                    ]
+                                  )
+                                ])
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
+            ])
+          : _c("blockquote", { staticClass: "quote-info mt-0" }, [
+              _c("h5", [_vm._v("No hemos encontrado documentos")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                    Es posible que no tenga los permisos suficientes para visualizar los documentos.\n                "
+                )
+              ])
+            ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _vm._v(
+              "\n                    Mostrando registros del " +
+                _vm._s(_vm.documentos.from) +
+                " al " +
+                _vm._s(_vm.documentos.to) +
+                " de un total de " +
+                _vm._s(_vm.documentos.total) +
+                " registros \n                    "
+            ),
+            _c("nav", { attrs: { "aria-label": "..." } }, [
+              _c(
+                "ul",
+                { staticClass: "pagination justify-content-center" },
+                [
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: { disabled: _vm.documentos.current_page == 1 }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: {
+                            href: "#",
+                            tabindex: "-1",
+                            "aria-disabled": "true"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.cambiarPagina(
+                                _vm.documentos.current_page - 1
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Anterior\n                                "
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.pagesNumber, function(page) {
+                    return _c(
+                      "li",
+                      {
+                        staticClass: "page-item",
+                        class: { active: page == _vm.isActived }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.cambiarPagina(page)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(page) +
+                                "\n                                "
                             )
-                          ])
-                        ])
+                          ]
+                        )
                       ]
                     )
                   }),
-                  0
-                )
-              ])
-            : _c("blockquote", { staticClass: "quote-info mt-0" }, [
-                _c("h5", [_vm._v("No hemos encontrado documentos")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "\n                    Es posible que no tenga los permisos suficientes para visualizar los documentos.\n                "
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: {
+                        disabled:
+                          _vm.documentos.current_page ==
+                          _vm.documentos.last_page
+                      }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.cambiarPagina(
+                                _vm.documentos.current_page + 1
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Siguiente\n                                "
+                          )
+                        ]
+                      )
+                    ]
                   )
-                ])
-              ])
-        ],
-        1
-      )
+                ],
+                2
+              )
+            ])
+          ])
+        ])
+      ])
     ])
   ])
 }
@@ -104976,13 +104599,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Reservado por")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [
-          _vm._v("Fecha y hora de reservación")
-        ]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha y hora")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } })
+        _c("th", {
+          staticClass: "text-center",
+          staticStyle: { width: "15%" },
+          attrs: { scope: "col" }
+        })
       ])
     ])
   }

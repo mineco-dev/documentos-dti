@@ -15,7 +15,7 @@
                             </a>
                             <div class="form-group mt-3">
                                 <label for="tipo_documento_id">
-                                    Reservar
+                                    Reserva completa de
                                 </label>
                                 <select class="custom-select" name="tipo_documento_id" id="tipo_documento_id" v-model="documento.tipo_documento_id" v-validate="'required'">
                                     <option value="1" data-table="oficios">Oficio</option>
