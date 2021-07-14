@@ -39,6 +39,9 @@
                                 <v-select v-bind:options="cargos" @input="setCargo"></v-select>
                                 <input type="hidden" id="cargo" name="cargo" v-model="destinatario.cargo_id" v-validate="'required'">
                                 <div class="invalid-feedback">{{ errors.first('cargo') }}</div>
+                                <small class="form-text text-muted">
+                                    <router-link :to="{ name: 'cargos.create' }">Agregar cargo</router-link>
+                                </small>
                             </div>
                             <div class="form-group">
                                 <label>Dependencia</label>

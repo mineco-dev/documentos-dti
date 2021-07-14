@@ -65,6 +65,8 @@ Route::prefix('tipo-documentos')->middleware(['auth:api'])->group(function () {
 });
 
 Route::prefix('documentos')->middleware(['auth:api'])->group(function () {
+	Route::get('search', [App\Http\Controllers\DocumentoController::class, 'search']);
+	
 	Route::get('', [App\Http\Controllers\DocumentoController::class, 'index']);
 	Route::post('', [App\Http\Controllers\DocumentoController::class, 'store']);
 	Route::get('{id}', [App\Http\Controllers\DocumentoController::class, 'show']);

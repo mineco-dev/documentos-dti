@@ -101,22 +101,24 @@ class DocumentoController extends Controller
 
 		$documento = Asignacion::
 		join('tipo_documentos AS td', 'asignaciones.tipo_documento_id', 'td.id')
-		->join('destinatarios AS ds', 'asignaciones.destinatario_id', 'ds.id')
-		->join('saludos AS s', 'ds.saludo_id', 's.id')
-		->join('dependencias AS d', 'ds.dependencia_id', 'd.id')
+		//->join('destinatarios AS ds', 'asignaciones.destinatario_id', 'ds.id')
+		//->join('saludos AS s', 'ds.saludo_id', 's.id')
+		//->join('dependencias AS d', 'ds.dependencia_id', 'd.id')
 		->select([
 			'asignaciones.id',
+			'asignaciones.correlativo',
 			'asignaciones.documento_id',
 			'asignaciones.anio',
 			'asignaciones.fecha_emision',
 			'asignaciones.asunto',
 			'asignaciones.respuesta',
 			'asignaciones.referencia',
+			'asignaciones.file',
 			'td.name AS tipo',
-			'td.prefix',
-			'ds.name AS destinatario',
-			's.name AS destinatario_saludo',
-			'd.name AS destinatario_dependencia',
+			//'td.prefix',
+			//'ds.name AS destinatario',
+			//'s.name AS destinatario_saludo',
+			//'d.name AS destinatario_dependencia',
 		])
 		->where('asignaciones.id', $id)
 		->first();
@@ -132,18 +134,15 @@ class DocumentoController extends Controller
 	{
 		DB::beginTransaction();
 		try {
-			$DOCUMENTO_CARGADO = 2;
-
 			$documento = Asignacion::findOrFail($id);
 
 			\Storage::delete($documento->file);
 
-			$hash_pdf = "$id";
-			$hash_pdf = '_' . $hash_pdf . \Str::random(7);
-			$path = $request->pdf->storeAs("public/$request->directory/$documento->anio", "$hash_pdf.pdf");
+			$hash_pdf = $documento->documento_id . '_' . \Str::random(7);
+			$path = $request->pdf->storeAs("$request->directory/$documento->anio", "$hash_pdf.pdf", "public");
 
 			$documento->file = $path;
-			$documento->estado_documento_id = $DOCUMENTO_CARGADO;
+			$documento->estado_documento_id = 2;
 			$documento->save();
 			DB::commit();
 			return response()->json("Documento cargado", 200);
@@ -166,9 +165,7 @@ class DocumentoController extends Controller
 
 
 			if($request->hasFile('file')) {
-				$hash_pdf = "$id" . "_";
-				$hash_pdf = $hash_pdf. \Str::random(7);
-				
+				$hash_pdf = "$documento->documento_id" . "_" . \Str::random(7);
 				$path_file = $request->file->storeAs("public/$td->directory/$documento->anio", $hash_pdf . '.pdf');
 				\Storage::delete($documento->file);
 
@@ -177,8 +174,7 @@ class DocumentoController extends Controller
 			$path_referencia_file = null;
 
 			if($request->hasFile('file_referencia')) {
-				$hash_pdf = "$documento->id-";
-				$hash_pdf = $hash_pdf . \Str::random(7);
+				$hash_pdf = "$documento->documento_id" . "_" . \Str::random(7);
 				$path_referencia_file = $request->file_referencia->storeAs("public/$td->directory/$documento->anio", "$hash_pdf.pdf");
 				\Storage::delete($documento->file_referencia);
 			}
@@ -249,5 +245,24 @@ class DocumentoController extends Controller
             ->orderBy('asignaciones.anio', 'DESC')
             ->orderBy('asignaciones.documento_id', 'DESC')
             ->paginate($request->per_page), 200);
+    }
+
+    public function search(Request $request)
+    {
+    	return response()->json(Asignacion::
+    		join('tipo_documentos AS td', 'asignaciones.tipo_documento_id', 'td.id')
+    		->join('estado_documentos AS e', 'asignaciones.estado_documento_id', 'e.id')
+    		->where('asignaciones.correlativo', 'LIKE', "%$request->q%")
+    		->orWhere('asignaciones.asunto', 'LIKE', "%$request->q%")
+    		->get([
+    			'asignaciones.id',
+    			'asignaciones.correlativo',
+    			'asignaciones.asunto',
+    			'asignaciones.file',
+    			'asignaciones.referencia',
+    			'asignaciones.file_referencia',
+    			'td.name as tipo',
+    			'e.name as estado'
+    		]), 200);
     }
 }

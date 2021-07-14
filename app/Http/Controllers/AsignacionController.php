@@ -19,6 +19,7 @@ class AsignacionController extends Controller
 			'e.name AS entidad',
 			'c.name AS cargo',
 			'asignaciones.correlativo',
+			'asignaciones.documento_id',
 			'asignaciones.asunto',
 			'asignaciones.fecha_emision',
 			'asignaciones.respuesta',
@@ -38,9 +39,8 @@ class AsignacionController extends Controller
 		$html = \View::make('formatos.'. $documento->tipo_documento_id, compact('documento'));
 		$mpdf->WriteHTML($html);
 		$path = "$request->directory";
-		$path .= '/'.date('Y');
+		$path .= '/'. date('Y');
 		$path .= "/$documento->documento_id";
-		$path .= "-$documento->anio";
 		$path .= "_";
 		$path .= \Str::random(7);
 		$path .= ".pdf";

@@ -201,6 +201,12 @@ export default new Router({
 		meta: { title: 'Detalle de documento'}
 	},
 	{
+		path: '/search',
+		name: 'documentos.search',
+		component: require('./components/documentos/SearchComponent').default,
+		meta: { title: 'Búsqueda de documentos'}
+	},
+	{
 		path: '*',
 		component: require('./components/NotFound').default,
 		meta: { title: 'Página no encontrada' }

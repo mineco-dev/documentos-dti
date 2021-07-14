@@ -41,6 +41,7 @@ class UserController extends Controller
                 'asignaciones.file',
                 'asignaciones.file_referencia',
                 'asignaciones.estado_documento_id',
+                'asignaciones.destinatario_id',
                 'asignaciones.created_at',
                 'u.name AS responsable',
                 'td.prefix',

@@ -33,18 +33,27 @@
                                 <v-select v-bind:options="cargos" @input="setCargo"></v-select>
                                 <input type="hidden" id="cargo" name="cargo" v-model="destinatario.cargo_id" v-validate="'required'">
                                 <div class="invalid-feedback">{{ errors.first('cargo') }}</div>
+                                <small class="form-text text-muted">
+                                    <router-link :to="{ name: 'cargos.create' }">Agregar cargo</router-link>
+                                </small>
                             </div>
                             <div class="form-group">
                                 <label>Dependencia</label>
                                 <v-select v-bind:options="dependencias" @input="setDependencia"></v-select>
                                 <input type="hidden" id="dependencia" name="dependencia" v-model="destinatario.dependencia_id" v-validate="'required'">
                                 <div class="invalid-feedback">{{ errors.first('dependencia') }}</div>
+                                <small class="form-text text-muted">
+                                    <router-link :to="{ name: 'dependencias.create' }">Agregar dependencia</router-link>
+                                </small>
                             </div>
                             <div class="form-group">
                                 <label>Entidad</label>
                                 <v-select v-bind:options="entidades" @input="setEntidad"></v-select>
                                 <input type="hidden" id="entidad" name="entidad" v-model="destinatario.entidad_id" v-validate="'required'">
                                 <div class="invalid-feedback">{{ errors.first('entidad') }}</div>
+                                <small class="form-text text-muted">
+                                    <router-link :to="{ name: 'entidades.create' }">Agregar entidad</router-link>
+                                </small>
                             </div>
                             <blockquote class="quote-danger" v-if="errors_server.length > 0">
                                 <ul>

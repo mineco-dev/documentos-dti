@@ -312,7 +312,9 @@
                         Swal.showLoading()
                     }
                 })
-                axios.post(`/api/asignaciones/${event.target.dataset.id}/generar-pdf`)
+                axios.post(`/api/asignaciones/${event.target.dataset.id}/generar-pdf`, {
+                    directory: event.target.dataset.directory
+                })
                 .then(response => {
                     Swal.fire({
                         title: "Documento generado",

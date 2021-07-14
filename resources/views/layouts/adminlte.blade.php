@@ -134,6 +134,12 @@
               </ul>
             </li>
             <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'documentos.search' }">
+                <i class="nav-icon fas fa-search"></i>
+                <p>Búsqueda</p>
+              </router-link>
+            </li>
+            <li class="nav-item">
               <router-link class="nav-link" :to="{ name: 'mis-documentos.index', query: { type: 1 } }">
                 <i class="nav-icon fas fa-file-alt"></i>
                 <p>Mis documentos</p>

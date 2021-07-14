@@ -27,15 +27,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="fecha_emision">Fecha de emisión</label>
-                                <input class="form-control" id="fecha_emision" name="fecha_emision" type="date" v-model="documento.fecha_emision" v-validate="'required'">
-                                <div class="invalid-feedback">{{ errors.first('fecha_emision') }}</div>
+                                <input class="form-control" id="fecha_emision" name="fecha_emision" type="date" v-model="documento.fecha_emision">
                             </div>
 
                             <div class="form-group ">
                                 <label>{{label_destinatario}}</label>
                                 <v-select v-bind:options="destinatarios" @input="setDestinatario"></v-select>
-                                <input aria-describedby="destinatario_help" type="hidden" id="destinatario_id" name="destinatario_id" v-model="documento.destinatario_id" v-validate="'required'">
-                                <div class="invalid-feedback">{{ errors.first('destinatario_id') }}</div>
+                                <input aria-describedby="destinatario_help" type="hidden" id="destinatario_id" name="destinatario_id" v-model="documento.destinatario_id">
                                 <small id="destinatario_help" class="form-text text-muted">
                                     <router-link :to="{ name: 'destinatarios.create' }">Agregar destinatario</router-link>
                                 </small>
@@ -43,15 +41,13 @@
 
                             <div class="form-group">
                                 <label for="asunto">Asunto</label>
-                                <input class="form-control" id="asunto" name="asunto"  type="text" v-model="documento.asunto" v-validate="'required'">
-                                <div class="invalid-feedback">{{ errors.first('asunto') }}</div>
+                                <input class="form-control" id="asunto" name="asunto"  type="text" v-model="documento.asunto">
                             </div>
 
                             <div class="form-group">
                                 <label for="asunto">Respuesta</label>
                                 <vue-editor v-model="documento.respuesta" />
-                                <input type="hidden" v-model="documento.respuesta" id="respuesta" name="respuesta" v-validate="'required'">
-                                <div class="invalid-feedback">{{ errors.first('respuesta') }}</div>
+                                <input type="hidden" v-model="documento.respuesta" id="respuesta" name="respuesta">
                             </div>
                             <div class="form-group">
                                 <label for="referencia">
@@ -104,19 +100,7 @@
     import VueSelect from 'vue-select';
     import 'vue-select/dist/vue-select.css';
     import es from 'vee-validate/dist/locale/es';
-    import VeeValidate from 'vee-validate';
-    import { Validator } from 'vee-validate';
     import Swal from 'sweetalert2';
-
-    Vue.use(VeeValidate, {
-        classes: true,
-        classNames: {
-            valid: '',
-            invalid: 'is-invalid'
-        }
-    });
-
-    Validator.localize('es', es);
 
     export default {
         data() {

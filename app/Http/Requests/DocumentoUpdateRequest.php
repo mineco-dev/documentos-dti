@@ -24,10 +24,10 @@ class DocumentoUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'fecha_emision' => 'required',
-            'asunto' => 'required',
-            'destinatario_id' => 'required',
-            'respuesta' => 'required',
+            'fecha_emision' => 'nullable',
+            'asunto' => 'nullable',
+            'destinatario_id' => 'nullable',
+            'respuesta' => 'nullable',
             'file' => 'nullable|mimes:pdf|max:10000',
             'referencia' => 'nullable',
             'file_referencia' => 'nullable|mimes:pdf|max:10000',
