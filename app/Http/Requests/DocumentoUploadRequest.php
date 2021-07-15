@@ -24,7 +24,7 @@ class DocumentoUploadRequest extends FormRequest
     public function rules()
     {
         return [
-            'pdf' => 'nullable|mimes:pdf|max:10000'
+            'pdf' => 'required|mimetypes:application/pdf|max:10000'
         ];
     }
 

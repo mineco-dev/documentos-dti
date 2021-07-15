@@ -12,7 +12,7 @@
 						<div class="col-md-10 offset-md-1">
 							<div class="form-group">
 								<div class="input-group input-group-lg">
-									<input type="search" class="form-control form-control-lg" placeholder="Introdúzca un asunto o número de documento" required v-model="q">
+									<input type="search" class="form-control form-control-lg" placeholder="Introdúzca el asunto o correlativo del documento" required v-model="q">
 									<div class="input-group-append">
 										<button type="submit" class="btn btn-lg btn-default">
 											<i class="fa fa-search"></i>
@@ -39,11 +39,15 @@
 											<p class="mb-0">
 												A continuación se muestra el listado de los documentos encontrados con el parámetro ingresado
 											</p>
+											<div class="form-group mt-4">
+												<label for="f">Filtrar resultado</label>
+												<input class="form-control" id="f" type="text" v-model="f" >
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="list-group-item" v-for="documento in documentos">
+							<div class="list-group-item" v-for="documento in filter">
 								<div class="row">
 									<div class="col-auto">
 										<i class="fas fa-file-pdf fa-5x text-danger"></i>
@@ -110,9 +114,16 @@
 		data() {
 			return {
 				q: '',
+				f: '',
 				documentos: [],
 				sin_resultados: false
 			}
+		},
+		computed: {
+			filter() {
+                return this.documentos.filter((documento) => `
+                    ${documento.correlativo} ${documento.asunto}`.toLowerCase().includes(this.f.toLowerCase()))
+            }
 		},
 		methods: {
 			search() {

@@ -15,7 +15,7 @@
                     <div class="col-md-12">
                         <div class="form-row">
                             <div class="col-1">
-                                <i class="fas fa-bolt fa-2x fa-w text-warning" title="Reserva simple. Con esta opción únicamente es requerido el asunto" role="button" v-on:click="reservaSimple"></i>
+                                <i class="fas fa-bolt fa-2x fa-w text-warning" title="Reserva básica. Con esta opción únicamente es requerido el asunto" role="button" v-on:click="reservaSimple"></i>
                                 <router-link title="Reserva completa. Con esta opción usted podrá reservar un documento y generar el pdf" :to="{ name: 'documentos.reservar', query: { 'type': documento.tipo_documento_id } }">
                                     <i class="fas fa-file-alt fa-2x"></i>
                                 </router-link>
@@ -78,16 +78,16 @@
                                             <i class="fas fa-upload fa-lg text-success"></i>
                                         </router-link>
 
-                                        <a target="_blank" title="Descargar referencia" v-bind:href="documento.file_referencia_url">
+                                        <a target="_blank" title="Descargar referencia" v-bind:href="documento.file_referencia_url" v-show="documento.file_referencia_url">
                                             <i class="fas fa-paperclip fa-lg text-danger"></i>
                                         </a>
-                                        <a target="_blank" title="Descargar documento" v-bind:href="documento.file_url">
+                                        <a target="_blank" title="Descargar documento" v-bind:href="documento.file_url" v-show="documento.file_url">
                                             <i class="fas fa-file-pdf fa-lg text-danger"></i>
                                         </a>
-                                        <i class="fas fa-file-archive fa-lg text-secondary" role="button" title="Archivar" v-on:click="archivar" v-bind:data-id="documento.id" v-bind:data-index="index"></i>
+                                        <i class="fas fa-file-archive fa-lg text-secondary" role="button" title="Archivar" v-on:click="archivar" v-bind:data-id="documento.id" v-bind:data-index="index" v-show="documento.file_url"></i>
                                     </td>
                                     <td class="text-center" v-else>
-                                        <a target="_blank" title="Descargar referencia" v-bind:href="documento.file_referencia_url">
+                                        <a target="_blank" title="Descargar referencia" v-bind:href="documento.file_referencia_url" v-show="documento.file_referencia_url">
                                             <i class="fas fa-paperclip fa-lg text-danger"></i>
                                         </a>
                                         <a target="_blank" title="Descargar documento" v-bind:href="documento.file_url">
@@ -217,7 +217,7 @@
             reservaSimple() {
                 let titulo = document.getElementById('tipo_documento_id')[document.getElementById('tipo_documento_id').selectedIndex];
                 Swal.fire({
-                    title: 'Reserva simple de ' + titulo.text,
+                    title: 'Reserva básica de ' + titulo.text,
                     icon: 'info',
                     input: 'textarea',
                     inputLabel: 'Asunto',
@@ -300,6 +300,13 @@
                                 estado_documento_id: 3,
                             })
                         })
+                    })
+                    .catch(error => {
+                        Swal.fire(
+                          'Error al archivar',
+                          error.response.data,
+                          'warning'
+                          )
                     })
                 }
             })

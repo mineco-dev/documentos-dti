@@ -150,8 +150,8 @@
                                 title: 'Registro correcto'
                             })
                             .then(result => {
-                                this.$router.push({name: 'documentos.index', query: {
-                                    tipo_documento_id: this.documento.tipo_documento_id
+                                this.$router.push({name: 'mis-documentos.index', query: {
+                                    type: this.documento.tipo_documento_id
                                 }})
                             })
                         })

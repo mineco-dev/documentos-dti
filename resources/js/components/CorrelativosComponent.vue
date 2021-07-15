@@ -18,7 +18,7 @@
                                 <tr>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Prefijo</th>
-                                    <th scope="col">Correlativo</th>
+                                    <th scope="col">Correlativo vigente</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>

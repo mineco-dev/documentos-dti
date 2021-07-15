@@ -19,6 +19,12 @@ Route::prefix('user')->middleware(['auth:api'])->group(function () {
 	Route::put('', [App\Http\Controllers\Auth\UserController::class, 'update']);
 });
 
+Route::prefix('users')->middleware(['auth:api'])->group(function () {
+	Route::get('', [App\Http\Controllers\AdminController::class, 'index']);
+	Route::get('{id}', [App\Http\Controllers\AdminController::class, 'show']);
+	Route::put('{id}', [App\Http\Controllers\AdminController::class, 'update']);
+});
+
 Route::prefix('saludos')->middleware(['auth:api'])->group(function () {
 	Route::get('', [App\Http\Controllers\SaludoController::class, 'index']);
 	Route::post('', [App\Http\Controllers\SaludoController::class, 'store']);

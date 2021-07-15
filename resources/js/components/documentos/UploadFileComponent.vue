@@ -99,6 +99,9 @@
 						title: 'Documento cargado',
 						text: response.data
 					})
+					.then(result => {
+						this.$router.go(-3)
+					})
 				})
 			}
 		}

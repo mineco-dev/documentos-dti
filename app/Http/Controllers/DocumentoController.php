@@ -208,9 +208,13 @@ class DocumentoController extends Controller
 
 	public function archivar(Request $request, $id)
 	{
-		$DOCUMENTO_ARCHIVADO = 3;
 		$documento = Asignacion::findOrFail($id);
-		$documento->estado_documento_id = $DOCUMENTO_ARCHIVADO;
+		
+		if($documento->file == null) {
+			return response()->json("No se puede archivar el documento porque tiene pendiente de adjuntar el pdf firmado y sellado de recibido", 500);
+		}
+		
+		$documento->estado_documento_id = 3;
 
 		if(!$documento->save()) {
 			return response()->json("El documento no pudo ser archivado", 500);

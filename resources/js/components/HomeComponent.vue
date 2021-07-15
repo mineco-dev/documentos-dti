@@ -4,13 +4,13 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Dashboard</h1>
+                        <h1 class="m-0 text-dark">Página de inicio</h1>
                     </div>
                 </div>
             </div>
         </section>
         <section class="content">
-            <div class="container-fluid">
+            <div class="container-fluid" v-if="$store.state.user.role_id != null">
                 <blockquote class="quote-success mx-0 p-3">
                     <h4>Documentos emitidos durante el año 2021</h4>
                     <div class="row">
@@ -43,6 +43,13 @@
                         </div>
                     </div>
                 </blockquote>
+            </div>
+            <div class="container-fluid" v-else>
+                <div class="alert alert-danger">
+                    <h4>
+                        Su usuario no tiene asignado ningún rol.
+                    </h4>
+                </div>
             </div>
         </section>
     </div>

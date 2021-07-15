@@ -69,11 +69,47 @@
           </div>
         </div>
         <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu">
+          <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu" v-show="$store.state.user.role_id != null">
             <li class="nav-item">
               <router-link class="nav-link" :to="{ name: 'home'} ">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Inicio</p>
+              </router-link>
+            </li>
+            <li class="nav-item" v-if="$store.state.user.role_id == 1">
+              <router-link class="nav-link" :to="{ name: 'users.index' }">
+                <i class="nav-icon fas fa-users"></i>
+                <p>Usuarios</p>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'reservar.index' }">
+                <i class="nav-icon fas fa-hand-point-up"></i>
+                <p>Reservar</p>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'documentos.search' }">
+                <i class="nav-icon fas fa-search"></i>
+                <p>Búsqueda</p>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'mis-documentos.index', query: { type: 1 } }">
+                <i class="nav-icon fas fa-file-alt"></i>
+                <p>Mis documentos</p>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'documentos.index', query: { type: 1 } }">
+                <i class="nav-icon fas fa-file-alt"></i>
+                <p>Documentos</p>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'documentos.pendientes', query: { type: 1 } }">
+                <i class="nav-icon fas fa-file-alt"></i>
+                <p>Pendientes</p>
               </router-link>
             </li>
             <li class="nav-item">
@@ -132,30 +168,6 @@
                   </router-link>
                 </li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'documentos.search' }">
-                <i class="nav-icon fas fa-search"></i>
-                <p>Búsqueda</p>
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'mis-documentos.index', query: { type: 1 } }">
-                <i class="nav-icon fas fa-file-alt"></i>
-                <p>Mis documentos</p>
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'documentos.index', query: { type: 1 } }">
-                <i class="nav-icon fas fa-file-alt"></i>
-                <p>Documentos</p>
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" :to="{ name: 'documentos.pendientes', query: { type: 1 } }">
-                <i class="nav-icon fas fa-file-alt"></i>
-                <p>Pendientes</p>
-              </router-link>
             </li>
           </ul>
         </nav>

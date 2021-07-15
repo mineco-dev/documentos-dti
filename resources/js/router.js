@@ -15,6 +15,12 @@ export default new Router({
 		meta: { title: 'Home'}
 	},
 	{
+		path: '/users',
+		name: 'users.index',
+		component: require('./components/UsersIndexComponent').default,
+		meta: { title: 'Usuarios'}
+	},
+	{
 		path: '/user/profile',
 		name: 'user.profile',
 		component: require('./components/user/ProfileComponent').default,
@@ -147,6 +153,12 @@ export default new Router({
 		meta: { title: 'Tipo de documentos'}
 	},
 	{
+		path: '/reservar',
+		name: 'reservar.index',
+		component: require('./components/documentos/ReservarComponent').default,
+		meta: { title: 'Reservar documento'}
+	},
+	{
 		path: '/documentos',
 		name: 'documentos.index',
 		component: require('./components/documentos/IndexComponent').default,
@@ -156,12 +168,6 @@ export default new Router({
 		path: '/documentos/:id',
 		component: require('./components/RouterView').default,
 		children: [
-		{
-			path: '',
-			name: 'documentos.show',
-			component: require('./components/documentos/IndexComponent').default,
-			meta: { title: 'Detalle de oficio'}
-		},
 		{
 			path: 'upload',
 			name: 'documentos.upload',
@@ -193,12 +199,6 @@ export default new Router({
 		name: 'documentos.reservar',
 		component: require('./components/documentos/CreateComponent').default,
 		meta: { title: 'Reservar documento'}
-	},
-	{
-		path: '/documento/:id',
-		name: 'documentos.show',
-		component: require('./components/ShowDocumentComponent').default,
-		meta: { title: 'Detalle de documento'}
 	},
 	{
 		path: '/search',
