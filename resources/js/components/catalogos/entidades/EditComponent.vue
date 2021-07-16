@@ -70,7 +70,7 @@
                     html: error.response.data.message
                 })
                 .then(result => {
-                    this.$router.push({name: 'entidades.index'})
+                    this.$router.go(-1)
                 })
             })
         },
@@ -86,7 +86,7 @@
                                 html: response.data
                             })
                             .then(result => {
-                                this.$router.push({name: 'entidades.index'})
+                                this.$router.go(-1)
                             })
                         })
                         .catch(error => {

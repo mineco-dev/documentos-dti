@@ -121,7 +121,7 @@
                                 title: 'Actualización correcta',
                                 html: response.data
                             })
-                            .then(result => this.$router.push({ name: 'destinatarios.index'}))
+                            .then(result => this.$router.go(-1))
                         })
                         .catch(error => {
                             if (typeof error.response.data === 'object') {

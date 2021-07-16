@@ -88,7 +88,6 @@
 			return {
 				users: [],
 				user: {
-					id: 0,
 					name: null,
 					role_id: 0
 				},
@@ -103,13 +102,13 @@
 			setUser(event) {
 				this.index = event.target.dataset.index
 				let u = {...this.users[this.index]}
-				this.user.id = u.id
+				//this.user.id = u.id
 				this.user.name = u.name
 				this.user.role_id = u.role_id
 				$('#staticBackdrop').modal('show')
 			},
 			update() {
-				axios.put('/api/users/' + this.user.id, this.user)
+				axios.put('/api/users/' + this.users[this.index].id, this.user)
 				.then(response => {
 					let u = {...this.users[this.index]}
 					u.role_id = this.user.role_id

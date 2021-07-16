@@ -1,3 +1,8 @@
 {
-    "/js/documentos_dti.js": "/js/documentos_dti.js"
+    "/js/documentos_dti.js": "/js/documentos_dti.js",
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/floating-labels.css": "/css/floating-labels.css",
+    "/css/cover.css": "/css/cover.css",
+    "/css/documentos_dti.css": "/css/documentos_dti.css"
 }

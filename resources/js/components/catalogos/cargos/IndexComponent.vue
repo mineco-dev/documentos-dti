@@ -15,7 +15,7 @@
               <div class="form-group col-md-2">
                 <label id="paginated" for="inputPassword4">Mostrar</label>
                 <select class="form-control" id="paginated" v-model="paginate" v-on:change="getList">
-                  <option value="5">5 registros de un </option>
+                  <option value="5">5 registros</option>
                   <option value="10">10 registros</option>
                   <option value="25">25 registros</option>
                   <option value="50">50 registros</option>

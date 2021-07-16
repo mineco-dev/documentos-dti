@@ -70,7 +70,7 @@
                                 html: response.data
                             })
                             .then(result => {
-                                this.$router.push({name: 'saludos.index'})
+                                this.$router.go(-1)
                             })
                         })
                         .catch(error => {
