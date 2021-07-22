@@ -20,7 +20,7 @@ class DestinatarioController extends Controller
                 ->join('cargos', 'destinatarios.cargo_id', 'cargos.id')
                 ->select([
                     'destinatarios.id as code',
-                    DB::raw("CONCAT(saludos.name, ' ', destinatarios.name, ' - ', cargos.name,', ', dependencias.name, ', ', entidades.name) AS label")
+                    DB::raw("saludos.name + ' ' + destinatarios.name + ' - ' +  cargos.name + ', ' + dependencias.name + ', ' + entidades.name AS label")
                 ])
                 ->orderBy('destinatarios.name', 'ASC')
                 ->get(), 200);
