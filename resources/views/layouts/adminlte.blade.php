@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>{{ config('app.name', 'Laravel') }}</title>
-  <link rel="stylesheet" href="/css/documentos_dti.css?v=1">
+  <link rel="stylesheet" href="/css/documentos_dti.css?v=22">
 </head>
 <body class="sidebar-mini layout-fixed">
   <div class="wrapper" id="wrapper">
@@ -174,6 +174,6 @@
     </aside>
     <router-view></router-view>
   </div>
-  <script src="/js/documentos_dti.js?v=1"></script>
+  <script src="/js/documentos_dti.js?v=22"></script>
 </body>
 </html>

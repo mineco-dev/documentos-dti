@@ -45,9 +45,9 @@
                 </blockquote>
             </div>
             <div class="container-fluid" v-else>
-                <div class="alert alert-danger">
+                <div class="alert alert-info">
                     <h4>
-                        Su usuario no tiene asignado ningún rol.
+                        Cargando...
                     </h4>
                 </div>
             </div>
