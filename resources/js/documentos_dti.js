@@ -40,7 +40,7 @@ const app = new Vue({
 	el: '#wrapper',
  	router,
  	store,
- 	mounted() {
+ 	beforeMount() {
  		axios.get('/api/user').then(response => {
  			store.commit('setUser', response.data)
  		})
