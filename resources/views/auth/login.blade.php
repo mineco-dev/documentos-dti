@@ -37,9 +37,6 @@
             <input id="toggle-view-password"type="checkbox" onclick="toggleViewPassword(event)">
             Mostrar contraseña
         </label>
-        <div class="alert alert-info d-none" id="alert">
-            Ocultaremos su contraseña en 10 segundos.
-        </div>
         <label>
             <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
             {{ __('Remember Me') }}
@@ -59,20 +56,10 @@
 <script>
     function toggleViewPassword(event) {
         let x = document.getElementById("password");
-        let y = document.getElementById("alert");
         
         if (event.target.checked && x.type === "password") {
-
-            y.classList.remove("d-none");
             x.type = "text";
-
-            setTimeout(() => {
-                x.type = "password";
-                event.target.checked = false;
-                y.classList.add("d-none");
-            }, 10000)
         } else {
-            y.classList.add("d-none");
             x.type = "password";
         }
     }
