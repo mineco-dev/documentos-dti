@@ -40,7 +40,13 @@ const app = new Vue({
 	el: '#wrapper',
  	router,
  	store,
- 	beforeMount() {
+ 	created() {
+        localStorage.clear()
+        axios.get('/api/tipo-documentos')
+        .then(response => {
+            localStorage.setItem('td', JSON.stringify(response.data))
+            this.td = response.data
+        })
  		axios.get('/api/user').then(response => {
  			store.commit('setUser', response.data)
  		})

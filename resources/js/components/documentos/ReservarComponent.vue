@@ -16,10 +16,7 @@
 										Seleccione el tipo de documento a reservar
 									</label>
 									<select class="custom-select" name="tipo_documento_id" id="tipo_documento_id" v-model="documento.tipo_documento_id">
-										<option value="1">Oficio</option>
-										<option value="2">Dictámen</option>
-										<option value="3">Memorandum</option>
-										<option value="4">Providencia</option>
+										<option :value="t.id" v-for="t in td" :key="t.id">{{ t.name }}</option>
 									</select>
 								</div>
 								<div class="form-group" v-show="documento.tipo_documento_id">
@@ -46,7 +43,13 @@
 	export default {
 		data() {
 			return {
-				documento: {}
+				documento: {},
+				td: []
+			}
+		},
+		created() {
+			if(localStorage.getItem('td')) {
+				this.td = JSON.parse(localStorage.getItem('td'))
 			}
 		},
 		methods: {

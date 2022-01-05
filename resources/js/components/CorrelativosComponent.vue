@@ -11,7 +11,10 @@
         </div>
         <div class="content">
             <div class="container-fluid">
-                <div class="card">
+                <button class="btn btn-primary" @click="create" v-if="$store.state.user.role_id == 1">
+                    Crear correlativo
+                </button>
+                <div class="card mt-4">
                     <div class="card-body p-0">
                         <table class="table table-striped" v-if="tipos.length > 0">
                             <thead>
@@ -49,13 +52,18 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Modificar</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">{{ conf.title }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form v-on:submit.prevent="update">
+                    <form v-on:submit.prevent="submit">
                         <div class="modal-body">
+                            <div class="alert alert-danger" v-show="errs.length > 0">
+                                <ul>
+                                    <li v-for="e in errs">{{ e }}</li>
+                                </ul>
+                            </div>
                             <div class="form-group">
                                 <label for="name">Nombre</label>
                                 <input class="form-control" id="name" name="name" type="text" required v-model="tipo.name">
@@ -75,7 +83,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">
-                                Actualizar
+                                {{ conf.buttonText }}
                             </button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">
                                 Cerrar
@@ -95,12 +103,15 @@
         data() {
             return {
                 tipos: [],
-                tipo: {}
+                tipo: {},
+                conf: {},
+                errs: []
             }
         },
-        mounted() {
+        created() {
             axios.get(`/api/tipo-documentos`)
             .then(response => {
+                localStorage.setItem('td', JSON.stringify(response.data))
                 this.tipos = response.data
             })
             .catch(error => {
@@ -108,10 +119,36 @@
             })
         },
         methods: {
+            create() {
+                this.tipo = {}
+                this.conf.title = "Crear correlativo"
+                this.conf.buttonText = "Crear correlativo"
+                this.conf.type = "create"
+                $('#staticBackdrop').modal('show')
+            },
             edit(event) {
                 this.tipo = {...this.tipos[event.target.dataset.index]}
                 this.tipo.index = event.target.dataset.index
+                this.conf.title = "Actualizar correlativo"
+                this.conf.buttonText = "Actualizar correlativo"
+                this.conf.type = "update"
                 $('#staticBackdrop').modal('show')
+            },
+            submit() {
+                this.errs = []
+                this.conf.type == 'create' ? this.store() : this.update()
+            },
+            store() {
+                axios.post(`/api/tipo-documentos`, this.tipo)
+                .then(response => {
+                    $('#staticBackdrop').modal('toggle')
+                    Swal.fire('Creación exitosa', 'Se creo un correlativo', 'success')
+                    this.tipos.push(response.data)
+                    localStorage.setItem('td', JSON.stringify(this.tipos))
+                })
+                .catch(error => {
+                    this.errs = error.response.data.errors.name
+                })
             },
             update() {
                 axios.put(`/api/tipo-documentos/${this.tipo.id}`, this.tipo)
@@ -119,6 +156,7 @@
                     $('#staticBackdrop').modal('toggle')
                     Swal.fire('Actualización exitosa', response.data, 'success')
                     this.tipos.splice(this.tipo.index, 1, this.tipo)
+                    localStorage.setItem('td', JSON.stringify(this.tipos))
                 })
                 .catch(error => {
                 })
