@@ -14,18 +14,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-row">
-                            <div class="col-1">
-                                <i class="fas fa-bolt fa-2x fa-w text-warning" title="Reserva básica. Con esta opción únicamente es requerido el asunto" role="button" v-on:click="reservaSimple"></i>
-                                <router-link title="Reserva completa. Con esta opción usted podrá reservar un documento y generar el pdf" :to="{ name: 'documentos.reservar', query: { 'type': documento.tipo_documento_id } }">
-                                    <i class="fas fa-file-alt fa-2x"></i>
-                                </router-link>
-                            </div>
                             <div class="form-group col-md-2">
                                 <select class="custom-select" name="tipo_documento_id" id="tipo_documento_id" v-model="documento.tipo_documento_id" v-on:change="getList(1)">
-                                    <option value="1">Oficios</option>
-                                    <option value="2">Dictámenes</option>
-                                    <option value="3">Memorandos</option>
-                                    <option value="4">Providencias</option>
+                                    <option :value="t.id" v-for="t in td" :key="t.id">{{ t.name }}</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
@@ -38,7 +29,7 @@
                                     <option v-bind:value="documentos.total">todos los registros</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-7" v-show="documentos.to > 10">
+                            <div class="form-group col-md-8" v-show="documentos.to > 10">
                                 <input type="search" class="form-control" id="search" v-model="search">
                             </div>
                         </div>
@@ -149,7 +140,8 @@
                 },
                 per_page: 5,
                 search: '',
-                offset: 3
+                offset: 3,
+                td: []
             }
         },
         computed: {
@@ -186,7 +178,10 @@
                 return moment(date);
             }
         },
-        mounted() {
+        created() {
+            if(localStorage.getItem('td')) {
+                this.td = JSON.parse(localStorage.getItem('td'))
+            }
             this.documento.tipo_documento_id = this.$route.query.type
             this.getList(1)
         },

@@ -67,6 +67,7 @@ Route::prefix('destinatarios')->middleware(['auth:api'])->group(function () {
 
 Route::prefix('tipo-documentos')->middleware(['auth:api'])->group(function () {
 	Route::get('', [App\Http\Controllers\TipoDocumentoController::class, 'index']);
+	Route::post('', [App\Http\Controllers\TipoDocumentoController::class, 'store']);
 	Route::put('{id}', [App\Http\Controllers\TipoDocumentoController::class, 'update']);
 });
 
