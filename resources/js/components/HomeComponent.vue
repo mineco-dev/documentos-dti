@@ -12,7 +12,7 @@
         <section class="content">
             <div class="container-fluid" v-if="$store.state.user.role_id != null">
                 <blockquote class="quote-success mx-0 p-3">
-                    <h4>Documentos emitidos durante el año 2021</h4>
+                    <h4>Documentos emitidos durante el año {{ year }}</h4>
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-3" v-for="actual in actuales">
                             <div class="info-box">
@@ -60,10 +60,12 @@
         data() {
             return {
                 pendientes: [],
-                actuales: []
+                actuales: [],
+                year: null
             }
         },
-        mounted() {
+        created() {
+            this.year = new Date().getFullYear()
             Promise.all([
                 axios.get('/api/estadistica/conteo', {
                     params: {
