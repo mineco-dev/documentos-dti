@@ -18,10 +18,7 @@
                                     Reserva completa de
                                 </label>
                                 <select class="custom-select" name="tipo_documento_id" id="tipo_documento_id" v-model="documento.tipo_documento_id" v-validate="'required'">
-                                    <option value="1" data-table="oficios">Oficio</option>
-                                    <option value="2" data-table="dictamenes">Dictámen Técnico</option>
-                                    <option value="3" data-table="memorandums">Memorándum</option>
-                                    <option value="4" data-table="providencias">Providencia</option>
+                                    <option :value="t.id" v-for="t in td" :key="t.id">{{ t.name }}</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -112,7 +109,8 @@
                 documento: {
                     destinatario_id: '',
                     tipo_documento_id: null
-                }
+                },
+                td: []
             }
         },
         components: {
@@ -124,7 +122,10 @@
                 return this.documento.tipo_documento_id == 3 ? 'Para' : 'Responder a'
             }
         },
-        mounted() {
+        created() {
+            if(localStorage.getItem('td')) {
+                this.td = JSON.parse(localStorage.getItem('td'))
+            }
             Promise.all([
                 axios.get('/api/destinatarios?format=vue-select')
                 ])

@@ -174,6 +174,6 @@
     </aside>
     <router-view></router-view>
   </div>
-  <script src="/js/documentos_dti.js?v=24"></script>
+  <script src="/js/documentos_dti.js?v=25"></script>
 </body>
 </html>
