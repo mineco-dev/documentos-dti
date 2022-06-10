@@ -125,12 +125,14 @@
         created() {
             if(localStorage.getItem('td')) {
                 this.td = JSON.parse(localStorage.getItem('td'))
+                
             }
             Promise.all([
                 axios.get('/api/destinatarios?format=vue-select')
                 ])
             .then(response => {
                 this.destinatarios = response[0].data
+                console.log("td", response)
             })
 
             this.documento.tipo_documento_id = this.$route.query.type

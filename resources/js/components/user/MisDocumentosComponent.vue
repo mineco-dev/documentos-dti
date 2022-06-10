@@ -51,6 +51,7 @@
                             </thead>
                             <tbody>
                                 <tr v-for="(documento, index) in filter" v-bind:class="{ 'table-warning': documento.estado_documento_id == 1}">
+                                
                                     <td>{{ documento.correlativo }}</td>
                                     <td>
                                         {{documento.asunto}}
@@ -314,6 +315,7 @@
                         Swal.showLoading()
                     }
                 })
+                console.log("Valor 1 ", event.target.dataset.id, " 2 ", event.target.dataset.directory)
                 axios.post(`/api/asignaciones/${event.target.dataset.id}/generar-pdf`, {
                     directory: event.target.dataset.directory
                 })
