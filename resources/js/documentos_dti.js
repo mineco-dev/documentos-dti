@@ -41,7 +41,6 @@ const app = new Vue({
  	router,
  	store,
  	created() {
-        localStorage.clear()
         axios.get('/api/tipo-documentos')
         .then(response => {
             localStorage.setItem('td', JSON.stringify(response.data))

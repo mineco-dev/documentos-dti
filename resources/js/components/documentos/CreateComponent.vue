@@ -23,8 +23,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="fecha_emision">Fecha de emisión</label>
-                                <input class="form-control" id="fecha_emision" name="fecha_emision" type="date" v-model="documento.fecha_emision" v-validate="'required'">
-                                <div class="invalid-feedback">{{ errors.first('fecha_emision') }}</div>
+                                <input class="form-control" type="date" :value="documento.fecha_emision" disabled>
+                                <input id="fecha_emision" name="fecha_emision" type="hidden" :value="documento.fecha_emision">
                             </div>
 
                             <div class="form-group ">
@@ -122,20 +122,18 @@
                 return this.documento.tipo_documento_id == 3 ? 'Para' : 'Responder a'
             }
         },
-        created() {
+        mounted() {
             if(localStorage.getItem('td')) {
                 this.td = JSON.parse(localStorage.getItem('td'))
                 
             }
-            Promise.all([
-                axios.get('/api/destinatarios?format=vue-select')
-                ])
+            axios.get('/api/destinatarios?format=vue-select')
             .then(response => {
-                this.destinatarios = response[0].data
-                console.log("td", response)
+                this.destinatarios = response.data
             })
 
             this.documento.tipo_documento_id = this.$route.query.type
+            this.documento.fecha_emision = new Date().toISOString().substring(0,10);
         },
         methods: {
             setDestinatario(value) {
@@ -146,7 +144,7 @@
             submit() {
                 this.$validator.validate().then(isValid => {
                     if(isValid) {
-                        axios.post(`/api/documentos?user_id=${this.$store.state.user.id}&table=${document.getElementById('tipo_documento_id')[document.getElementById('tipo_documento_id').selectedIndex].dataset.table}`, new FormData(document.getElementById('form')))
+                        axios.post(`/api/documentos?user_id=${this.$store.state.user.id}`, new FormData(document.getElementById('form')))
                         .then(response => {
                             Swal.fire({
                                 icon: 'success',

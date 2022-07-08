@@ -27,7 +27,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="fecha_emision">Fecha de emisión</label>
-                                <input class="form-control" id="fecha_emision" name="fecha_emision" type="date" v-model="documento.fecha_emision">
+                                <input class="form-control" type="date" :value="documento.fecha_emision" disabled>
+                                <input id="fecha_emision" name="fecha_emision" type="hidden" :value="documento.fecha_emision">
                             </div>
 
                             <div class="form-group ">
@@ -147,7 +148,7 @@
                                 title: 'Registro actualizado'
                             })
                             .then(result => {
-                                this.$router.go(-1)
+                                this.$router.push({ name: 'documentos.index', query: { type: this.documento.tipo_documento_id } })
                             })
                         })
                         .catch(error => {
